@@ -191,6 +191,40 @@
       box-shadow: inset 3px 0 0 var(--wheat-edge);
     }
 
+    a.team-link {
+      color: inherit;
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 0.18em;
+      text-decoration-color: var(--wheat-edge);
+    }
+
+    a.team-link:hover,
+    a.team-link:focus-visible {
+      color: var(--felt-dark);
+      text-decoration-color: var(--felt);
+    }
+
+    a.team-link:focus-visible {
+      outline: 2px solid var(--felt);
+      outline-offset: 2px;
+    }
+
+    header.hero .back-wrap {
+      margin: 0.5rem 0 0;
+    }
+
+    a.back-home {
+      color: var(--wheat);
+      font-size: 0.9rem;
+      text-underline-offset: 0.15em;
+    }
+
+    a.back-home:hover,
+    a.back-home:focus-visible {
+      color: #fff;
+    }
+
     .note {
       margin: 0.65rem 0 0;
       color: var(--muted);
@@ -212,6 +246,9 @@
       grid-template-columns: 1fr;
       gap: 1rem;
     }
+
+    /* Author display rules otherwise override the hidden attribute. */
+    [hidden] { display: none !important; }
 
     @media (min-width: 700px) {
       .extras { grid-template-columns: 1fr 1.2fr; align-items: stretch; }
@@ -301,9 +338,12 @@
 <body>
   <div class="page">
     <header class="hero">
-      <h1>The Wheatsheaf Pool Team</h1>
+      <h1 id="team-title">The Wheatsheaf Pool Team</h1>
       <p class="sub">Country House Pool League</p>
-      <p class="updated">Updated 13 November 2026</p>
+      <p class="back-wrap" id="back-wrap" hidden>
+        <a class="back-home" href="./">Back to The Wheatsheaf</a>
+      </p>
+      <p class="updated">Updated 14 November 2026</p>
     </header>
 
     <nav class="season-picker" role="tablist" aria-label="Season">
@@ -335,9 +375,9 @@
               </tr>
             </thead>
             <tbody>
-        <tr>
+        <tr data-team="crucible-avengers" data-pos="1">
           <td class="num">1</td>
-          <th scope="row" class="team">Crucible Avengers</th>
+          <th scope="row" class="team"><a class="team-link" href="#team=crucible-avengers" data-team="crucible-avengers">Crucible Avengers</a></th>
           <td class="num">10</td>
           <td class="num">8</td>
           <td class="num">1</td>
@@ -345,9 +385,9 @@
           <td class="diff pos">+25</td>
           <td class="num pts">61</td>
         </tr>
-        <tr>
+        <tr data-team="crucible-reracks" data-pos="2">
           <td class="num">2</td>
-          <th scope="row" class="team">Crucible Reracks</th>
+          <th scope="row" class="team"><a class="team-link" href="#team=crucible-reracks" data-team="crucible-reracks">Crucible Reracks</a></th>
           <td class="num">10</td>
           <td class="num">7</td>
           <td class="num">2</td>
@@ -355,9 +395,9 @@
           <td class="diff pos">+23</td>
           <td class="num pts">59</td>
         </tr>
-        <tr>
+        <tr data-team="the-monnie" data-pos="3">
           <td class="num">3</td>
-          <th scope="row" class="team">The Monnie</th>
+          <th scope="row" class="team"><a class="team-link" href="#team=the-monnie" data-team="the-monnie">The Monnie</a></th>
           <td class="num">10</td>
           <td class="num">6</td>
           <td class="num">3</td>
@@ -365,9 +405,9 @@
           <td class="diff pos">+9</td>
           <td class="num pts">51</td>
         </tr>
-        <tr>
+        <tr data-team="badgers-at-the-wellie" data-pos="4">
           <td class="num">4</td>
-          <th scope="row" class="team">Badgers at The Wellie</th>
+          <th scope="row" class="team"><a class="team-link" href="#team=badgers-at-the-wellie" data-team="badgers-at-the-wellie">Badgers at The Wellie</a></th>
           <td class="num">10</td>
           <td class="num">6</td>
           <td class="num">3</td>
@@ -375,9 +415,9 @@
           <td class="diff pos">+5</td>
           <td class="num pts">49</td>
         </tr>
-        <tr class="us">
+        <tr class="us" data-team="the-wheatsheaf" data-pos="5">
           <td class="num">5</td>
-          <th scope="row" class="team"><strong>The Wheatsheaf</strong></th>
+          <th scope="row" class="team"><a class="team-link" href="#team=the-wheatsheaf" data-team="the-wheatsheaf">The Wheatsheaf</a></th>
           <td class="num">10</td>
           <td class="num">5</td>
           <td class="num">4</td>
@@ -385,9 +425,9 @@
           <td class="diff pos">+3</td>
           <td class="num pts">47</td>
         </tr>
-        <tr>
+        <tr data-team="the-master-gators" data-pos="6">
           <td class="num">6</td>
-          <th scope="row" class="team">The Master Gators</th>
+          <th scope="row" class="team"><a class="team-link" href="#team=the-master-gators" data-team="the-master-gators">The Master Gators</a></th>
           <td class="num">10</td>
           <td class="num">4</td>
           <td class="num">5</td>
@@ -395,9 +435,9 @@
           <td class="diff neg">-3</td>
           <td class="num pts">43</td>
         </tr>
-        <tr>
+        <tr data-team="the-lamb" data-pos="7">
           <td class="num">7</td>
-          <th scope="row" class="team">The Lamb</th>
+          <th scope="row" class="team"><a class="team-link" href="#team=the-lamb" data-team="the-lamb">The Lamb</a></th>
           <td class="num">10</td>
           <td class="num">1</td>
           <td class="num">8</td>
@@ -405,9 +445,9 @@
           <td class="diff neg">-15</td>
           <td class="num pts">34</td>
         </tr>
-        <tr>
+        <tr data-team="paggies-a" data-pos="8">
           <td class="num">8</td>
-          <th scope="row" class="team">Paggies A</th>
+          <th scope="row" class="team"><a class="team-link" href="#team=paggies-a" data-team="paggies-a">Paggies A</a></th>
           <td class="num">10</td>
           <td class="num">2</td>
           <td class="num">6</td>
@@ -415,9 +455,9 @@
           <td class="diff neg">-14</td>
           <td class="num pts">31</td>
         </tr>
-        <tr>
+        <tr data-team="the-old-chequers" data-pos="9">
           <td class="num">9</td>
-          <th scope="row" class="team">The Old Chequers</th>
+          <th scope="row" class="team"><a class="team-link" href="#team=the-old-chequers" data-team="the-old-chequers">The Old Chequers</a></th>
           <td class="num">10</td>
           <td class="num">1</td>
           <td class="num">8</td>
@@ -428,11 +468,1164 @@
             </tbody>
           </table>
         </div>
-        
+        <p class="note">Click a team name to see its player stats.</p>
       </section>
 
-    <section aria-labelledby="singles-2026-2027">
-      <h2 id="singles-2026-2027">Singles</h2>
+    <div class="team-stats" data-team="crucible-avengers" data-name="Crucible Avengers" hidden>
+    <section aria-labelledby="singles-2026-2027-crucible-avengers">
+      <h2 id="singles-2026-2027-crucible-avengers">Singles</h2>
+      <div class="table-wrap">
+        <table class="stats">
+          <thead>
+            <tr>
+              <th scope="col" class="player">Player</th>
+              <th scope="col" class="num">P</th>
+              <th scope="col" class="num">W</th>
+              <th scope="col" class="num">L</th>
+              <th scope="col" class="pct">Win %</th>
+            </tr>
+          </thead>
+          <tbody>
+        <tr>
+          <th scope="row" class="player">Mark Hopkin</th>
+          <td class="num">9</td>
+          <td class="num">8</td>
+          <td class="num">1</td>
+          <td class="pct">88.9%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Jason Byng</th>
+          <td class="num">8</td>
+          <td class="num">6</td>
+          <td class="num">2</td>
+          <td class="pct">75.0%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Robert Head</th>
+          <td class="num">5</td>
+          <td class="num">5</td>
+          <td class="num">0</td>
+          <td class="pct">100.0%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Rab Weir</th>
+          <td class="num">8</td>
+          <td class="num">5</td>
+          <td class="num">3</td>
+          <td class="pct">62.5%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Daron Masters</th>
+          <td class="num">6</td>
+          <td class="num">4</td>
+          <td class="num">2</td>
+          <td class="pct">66.7%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Dave Bennett</th>
+          <td class="num">7</td>
+          <td class="num">4</td>
+          <td class="num">3</td>
+          <td class="pct">57.1%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Ali Daley</th>
+          <td class="num">8</td>
+          <td class="num">3</td>
+          <td class="num">5</td>
+          <td class="pct">37.5%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Ben Baker</th>
+          <td class="num">1</td>
+          <td class="num">1</td>
+          <td class="num">0</td>
+          <td class="pct">100.0%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Richard Pugh-Roberts</th>
+          <td class="num">2</td>
+          <td class="num">0</td>
+          <td class="num">2</td>
+          <td class="pct">0.0%</td>
+        </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section aria-labelledby="doubles-2026-2027-crucible-avengers">
+      <h2 id="doubles-2026-2027-crucible-avengers">Doubles</h2>
+      <div class="table-wrap">
+        <table class="stats">
+          <thead>
+            <tr>
+              <th scope="col" class="player">Player</th>
+              <th scope="col" class="num">P</th>
+              <th scope="col" class="num">W</th>
+              <th scope="col" class="num">L</th>
+              <th scope="col" class="pct">Win %</th>
+            </tr>
+          </thead>
+          <tbody>
+        <tr>
+          <th scope="row" class="player">Mark Hopkin</th>
+          <td class="num">9</td>
+          <td class="num">8</td>
+          <td class="num">1</td>
+          <td class="pct">88.9%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Jason Byng</th>
+          <td class="num">8</td>
+          <td class="num">5</td>
+          <td class="num">3</td>
+          <td class="pct">62.5%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Rab Weir</th>
+          <td class="num">8</td>
+          <td class="num">5</td>
+          <td class="num">3</td>
+          <td class="pct">62.5%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Robert Head</th>
+          <td class="num">5</td>
+          <td class="num">4</td>
+          <td class="num">1</td>
+          <td class="pct">80.0%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Dave Bennett</th>
+          <td class="num">7</td>
+          <td class="num">4</td>
+          <td class="num">3</td>
+          <td class="pct">57.1%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Ali Daley</th>
+          <td class="num">8</td>
+          <td class="num">4</td>
+          <td class="num">4</td>
+          <td class="pct">50.0%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Richard Pugh-Roberts</th>
+          <td class="num">2</td>
+          <td class="num">2</td>
+          <td class="num">0</td>
+          <td class="pct">100.0%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Ben Baker</th>
+          <td class="num">1</td>
+          <td class="num">1</td>
+          <td class="num">0</td>
+          <td class="pct">100.0%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Daron Masters</th>
+          <td class="num">6</td>
+          <td class="num">1</td>
+          <td class="num">5</td>
+          <td class="pct">16.7%</td>
+        </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section aria-labelledby="pairs-2026-2027-crucible-avengers">
+      <h2 id="pairs-2026-2027-crucible-avengers">Top 3 doubles pairings</h2>
+      <div class="table-wrap">
+        <table class="stats">
+          <thead>
+            <tr>
+              <th scope="col" class="player">Pairing</th>
+              <th scope="col" class="num">P</th>
+              <th scope="col" class="num">W</th>
+              <th scope="col" class="num">L</th>
+              <th scope="col" class="pct">Win %</th>
+            </tr>
+          </thead>
+          <tbody>
+        <tr>
+          <th scope="row" class="player">Mark Hopkin &amp; Robert Head</th>
+          <td class="num">5</td>
+          <td class="num">4</td>
+          <td class="num">1</td>
+          <td class="pct">80.0%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Rab Weir &amp; Dave Bennett</th>
+          <td class="num">6</td>
+          <td class="num">4</td>
+          <td class="num">2</td>
+          <td class="pct">66.7%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Jason Byng &amp; Ali Daley</th>
+          <td class="num">4</td>
+          <td class="num">3</td>
+          <td class="num">1</td>
+          <td class="pct">75.0%</td>
+        </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section aria-labelledby="overall-2026-2027-crucible-avengers">
+      <h2 id="overall-2026-2027-crucible-avengers">Overall</h2>
+      <div class="table-wrap">
+        <table class="stats">
+          <thead>
+            <tr>
+              <th scope="col" class="player">Player</th>
+              <th scope="col" class="num">P</th>
+              <th scope="col" class="num">W</th>
+              <th scope="col" class="num">L</th>
+              <th scope="col" class="pct">Win %</th>
+            </tr>
+          </thead>
+          <tbody>
+        <tr>
+          <th scope="row" class="player">Mark Hopkin</th>
+          <td class="num">18</td>
+          <td class="num">16</td>
+          <td class="num">2</td>
+          <td class="pct">88.9%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Jason Byng</th>
+          <td class="num">16</td>
+          <td class="num">11</td>
+          <td class="num">5</td>
+          <td class="pct">68.8%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Rab Weir</th>
+          <td class="num">16</td>
+          <td class="num">10</td>
+          <td class="num">6</td>
+          <td class="pct">62.5%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Robert Head</th>
+          <td class="num">10</td>
+          <td class="num">9</td>
+          <td class="num">1</td>
+          <td class="pct">90.0%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Dave Bennett</th>
+          <td class="num">14</td>
+          <td class="num">8</td>
+          <td class="num">6</td>
+          <td class="pct">57.1%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Ali Daley</th>
+          <td class="num">16</td>
+          <td class="num">7</td>
+          <td class="num">9</td>
+          <td class="pct">43.8%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Daron Masters</th>
+          <td class="num">12</td>
+          <td class="num">5</td>
+          <td class="num">7</td>
+          <td class="pct">41.7%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Ben Baker</th>
+          <td class="num">2</td>
+          <td class="num">2</td>
+          <td class="num">0</td>
+          <td class="pct">100.0%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Richard Pugh-Roberts</th>
+          <td class="num">4</td>
+          <td class="num">2</td>
+          <td class="num">2</td>
+          <td class="pct">50.0%</td>
+        </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+      <p class="note">No frames this season: Ian Martinez, Paul Broome, Sarah Middleton.</p>
+    </div>
+    <div class="team-stats" data-team="crucible-reracks" data-name="Crucible Reracks" hidden>
+    <section aria-labelledby="singles-2026-2027-crucible-reracks">
+      <h2 id="singles-2026-2027-crucible-reracks">Singles</h2>
+      <div class="table-wrap">
+        <table class="stats">
+          <thead>
+            <tr>
+              <th scope="col" class="player">Player</th>
+              <th scope="col" class="num">P</th>
+              <th scope="col" class="num">W</th>
+              <th scope="col" class="num">L</th>
+              <th scope="col" class="pct">Win %</th>
+            </tr>
+          </thead>
+          <tbody>
+        <tr>
+          <th scope="row" class="player">David Johnson</th>
+          <td class="num">7</td>
+          <td class="num">6</td>
+          <td class="num">1</td>
+          <td class="pct">85.7%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Shaun Amor</th>
+          <td class="num">8</td>
+          <td class="num">6</td>
+          <td class="num">2</td>
+          <td class="pct">75.0%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Marc Rollings</th>
+          <td class="num">4</td>
+          <td class="num">4</td>
+          <td class="num">0</td>
+          <td class="pct">100.0%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Chris Smith</th>
+          <td class="num">6</td>
+          <td class="num">4</td>
+          <td class="num">2</td>
+          <td class="pct">66.7%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Hannah Johnson</th>
+          <td class="num">7</td>
+          <td class="num">4</td>
+          <td class="num">3</td>
+          <td class="pct">57.1%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Steve Graham</th>
+          <td class="num">9</td>
+          <td class="num">4</td>
+          <td class="num">5</td>
+          <td class="pct">44.4%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Matt Stone</th>
+          <td class="num">3</td>
+          <td class="num">3</td>
+          <td class="num">0</td>
+          <td class="pct">100.0%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Martin Stone</th>
+          <td class="num">9</td>
+          <td class="num">3</td>
+          <td class="num">6</td>
+          <td class="pct">33.3%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Leigh Baker</th>
+          <td class="num">1</td>
+          <td class="num">0</td>
+          <td class="num">1</td>
+          <td class="pct">0.0%</td>
+        </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section aria-labelledby="doubles-2026-2027-crucible-reracks">
+      <h2 id="doubles-2026-2027-crucible-reracks">Doubles</h2>
+      <div class="table-wrap">
+        <table class="stats">
+          <thead>
+            <tr>
+              <th scope="col" class="player">Player</th>
+              <th scope="col" class="num">P</th>
+              <th scope="col" class="num">W</th>
+              <th scope="col" class="num">L</th>
+              <th scope="col" class="pct">Win %</th>
+            </tr>
+          </thead>
+          <tbody>
+        <tr>
+          <th scope="row" class="player">Martin Stone</th>
+          <td class="num">9</td>
+          <td class="num">7</td>
+          <td class="num">2</td>
+          <td class="pct">77.8%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Shaun Amor</th>
+          <td class="num">8</td>
+          <td class="num">6</td>
+          <td class="num">2</td>
+          <td class="pct">75.0%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">David Johnson</th>
+          <td class="num">7</td>
+          <td class="num">5</td>
+          <td class="num">2</td>
+          <td class="pct">71.4%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Hannah Johnson</th>
+          <td class="num">7</td>
+          <td class="num">5</td>
+          <td class="num">2</td>
+          <td class="pct">71.4%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Steve Graham</th>
+          <td class="num">9</td>
+          <td class="num">4</td>
+          <td class="num">5</td>
+          <td class="pct">44.4%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Matt Stone</th>
+          <td class="num">3</td>
+          <td class="num">3</td>
+          <td class="num">0</td>
+          <td class="pct">100.0%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Marc Rollings</th>
+          <td class="num">4</td>
+          <td class="num">3</td>
+          <td class="num">1</td>
+          <td class="pct">75.0%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Chris Smith</th>
+          <td class="num">6</td>
+          <td class="num">3</td>
+          <td class="num">3</td>
+          <td class="pct">50.0%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Leigh Baker</th>
+          <td class="num">1</td>
+          <td class="num">0</td>
+          <td class="num">1</td>
+          <td class="pct">0.0%</td>
+        </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section aria-labelledby="pairs-2026-2027-crucible-reracks">
+      <h2 id="pairs-2026-2027-crucible-reracks">Top 3 doubles pairings</h2>
+      <div class="table-wrap">
+        <table class="stats">
+          <thead>
+            <tr>
+              <th scope="col" class="player">Pairing</th>
+              <th scope="col" class="num">P</th>
+              <th scope="col" class="num">W</th>
+              <th scope="col" class="num">L</th>
+              <th scope="col" class="pct">Win %</th>
+            </tr>
+          </thead>
+          <tbody>
+        <tr>
+          <th scope="row" class="player">David Johnson &amp; Hannah Johnson</th>
+          <td class="num">6</td>
+          <td class="num">5</td>
+          <td class="num">1</td>
+          <td class="pct">83.3%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Martin Stone &amp; Matt Stone</th>
+          <td class="num">3</td>
+          <td class="num">3</td>
+          <td class="num">0</td>
+          <td class="pct">100.0%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Chris Smith &amp; Shaun Amor</th>
+          <td class="num">4</td>
+          <td class="num">3</td>
+          <td class="num">1</td>
+          <td class="pct">75.0%</td>
+        </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section aria-labelledby="overall-2026-2027-crucible-reracks">
+      <h2 id="overall-2026-2027-crucible-reracks">Overall</h2>
+      <div class="table-wrap">
+        <table class="stats">
+          <thead>
+            <tr>
+              <th scope="col" class="player">Player</th>
+              <th scope="col" class="num">P</th>
+              <th scope="col" class="num">W</th>
+              <th scope="col" class="num">L</th>
+              <th scope="col" class="pct">Win %</th>
+            </tr>
+          </thead>
+          <tbody>
+        <tr>
+          <th scope="row" class="player">Shaun Amor</th>
+          <td class="num">16</td>
+          <td class="num">12</td>
+          <td class="num">4</td>
+          <td class="pct">75.0%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">David Johnson</th>
+          <td class="num">14</td>
+          <td class="num">11</td>
+          <td class="num">3</td>
+          <td class="pct">78.6%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Martin Stone</th>
+          <td class="num">18</td>
+          <td class="num">10</td>
+          <td class="num">8</td>
+          <td class="pct">55.6%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Hannah Johnson</th>
+          <td class="num">14</td>
+          <td class="num">9</td>
+          <td class="num">5</td>
+          <td class="pct">64.3%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Steve Graham</th>
+          <td class="num">18</td>
+          <td class="num">8</td>
+          <td class="num">10</td>
+          <td class="pct">44.4%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Marc Rollings</th>
+          <td class="num">8</td>
+          <td class="num">7</td>
+          <td class="num">1</td>
+          <td class="pct">87.5%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Chris Smith</th>
+          <td class="num">12</td>
+          <td class="num">7</td>
+          <td class="num">5</td>
+          <td class="pct">58.3%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Matt Stone</th>
+          <td class="num">6</td>
+          <td class="num">6</td>
+          <td class="num">0</td>
+          <td class="pct">100.0%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Leigh Baker</th>
+          <td class="num">2</td>
+          <td class="num">0</td>
+          <td class="num">2</td>
+          <td class="pct">0.0%</td>
+        </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+      <p class="note">No frames this season: Lloyd Lilley, Michael Richardson, Simon Martin.</p>
+    </div>
+    <div class="team-stats" data-team="the-monnie" data-name="The Monnie" hidden>
+    <section aria-labelledby="singles-2026-2027-the-monnie">
+      <h2 id="singles-2026-2027-the-monnie">Singles</h2>
+      <div class="table-wrap">
+        <table class="stats">
+          <thead>
+            <tr>
+              <th scope="col" class="player">Player</th>
+              <th scope="col" class="num">P</th>
+              <th scope="col" class="num">W</th>
+              <th scope="col" class="num">L</th>
+              <th scope="col" class="pct">Win %</th>
+            </tr>
+          </thead>
+          <tbody>
+        <tr>
+          <th scope="row" class="player">j breakspear</th>
+          <td class="num">8</td>
+          <td class="num">7</td>
+          <td class="num">1</td>
+          <td class="pct">87.5%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">James Harvey</th>
+          <td class="num">9</td>
+          <td class="num">6</td>
+          <td class="num">3</td>
+          <td class="pct">66.7%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">S Grant</th>
+          <td class="num">6</td>
+          <td class="num">4</td>
+          <td class="num">2</td>
+          <td class="pct">66.7%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">S Fenemore</th>
+          <td class="num">9</td>
+          <td class="num">4</td>
+          <td class="num">5</td>
+          <td class="pct">44.4%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Toby House</th>
+          <td class="num">4</td>
+          <td class="num">3</td>
+          <td class="num">1</td>
+          <td class="pct">75.0%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">James Page</th>
+          <td class="num">4</td>
+          <td class="num">2</td>
+          <td class="num">2</td>
+          <td class="pct">50.0%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Phil Cope</th>
+          <td class="num">1</td>
+          <td class="num">1</td>
+          <td class="num">0</td>
+          <td class="pct">100.0%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">ermal sado</th>
+          <td class="num">3</td>
+          <td class="num">1</td>
+          <td class="num">2</td>
+          <td class="pct">33.3%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Andy Humphreys</th>
+          <td class="num">5</td>
+          <td class="num">1</td>
+          <td class="num">4</td>
+          <td class="pct">20.0%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">ed schofield</th>
+          <td class="num">5</td>
+          <td class="num">1</td>
+          <td class="num">4</td>
+          <td class="pct">20.0%</td>
+        </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section aria-labelledby="doubles-2026-2027-the-monnie">
+      <h2 id="doubles-2026-2027-the-monnie">Doubles</h2>
+      <div class="table-wrap">
+        <table class="stats">
+          <thead>
+            <tr>
+              <th scope="col" class="player">Player</th>
+              <th scope="col" class="num">P</th>
+              <th scope="col" class="num">W</th>
+              <th scope="col" class="num">L</th>
+              <th scope="col" class="pct">Win %</th>
+            </tr>
+          </thead>
+          <tbody>
+        <tr>
+          <th scope="row" class="player">S Fenemore</th>
+          <td class="num">9</td>
+          <td class="num">6</td>
+          <td class="num">3</td>
+          <td class="pct">66.7%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">j breakspear</th>
+          <td class="num">8</td>
+          <td class="num">5</td>
+          <td class="num">3</td>
+          <td class="pct">62.5%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">James Harvey</th>
+          <td class="num">9</td>
+          <td class="num">5</td>
+          <td class="num">4</td>
+          <td class="pct">55.6%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">ed schofield</th>
+          <td class="num">4</td>
+          <td class="num">3</td>
+          <td class="num">1</td>
+          <td class="pct">75.0%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">S Grant</th>
+          <td class="num">6</td>
+          <td class="num">3</td>
+          <td class="num">3</td>
+          <td class="pct">50.0%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">James Page</th>
+          <td class="num">4</td>
+          <td class="num">2</td>
+          <td class="num">2</td>
+          <td class="pct">50.0%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Toby House</th>
+          <td class="num">5</td>
+          <td class="num">2</td>
+          <td class="num">3</td>
+          <td class="pct">40.0%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Andy Humphreys</th>
+          <td class="num">6</td>
+          <td class="num">2</td>
+          <td class="num">4</td>
+          <td class="pct">33.3%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Phil Cope</th>
+          <td class="num">1</td>
+          <td class="num">1</td>
+          <td class="num">0</td>
+          <td class="pct">100.0%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">ermal sado</th>
+          <td class="num">2</td>
+          <td class="num">1</td>
+          <td class="num">1</td>
+          <td class="pct">50.0%</td>
+        </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section aria-labelledby="pairs-2026-2027-the-monnie">
+      <h2 id="pairs-2026-2027-the-monnie">Top 3 doubles pairings</h2>
+      <div class="table-wrap">
+        <table class="stats">
+          <thead>
+            <tr>
+              <th scope="col" class="player">Pairing</th>
+              <th scope="col" class="num">P</th>
+              <th scope="col" class="num">W</th>
+              <th scope="col" class="num">L</th>
+              <th scope="col" class="pct">Win %</th>
+            </tr>
+          </thead>
+          <tbody>
+        <tr>
+          <th scope="row" class="player">S Fenemore &amp; ed schofield</th>
+          <td class="num">4</td>
+          <td class="num">3</td>
+          <td class="num">1</td>
+          <td class="pct">75.0%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">James Harvey &amp; S Grant</th>
+          <td class="num">6</td>
+          <td class="num">3</td>
+          <td class="num">3</td>
+          <td class="pct">50.0%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">James Page &amp; James Harvey</th>
+          <td class="num">3</td>
+          <td class="num">2</td>
+          <td class="num">1</td>
+          <td class="pct">66.7%</td>
+        </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section aria-labelledby="overall-2026-2027-the-monnie">
+      <h2 id="overall-2026-2027-the-monnie">Overall</h2>
+      <div class="table-wrap">
+        <table class="stats">
+          <thead>
+            <tr>
+              <th scope="col" class="player">Player</th>
+              <th scope="col" class="num">P</th>
+              <th scope="col" class="num">W</th>
+              <th scope="col" class="num">L</th>
+              <th scope="col" class="pct">Win %</th>
+            </tr>
+          </thead>
+          <tbody>
+        <tr>
+          <th scope="row" class="player">j breakspear</th>
+          <td class="num">16</td>
+          <td class="num">12</td>
+          <td class="num">4</td>
+          <td class="pct">75.0%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">James Harvey</th>
+          <td class="num">18</td>
+          <td class="num">11</td>
+          <td class="num">7</td>
+          <td class="pct">61.1%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">S Fenemore</th>
+          <td class="num">18</td>
+          <td class="num">10</td>
+          <td class="num">8</td>
+          <td class="pct">55.6%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">S Grant</th>
+          <td class="num">12</td>
+          <td class="num">7</td>
+          <td class="num">5</td>
+          <td class="pct">58.3%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Toby House</th>
+          <td class="num">9</td>
+          <td class="num">5</td>
+          <td class="num">4</td>
+          <td class="pct">55.6%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">James Page</th>
+          <td class="num">8</td>
+          <td class="num">4</td>
+          <td class="num">4</td>
+          <td class="pct">50.0%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">ed schofield</th>
+          <td class="num">9</td>
+          <td class="num">4</td>
+          <td class="num">5</td>
+          <td class="pct">44.4%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Andy Humphreys</th>
+          <td class="num">11</td>
+          <td class="num">3</td>
+          <td class="num">8</td>
+          <td class="pct">27.3%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Phil Cope</th>
+          <td class="num">2</td>
+          <td class="num">2</td>
+          <td class="num">0</td>
+          <td class="pct">100.0%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">ermal sado</th>
+          <td class="num">5</td>
+          <td class="num">2</td>
+          <td class="num">3</td>
+          <td class="pct">40.0%</td>
+        </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+      <p class="note">No frames this season: Jordan Skerrett.</p>
+    </div>
+    <div class="team-stats" data-team="badgers-at-the-wellie" data-name="Badgers at The Wellie" hidden>
+    <section aria-labelledby="singles-2026-2027-badgers-at-the-wellie">
+      <h2 id="singles-2026-2027-badgers-at-the-wellie">Singles</h2>
+      <div class="table-wrap">
+        <table class="stats">
+          <thead>
+            <tr>
+              <th scope="col" class="player">Player</th>
+              <th scope="col" class="num">P</th>
+              <th scope="col" class="num">W</th>
+              <th scope="col" class="num">L</th>
+              <th scope="col" class="pct">Win %</th>
+            </tr>
+          </thead>
+          <tbody>
+        <tr>
+          <th scope="row" class="player">Wayne Morgan</th>
+          <td class="num">9</td>
+          <td class="num">6</td>
+          <td class="num">3</td>
+          <td class="pct">66.7%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Phil Capel</th>
+          <td class="num">7</td>
+          <td class="num">5</td>
+          <td class="num">2</td>
+          <td class="pct">71.4%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Alex Farington</th>
+          <td class="num">7</td>
+          <td class="num">4</td>
+          <td class="num">3</td>
+          <td class="pct">57.1%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Neil Tuffnell</th>
+          <td class="num">7</td>
+          <td class="num">4</td>
+          <td class="num">3</td>
+          <td class="pct">57.1%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Alex Morgan</th>
+          <td class="num">8</td>
+          <td class="num">4</td>
+          <td class="num">4</td>
+          <td class="pct">50.0%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Callum McDougall-bell</th>
+          <td class="num">6</td>
+          <td class="num">3</td>
+          <td class="num">3</td>
+          <td class="pct">50.0%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Leigh Williams</th>
+          <td class="num">8</td>
+          <td class="num">3</td>
+          <td class="num">5</td>
+          <td class="pct">37.5%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">James Hammond</th>
+          <td class="num">2</td>
+          <td class="num">1</td>
+          <td class="num">1</td>
+          <td class="pct">50.0%</td>
+        </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section aria-labelledby="doubles-2026-2027-badgers-at-the-wellie">
+      <h2 id="doubles-2026-2027-badgers-at-the-wellie">Doubles</h2>
+      <div class="table-wrap">
+        <table class="stats">
+          <thead>
+            <tr>
+              <th scope="col" class="player">Player</th>
+              <th scope="col" class="num">P</th>
+              <th scope="col" class="num">W</th>
+              <th scope="col" class="num">L</th>
+              <th scope="col" class="pct">Win %</th>
+            </tr>
+          </thead>
+          <tbody>
+        <tr>
+          <th scope="row" class="player">Wayne Morgan</th>
+          <td class="num">8</td>
+          <td class="num">6</td>
+          <td class="num">2</td>
+          <td class="pct">75.0%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Alex Farington</th>
+          <td class="num">7</td>
+          <td class="num">4</td>
+          <td class="num">3</td>
+          <td class="pct">57.1%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Neil Tuffnell</th>
+          <td class="num">7</td>
+          <td class="num">4</td>
+          <td class="num">3</td>
+          <td class="pct">57.1%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Alex Morgan</th>
+          <td class="num">9</td>
+          <td class="num">4</td>
+          <td class="num">5</td>
+          <td class="pct">44.4%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Leigh Williams</th>
+          <td class="num">7</td>
+          <td class="num">3</td>
+          <td class="num">4</td>
+          <td class="pct">42.9%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">James Hammond</th>
+          <td class="num">3</td>
+          <td class="num">2</td>
+          <td class="num">1</td>
+          <td class="pct">66.7%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Callum McDougall-bell</th>
+          <td class="num">6</td>
+          <td class="num">2</td>
+          <td class="num">4</td>
+          <td class="pct">33.3%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Phil Capel</th>
+          <td class="num">7</td>
+          <td class="num">1</td>
+          <td class="num">6</td>
+          <td class="pct">14.3%</td>
+        </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section aria-labelledby="pairs-2026-2027-badgers-at-the-wellie">
+      <h2 id="pairs-2026-2027-badgers-at-the-wellie">Top 3 doubles pairings</h2>
+      <div class="table-wrap">
+        <table class="stats">
+          <thead>
+            <tr>
+              <th scope="col" class="player">Pairing</th>
+              <th scope="col" class="num">P</th>
+              <th scope="col" class="num">W</th>
+              <th scope="col" class="num">L</th>
+              <th scope="col" class="pct">Win %</th>
+            </tr>
+          </thead>
+          <tbody>
+        <tr>
+          <th scope="row" class="player">Alex Farington &amp; Wayne Morgan</th>
+          <td class="num">4</td>
+          <td class="num">3</td>
+          <td class="num">1</td>
+          <td class="pct">75.0%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Wayne Morgan &amp; Neil Tuffnell</th>
+          <td class="num">2</td>
+          <td class="num">2</td>
+          <td class="num">0</td>
+          <td class="pct">100.0%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">James Hammond &amp; Alex Morgan</th>
+          <td class="num">3</td>
+          <td class="num">2</td>
+          <td class="num">1</td>
+          <td class="pct">66.7%</td>
+        </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section aria-labelledby="overall-2026-2027-badgers-at-the-wellie">
+      <h2 id="overall-2026-2027-badgers-at-the-wellie">Overall</h2>
+      <div class="table-wrap">
+        <table class="stats">
+          <thead>
+            <tr>
+              <th scope="col" class="player">Player</th>
+              <th scope="col" class="num">P</th>
+              <th scope="col" class="num">W</th>
+              <th scope="col" class="num">L</th>
+              <th scope="col" class="pct">Win %</th>
+            </tr>
+          </thead>
+          <tbody>
+        <tr>
+          <th scope="row" class="player">Wayne Morgan</th>
+          <td class="num">17</td>
+          <td class="num">12</td>
+          <td class="num">5</td>
+          <td class="pct">70.6%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Alex Farington</th>
+          <td class="num">14</td>
+          <td class="num">8</td>
+          <td class="num">6</td>
+          <td class="pct">57.1%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Neil Tuffnell</th>
+          <td class="num">14</td>
+          <td class="num">8</td>
+          <td class="num">6</td>
+          <td class="pct">57.1%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Alex Morgan</th>
+          <td class="num">17</td>
+          <td class="num">8</td>
+          <td class="num">9</td>
+          <td class="pct">47.1%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Phil Capel</th>
+          <td class="num">14</td>
+          <td class="num">6</td>
+          <td class="num">8</td>
+          <td class="pct">42.9%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Leigh Williams</th>
+          <td class="num">15</td>
+          <td class="num">6</td>
+          <td class="num">9</td>
+          <td class="pct">40.0%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Callum McDougall-bell</th>
+          <td class="num">12</td>
+          <td class="num">5</td>
+          <td class="num">7</td>
+          <td class="pct">41.7%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">James Hammond</th>
+          <td class="num">5</td>
+          <td class="num">3</td>
+          <td class="num">2</td>
+          <td class="pct">60.0%</td>
+        </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+      <p class="note">No frames this season: Andy Russell, Ben Brown, Callum Russell, Chris Burge, Darryl Cottrell, Dennis Healy, Grant Hayward, Justin Digance, Lee Calcutt, Lee Doran, Lewis Payne, Liam Cheverton, Mike Potts, Reece Hepden-Barker, Trevor Bartlett.</p>
+    </div>
+    <div class="team-stats" data-team="the-wheatsheaf" data-name="The Wheatsheaf" data-home="true">
+    <section aria-labelledby="singles-2026-2027-the-wheatsheaf">
+      <h2 id="singles-2026-2027-the-wheatsheaf">Singles</h2>
       <div class="table-wrap">
         <table class="stats">
           <thead>
@@ -513,8 +1706,8 @@
       </div>
     </section>
 
-    <section aria-labelledby="doubles-2026-2027">
-      <h2 id="doubles-2026-2027">Doubles</h2>
+    <section aria-labelledby="doubles-2026-2027-the-wheatsheaf">
+      <h2 id="doubles-2026-2027-the-wheatsheaf">Doubles</h2>
       <div class="table-wrap">
         <table class="stats">
           <thead>
@@ -595,8 +1788,8 @@
       </div>
     </section>
 
-    <section aria-labelledby="pairs-2026-2027">
-      <h2 id="pairs-2026-2027">Top 3 doubles pairings</h2>
+    <section aria-labelledby="pairs-2026-2027-the-wheatsheaf">
+      <h2 id="pairs-2026-2027-the-wheatsheaf">Top 3 doubles pairings</h2>
       <div class="table-wrap">
         <table class="stats">
           <thead>
@@ -617,14 +1810,14 @@
           <td class="pct">62.5%</td>
         </tr>
         <tr>
-          <th scope="row" class="player">Luke Mason &amp; Andy Turley</th>
+          <th scope="row" class="player">Andy Turley &amp; Luke Mason</th>
           <td class="num">6</td>
           <td class="num">3</td>
           <td class="num">3</td>
           <td class="pct">50.0%</td>
         </tr>
         <tr>
-          <th scope="row" class="player">Richard Figg &amp; Luke Manton</th>
+          <th scope="row" class="player">Luke Manton &amp; Richard Figg</th>
           <td class="num">3</td>
           <td class="num">2</td>
           <td class="num">1</td>
@@ -635,8 +1828,8 @@
       </div>
     </section>
 
-    <section aria-labelledby="overall-2026-2027">
-      <h2 id="overall-2026-2027">Overall</h2>
+    <section aria-labelledby="overall-2026-2027-the-wheatsheaf">
+      <h2 id="overall-2026-2027-the-wheatsheaf">Overall</h2>
       <div class="table-wrap">
         <table class="stats">
           <thead>
@@ -717,13 +1910,1263 @@
       </div>
     </section>
       <p class="note">No frames this season: Andy Barnes, Andy Brant, Dave Higgins, Kelly Russel, Robert Allen.</p>
+    </div>
+    <div class="team-stats" data-team="the-master-gators" data-name="The Master Gators" hidden>
+    <section aria-labelledby="singles-2026-2027-the-master-gators">
+      <h2 id="singles-2026-2027-the-master-gators">Singles</h2>
+      <div class="table-wrap">
+        <table class="stats">
+          <thead>
+            <tr>
+              <th scope="col" class="player">Player</th>
+              <th scope="col" class="num">P</th>
+              <th scope="col" class="num">W</th>
+              <th scope="col" class="num">L</th>
+              <th scope="col" class="pct">Win %</th>
+            </tr>
+          </thead>
+          <tbody>
+        <tr>
+          <th scope="row" class="player">Linda Ball</th>
+          <td class="num">7</td>
+          <td class="num">5</td>
+          <td class="num">2</td>
+          <td class="pct">71.4%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Fritz Johnson</th>
+          <td class="num">7</td>
+          <td class="num">4</td>
+          <td class="num">3</td>
+          <td class="pct">57.1%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Paul Sheldon</th>
+          <td class="num">8</td>
+          <td class="num">4</td>
+          <td class="num">4</td>
+          <td class="pct">50.0%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Tony Busby</th>
+          <td class="num">7</td>
+          <td class="num">3</td>
+          <td class="num">4</td>
+          <td class="pct">42.9%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">ben roberts</th>
+          <td class="num">6</td>
+          <td class="num">2</td>
+          <td class="num">4</td>
+          <td class="pct">33.3%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Peter Medford</th>
+          <td class="num">7</td>
+          <td class="num">2</td>
+          <td class="num">5</td>
+          <td class="pct">28.6%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Ben Richards</th>
+          <td class="num">1</td>
+          <td class="num">1</td>
+          <td class="num">0</td>
+          <td class="pct">100.0%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Dan Stevens</th>
+          <td class="num">2</td>
+          <td class="num">1</td>
+          <td class="num">1</td>
+          <td class="pct">50.0%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">D Withers</th>
+          <td class="num">3</td>
+          <td class="num">1</td>
+          <td class="num">2</td>
+          <td class="pct">33.3%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Keith Page</th>
+          <td class="num">5</td>
+          <td class="num">1</td>
+          <td class="num">4</td>
+          <td class="pct">20.0%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">m ingram</th>
+          <td class="num">1</td>
+          <td class="num">0</td>
+          <td class="num">1</td>
+          <td class="pct">0.0%</td>
+        </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
 
-    <section class="card cups" aria-labelledby="cups-2026-2027">
+    <section aria-labelledby="doubles-2026-2027-the-master-gators">
+      <h2 id="doubles-2026-2027-the-master-gators">Doubles</h2>
+      <div class="table-wrap">
+        <table class="stats">
+          <thead>
+            <tr>
+              <th scope="col" class="player">Player</th>
+              <th scope="col" class="num">P</th>
+              <th scope="col" class="num">W</th>
+              <th scope="col" class="num">L</th>
+              <th scope="col" class="pct">Win %</th>
+            </tr>
+          </thead>
+          <tbody>
+        <tr>
+          <th scope="row" class="player">Paul Sheldon</th>
+          <td class="num">8</td>
+          <td class="num">7</td>
+          <td class="num">1</td>
+          <td class="pct">87.5%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Tony Busby</th>
+          <td class="num">7</td>
+          <td class="num">5</td>
+          <td class="num">2</td>
+          <td class="pct">71.4%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">ben roberts</th>
+          <td class="num">7</td>
+          <td class="num">5</td>
+          <td class="num">2</td>
+          <td class="pct">71.4%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Peter Medford</th>
+          <td class="num">7</td>
+          <td class="num">3</td>
+          <td class="num">4</td>
+          <td class="pct">42.9%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">D Withers</th>
+          <td class="num">3</td>
+          <td class="num">2</td>
+          <td class="num">1</td>
+          <td class="pct">66.7%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Fritz Johnson</th>
+          <td class="num">7</td>
+          <td class="num">2</td>
+          <td class="num">5</td>
+          <td class="pct">28.6%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Linda Ball</th>
+          <td class="num">7</td>
+          <td class="num">2</td>
+          <td class="num">5</td>
+          <td class="pct">28.6%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Ben Richards</th>
+          <td class="num">1</td>
+          <td class="num">1</td>
+          <td class="num">0</td>
+          <td class="pct">100.0%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Dan Stevens</th>
+          <td class="num">1</td>
+          <td class="num">1</td>
+          <td class="num">0</td>
+          <td class="pct">100.0%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">m ingram</th>
+          <td class="num">1</td>
+          <td class="num">1</td>
+          <td class="num">0</td>
+          <td class="pct">100.0%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Keith Page</th>
+          <td class="num">5</td>
+          <td class="num">1</td>
+          <td class="num">4</td>
+          <td class="pct">20.0%</td>
+        </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section aria-labelledby="pairs-2026-2027-the-master-gators">
+      <h2 id="pairs-2026-2027-the-master-gators">Top 3 doubles pairings</h2>
+      <div class="table-wrap">
+        <table class="stats">
+          <thead>
+            <tr>
+              <th scope="col" class="player">Pairing</th>
+              <th scope="col" class="num">P</th>
+              <th scope="col" class="num">W</th>
+              <th scope="col" class="num">L</th>
+              <th scope="col" class="pct">Win %</th>
+            </tr>
+          </thead>
+          <tbody>
+        <tr>
+          <th scope="row" class="player">ben roberts &amp; Paul Sheldon</th>
+          <td class="num">4</td>
+          <td class="num">4</td>
+          <td class="num">0</td>
+          <td class="pct">100.0%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Peter Medford &amp; Tony Busby</th>
+          <td class="num">5</td>
+          <td class="num">3</td>
+          <td class="num">2</td>
+          <td class="pct">60.0%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Ben Richards &amp; D Withers</th>
+          <td class="num">1</td>
+          <td class="num">1</td>
+          <td class="num">0</td>
+          <td class="pct">100.0%</td>
+        </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section aria-labelledby="overall-2026-2027-the-master-gators">
+      <h2 id="overall-2026-2027-the-master-gators">Overall</h2>
+      <div class="table-wrap">
+        <table class="stats">
+          <thead>
+            <tr>
+              <th scope="col" class="player">Player</th>
+              <th scope="col" class="num">P</th>
+              <th scope="col" class="num">W</th>
+              <th scope="col" class="num">L</th>
+              <th scope="col" class="pct">Win %</th>
+            </tr>
+          </thead>
+          <tbody>
+        <tr>
+          <th scope="row" class="player">Paul Sheldon</th>
+          <td class="num">16</td>
+          <td class="num">11</td>
+          <td class="num">5</td>
+          <td class="pct">68.8%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Tony Busby</th>
+          <td class="num">14</td>
+          <td class="num">8</td>
+          <td class="num">6</td>
+          <td class="pct">57.1%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">ben roberts</th>
+          <td class="num">13</td>
+          <td class="num">7</td>
+          <td class="num">6</td>
+          <td class="pct">53.9%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Linda Ball</th>
+          <td class="num">14</td>
+          <td class="num">7</td>
+          <td class="num">7</td>
+          <td class="pct">50.0%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Fritz Johnson</th>
+          <td class="num">14</td>
+          <td class="num">6</td>
+          <td class="num">8</td>
+          <td class="pct">42.9%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Peter Medford</th>
+          <td class="num">14</td>
+          <td class="num">5</td>
+          <td class="num">9</td>
+          <td class="pct">35.7%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">D Withers</th>
+          <td class="num">6</td>
+          <td class="num">3</td>
+          <td class="num">3</td>
+          <td class="pct">50.0%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Ben Richards</th>
+          <td class="num">2</td>
+          <td class="num">2</td>
+          <td class="num">0</td>
+          <td class="pct">100.0%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Dan Stevens</th>
+          <td class="num">3</td>
+          <td class="num">2</td>
+          <td class="num">1</td>
+          <td class="pct">66.7%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Keith Page</th>
+          <td class="num">10</td>
+          <td class="num">2</td>
+          <td class="num">8</td>
+          <td class="pct">20.0%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">m ingram</th>
+          <td class="num">2</td>
+          <td class="num">1</td>
+          <td class="num">1</td>
+          <td class="pct">50.0%</td>
+        </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+      <p class="note">No frames this season: Jason Glynn.</p>
+    </div>
+    <div class="team-stats" data-team="the-lamb" data-name="The Lamb" hidden>
+    <section aria-labelledby="singles-2026-2027-the-lamb">
+      <h2 id="singles-2026-2027-the-lamb">Singles</h2>
+      <div class="table-wrap">
+        <table class="stats">
+          <thead>
+            <tr>
+              <th scope="col" class="player">Player</th>
+              <th scope="col" class="num">P</th>
+              <th scope="col" class="num">W</th>
+              <th scope="col" class="num">L</th>
+              <th scope="col" class="pct">Win %</th>
+            </tr>
+          </thead>
+          <tbody>
+        <tr>
+          <th scope="row" class="player">Steve Green</th>
+          <td class="num">9</td>
+          <td class="num">7</td>
+          <td class="num">2</td>
+          <td class="pct">77.8%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Jimmy Pearce</th>
+          <td class="num">7</td>
+          <td class="num">4</td>
+          <td class="num">3</td>
+          <td class="pct">57.1%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">C Pawley</th>
+          <td class="num">8</td>
+          <td class="num">4</td>
+          <td class="num">4</td>
+          <td class="pct">50.0%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Dave Bartholomew</th>
+          <td class="num">7</td>
+          <td class="num">3</td>
+          <td class="num">4</td>
+          <td class="pct">42.9%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">G Tucker</th>
+          <td class="num">8</td>
+          <td class="num">2</td>
+          <td class="num">6</td>
+          <td class="pct">25.0%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Terry Ward</th>
+          <td class="num">9</td>
+          <td class="num">1</td>
+          <td class="num">8</td>
+          <td class="pct">11.1%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Josie Wells</th>
+          <td class="num">1</td>
+          <td class="num">0</td>
+          <td class="num">1</td>
+          <td class="pct">0.0%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Tony Smith</th>
+          <td class="num">1</td>
+          <td class="num">0</td>
+          <td class="num">1</td>
+          <td class="pct">0.0%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Tyler Loveridge</th>
+          <td class="num">1</td>
+          <td class="num">0</td>
+          <td class="num">1</td>
+          <td class="pct">0.0%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Paul Thompson</th>
+          <td class="num">3</td>
+          <td class="num">0</td>
+          <td class="num">3</td>
+          <td class="pct">0.0%</td>
+        </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section aria-labelledby="doubles-2026-2027-the-lamb">
+      <h2 id="doubles-2026-2027-the-lamb">Doubles</h2>
+      <div class="table-wrap">
+        <table class="stats">
+          <thead>
+            <tr>
+              <th scope="col" class="player">Player</th>
+              <th scope="col" class="num">P</th>
+              <th scope="col" class="num">W</th>
+              <th scope="col" class="num">L</th>
+              <th scope="col" class="pct">Win %</th>
+            </tr>
+          </thead>
+          <tbody>
+        <tr>
+          <th scope="row" class="player">G Tucker</th>
+          <td class="num">8</td>
+          <td class="num">5</td>
+          <td class="num">3</td>
+          <td class="pct">62.5%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Jimmy Pearce</th>
+          <td class="num">7</td>
+          <td class="num">4</td>
+          <td class="num">3</td>
+          <td class="pct">57.1%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Dave Bartholomew</th>
+          <td class="num">7</td>
+          <td class="num">3</td>
+          <td class="num">4</td>
+          <td class="pct">42.9%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">C Pawley</th>
+          <td class="num">8</td>
+          <td class="num">3</td>
+          <td class="num">5</td>
+          <td class="pct">37.5%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Steve Green</th>
+          <td class="num">9</td>
+          <td class="num">3</td>
+          <td class="num">6</td>
+          <td class="pct">33.3%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Terry Ward</th>
+          <td class="num">9</td>
+          <td class="num">3</td>
+          <td class="num">6</td>
+          <td class="pct">33.3%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Josie Wells</th>
+          <td class="num">1</td>
+          <td class="num">1</td>
+          <td class="num">0</td>
+          <td class="pct">100.0%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Tony Smith</th>
+          <td class="num">1</td>
+          <td class="num">1</td>
+          <td class="num">0</td>
+          <td class="pct">100.0%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Paul Thompson</th>
+          <td class="num">3</td>
+          <td class="num">1</td>
+          <td class="num">2</td>
+          <td class="pct">33.3%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Tyler Loveridge</th>
+          <td class="num">1</td>
+          <td class="num">0</td>
+          <td class="num">1</td>
+          <td class="pct">0.0%</td>
+        </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section aria-labelledby="pairs-2026-2027-the-lamb">
+      <h2 id="pairs-2026-2027-the-lamb">Top 3 doubles pairings</h2>
+      <div class="table-wrap">
+        <table class="stats">
+          <thead>
+            <tr>
+              <th scope="col" class="player">Pairing</th>
+              <th scope="col" class="num">P</th>
+              <th scope="col" class="num">W</th>
+              <th scope="col" class="num">L</th>
+              <th scope="col" class="pct">Win %</th>
+            </tr>
+          </thead>
+          <tbody>
+        <tr>
+          <th scope="row" class="player">G Tucker &amp; Jimmy Pearce</th>
+          <td class="num">3</td>
+          <td class="num">3</td>
+          <td class="num">0</td>
+          <td class="pct">100.0%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Steve Green &amp; Dave Bartholomew</th>
+          <td class="num">5</td>
+          <td class="num">2</td>
+          <td class="num">3</td>
+          <td class="pct">40.0%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">C Pawley &amp; Terry Ward</th>
+          <td class="num">6</td>
+          <td class="num">2</td>
+          <td class="num">4</td>
+          <td class="pct">33.3%</td>
+        </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section aria-labelledby="overall-2026-2027-the-lamb">
+      <h2 id="overall-2026-2027-the-lamb">Overall</h2>
+      <div class="table-wrap">
+        <table class="stats">
+          <thead>
+            <tr>
+              <th scope="col" class="player">Player</th>
+              <th scope="col" class="num">P</th>
+              <th scope="col" class="num">W</th>
+              <th scope="col" class="num">L</th>
+              <th scope="col" class="pct">Win %</th>
+            </tr>
+          </thead>
+          <tbody>
+        <tr>
+          <th scope="row" class="player">Steve Green</th>
+          <td class="num">18</td>
+          <td class="num">10</td>
+          <td class="num">8</td>
+          <td class="pct">55.6%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Jimmy Pearce</th>
+          <td class="num">14</td>
+          <td class="num">8</td>
+          <td class="num">6</td>
+          <td class="pct">57.1%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">C Pawley</th>
+          <td class="num">16</td>
+          <td class="num">7</td>
+          <td class="num">9</td>
+          <td class="pct">43.8%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">G Tucker</th>
+          <td class="num">16</td>
+          <td class="num">7</td>
+          <td class="num">9</td>
+          <td class="pct">43.8%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Dave Bartholomew</th>
+          <td class="num">14</td>
+          <td class="num">6</td>
+          <td class="num">8</td>
+          <td class="pct">42.9%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Terry Ward</th>
+          <td class="num">18</td>
+          <td class="num">4</td>
+          <td class="num">14</td>
+          <td class="pct">22.2%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Josie Wells</th>
+          <td class="num">2</td>
+          <td class="num">1</td>
+          <td class="num">1</td>
+          <td class="pct">50.0%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Tony Smith</th>
+          <td class="num">2</td>
+          <td class="num">1</td>
+          <td class="num">1</td>
+          <td class="pct">50.0%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Paul Thompson</th>
+          <td class="num">6</td>
+          <td class="num">1</td>
+          <td class="num">5</td>
+          <td class="pct">16.7%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Tyler Loveridge</th>
+          <td class="num">2</td>
+          <td class="num">0</td>
+          <td class="num">2</td>
+          <td class="pct">0.0%</td>
+        </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+      <p class="note">No frames this season: Ann Ayliffe, Ashley Kite, Darren Braidwood, Errin Mcnamee, Jonny Coffman, Kelvin Loveridge, Luke Mattioli, Mark Brown, Nathan Sawyer, Olena Tsab, Oscar Baillie, Paddy Cousins, Richard Korpan, Roger Townsend, Sam Watts, Sara Harris, gary chugg, reece loveridge.</p>
+    </div>
+    <div class="team-stats" data-team="paggies-a" data-name="Paggies A" hidden>
+    <section aria-labelledby="singles-2026-2027-paggies-a">
+      <h2 id="singles-2026-2027-paggies-a">Singles</h2>
+      <div class="table-wrap">
+        <table class="stats">
+          <thead>
+            <tr>
+              <th scope="col" class="player">Player</th>
+              <th scope="col" class="num">P</th>
+              <th scope="col" class="num">W</th>
+              <th scope="col" class="num">L</th>
+              <th scope="col" class="pct">Win %</th>
+            </tr>
+          </thead>
+          <tbody>
+        <tr>
+          <th scope="row" class="player">Wayne Thompson</th>
+          <td class="num">7</td>
+          <td class="num">5</td>
+          <td class="num">2</td>
+          <td class="pct">71.4%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Iain Gooch</th>
+          <td class="num">7</td>
+          <td class="num">4</td>
+          <td class="num">3</td>
+          <td class="pct">57.1%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Jamie Cresswell</th>
+          <td class="num">7</td>
+          <td class="num">4</td>
+          <td class="num">3</td>
+          <td class="pct">57.1%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Ron Fairish</th>
+          <td class="num">8</td>
+          <td class="num">3</td>
+          <td class="num">5</td>
+          <td class="pct">37.5%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Molly Gooch</th>
+          <td class="num">6</td>
+          <td class="num">2</td>
+          <td class="num">4</td>
+          <td class="pct">33.3%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Steve Fox</th>
+          <td class="num">1</td>
+          <td class="num">1</td>
+          <td class="num">0</td>
+          <td class="pct">100.0%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Graham Beasley</th>
+          <td class="num">5</td>
+          <td class="num">1</td>
+          <td class="num">4</td>
+          <td class="pct">20.0%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Iain Black</th>
+          <td class="num">7</td>
+          <td class="num">1</td>
+          <td class="num">6</td>
+          <td class="pct">14.3%</td>
+        </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section aria-labelledby="doubles-2026-2027-paggies-a">
+      <h2 id="doubles-2026-2027-paggies-a">Doubles</h2>
+      <div class="table-wrap">
+        <table class="stats">
+          <thead>
+            <tr>
+              <th scope="col" class="player">Player</th>
+              <th scope="col" class="num">P</th>
+              <th scope="col" class="num">W</th>
+              <th scope="col" class="num">L</th>
+              <th scope="col" class="pct">Win %</th>
+            </tr>
+          </thead>
+          <tbody>
+        <tr>
+          <th scope="row" class="player">Ron Fairish</th>
+          <td class="num">8</td>
+          <td class="num">5</td>
+          <td class="num">3</td>
+          <td class="pct">62.5%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Graham Beasley</th>
+          <td class="num">7</td>
+          <td class="num">4</td>
+          <td class="num">3</td>
+          <td class="pct">57.1%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Iain Gooch</th>
+          <td class="num">7</td>
+          <td class="num">3</td>
+          <td class="num">4</td>
+          <td class="pct">42.9%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Molly Gooch</th>
+          <td class="num">6</td>
+          <td class="num">2</td>
+          <td class="num">4</td>
+          <td class="pct">33.3%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Iain Black</th>
+          <td class="num">7</td>
+          <td class="num">1</td>
+          <td class="num">6</td>
+          <td class="pct">14.3%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Wayne Thompson</th>
+          <td class="num">7</td>
+          <td class="num">1</td>
+          <td class="num">6</td>
+          <td class="pct">14.3%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Steve Fox</th>
+          <td class="num">1</td>
+          <td class="num">0</td>
+          <td class="num">1</td>
+          <td class="pct">0.0%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Jamie Cresswell</th>
+          <td class="num">5</td>
+          <td class="num">0</td>
+          <td class="num">5</td>
+          <td class="pct">0.0%</td>
+        </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section aria-labelledby="pairs-2026-2027-paggies-a">
+      <h2 id="pairs-2026-2027-paggies-a">Top 3 doubles pairings</h2>
+      <div class="table-wrap">
+        <table class="stats">
+          <thead>
+            <tr>
+              <th scope="col" class="player">Pairing</th>
+              <th scope="col" class="num">P</th>
+              <th scope="col" class="num">W</th>
+              <th scope="col" class="num">L</th>
+              <th scope="col" class="pct">Win %</th>
+            </tr>
+          </thead>
+          <tbody>
+        <tr>
+          <th scope="row" class="player">Graham Beasley &amp; Ron Fairish</th>
+          <td class="num">6</td>
+          <td class="num">4</td>
+          <td class="num">2</td>
+          <td class="pct">66.7%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Iain Gooch &amp; Molly Gooch</th>
+          <td class="num">6</td>
+          <td class="num">2</td>
+          <td class="num">4</td>
+          <td class="pct">33.3%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Ron Fairish &amp; Iain Black</th>
+          <td class="num">1</td>
+          <td class="num">1</td>
+          <td class="num">0</td>
+          <td class="pct">100.0%</td>
+        </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section aria-labelledby="overall-2026-2027-paggies-a">
+      <h2 id="overall-2026-2027-paggies-a">Overall</h2>
+      <div class="table-wrap">
+        <table class="stats">
+          <thead>
+            <tr>
+              <th scope="col" class="player">Player</th>
+              <th scope="col" class="num">P</th>
+              <th scope="col" class="num">W</th>
+              <th scope="col" class="num">L</th>
+              <th scope="col" class="pct">Win %</th>
+            </tr>
+          </thead>
+          <tbody>
+        <tr>
+          <th scope="row" class="player">Ron Fairish</th>
+          <td class="num">16</td>
+          <td class="num">8</td>
+          <td class="num">8</td>
+          <td class="pct">50.0%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Iain Gooch</th>
+          <td class="num">14</td>
+          <td class="num">7</td>
+          <td class="num">7</td>
+          <td class="pct">50.0%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Wayne Thompson</th>
+          <td class="num">14</td>
+          <td class="num">6</td>
+          <td class="num">8</td>
+          <td class="pct">42.9%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Graham Beasley</th>
+          <td class="num">12</td>
+          <td class="num">5</td>
+          <td class="num">7</td>
+          <td class="pct">41.7%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Jamie Cresswell</th>
+          <td class="num">12</td>
+          <td class="num">4</td>
+          <td class="num">8</td>
+          <td class="pct">33.3%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Molly Gooch</th>
+          <td class="num">12</td>
+          <td class="num">4</td>
+          <td class="num">8</td>
+          <td class="pct">33.3%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Iain Black</th>
+          <td class="num">14</td>
+          <td class="num">2</td>
+          <td class="num">12</td>
+          <td class="pct">14.3%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Steve Fox</th>
+          <td class="num">2</td>
+          <td class="num">1</td>
+          <td class="num">1</td>
+          <td class="pct">50.0%</td>
+        </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+    </div>
+    <div class="team-stats" data-team="the-old-chequers" data-name="The Old Chequers" hidden>
+    <section aria-labelledby="singles-2026-2027-the-old-chequers">
+      <h2 id="singles-2026-2027-the-old-chequers">Singles</h2>
+      <div class="table-wrap">
+        <table class="stats">
+          <thead>
+            <tr>
+              <th scope="col" class="player">Player</th>
+              <th scope="col" class="num">P</th>
+              <th scope="col" class="num">W</th>
+              <th scope="col" class="num">L</th>
+              <th scope="col" class="pct">Win %</th>
+            </tr>
+          </thead>
+          <tbody>
+        <tr>
+          <th scope="row" class="player">Jimmie Anns</th>
+          <td class="num">9</td>
+          <td class="num">4</td>
+          <td class="num">5</td>
+          <td class="pct">44.4%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Richard Aldred</th>
+          <td class="num">5</td>
+          <td class="num">3</td>
+          <td class="num">2</td>
+          <td class="pct">60.0%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Sam Mildenhall</th>
+          <td class="num">7</td>
+          <td class="num">3</td>
+          <td class="num">4</td>
+          <td class="pct">42.9%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Ben Effer</th>
+          <td class="num">1</td>
+          <td class="num">1</td>
+          <td class="num">0</td>
+          <td class="pct">100.0%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Alfie Bullock</th>
+          <td class="num">2</td>
+          <td class="num">1</td>
+          <td class="num">1</td>
+          <td class="pct">50.0%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Alan Cooper</th>
+          <td class="num">8</td>
+          <td class="num">1</td>
+          <td class="num">7</td>
+          <td class="pct">12.5%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Tom Keefe</th>
+          <td class="num">8</td>
+          <td class="num">1</td>
+          <td class="num">7</td>
+          <td class="pct">12.5%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">charlie bullock</th>
+          <td class="num">8</td>
+          <td class="num">1</td>
+          <td class="num">7</td>
+          <td class="pct">12.5%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Josh Crow</th>
+          <td class="num">1</td>
+          <td class="num">0</td>
+          <td class="num">1</td>
+          <td class="pct">0.0%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Simon Cropper</th>
+          <td class="num">1</td>
+          <td class="num">0</td>
+          <td class="num">1</td>
+          <td class="pct">0.0%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Tom Hadland</th>
+          <td class="num">1</td>
+          <td class="num">0</td>
+          <td class="num">1</td>
+          <td class="pct">0.0%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Simon Payne</th>
+          <td class="num">3</td>
+          <td class="num">0</td>
+          <td class="num">3</td>
+          <td class="pct">0.0%</td>
+        </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section aria-labelledby="doubles-2026-2027-the-old-chequers">
+      <h2 id="doubles-2026-2027-the-old-chequers">Doubles</h2>
+      <div class="table-wrap">
+        <table class="stats">
+          <thead>
+            <tr>
+              <th scope="col" class="player">Player</th>
+              <th scope="col" class="num">P</th>
+              <th scope="col" class="num">W</th>
+              <th scope="col" class="num">L</th>
+              <th scope="col" class="pct">Win %</th>
+            </tr>
+          </thead>
+          <tbody>
+        <tr>
+          <th scope="row" class="player">Jimmie Anns</th>
+          <td class="num">9</td>
+          <td class="num">4</td>
+          <td class="num">5</td>
+          <td class="pct">44.4%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">charlie bullock</th>
+          <td class="num">9</td>
+          <td class="num">4</td>
+          <td class="num">5</td>
+          <td class="pct">44.4%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Richard Aldred</th>
+          <td class="num">5</td>
+          <td class="num">2</td>
+          <td class="num">3</td>
+          <td class="pct">40.0%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Alan Cooper</th>
+          <td class="num">6</td>
+          <td class="num">2</td>
+          <td class="num">4</td>
+          <td class="pct">33.3%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Sam Mildenhall</th>
+          <td class="num">7</td>
+          <td class="num">2</td>
+          <td class="num">5</td>
+          <td class="pct">28.6%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Ben Effer</th>
+          <td class="num">1</td>
+          <td class="num">1</td>
+          <td class="num">0</td>
+          <td class="pct">100.0%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Josh Crow</th>
+          <td class="num">2</td>
+          <td class="num">1</td>
+          <td class="num">1</td>
+          <td class="pct">50.0%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Simon Payne</th>
+          <td class="num">5</td>
+          <td class="num">1</td>
+          <td class="num">4</td>
+          <td class="pct">20.0%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Tom Keefe</th>
+          <td class="num">8</td>
+          <td class="num">1</td>
+          <td class="num">7</td>
+          <td class="pct">12.5%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Alfie Bullock</th>
+          <td class="num">1</td>
+          <td class="num">0</td>
+          <td class="num">1</td>
+          <td class="pct">0.0%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Simon Cropper</th>
+          <td class="num">1</td>
+          <td class="num">0</td>
+          <td class="num">1</td>
+          <td class="pct">0.0%</td>
+        </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section aria-labelledby="pairs-2026-2027-the-old-chequers">
+      <h2 id="pairs-2026-2027-the-old-chequers">Top 3 doubles pairings</h2>
+      <div class="table-wrap">
+        <table class="stats">
+          <thead>
+            <tr>
+              <th scope="col" class="player">Pairing</th>
+              <th scope="col" class="num">P</th>
+              <th scope="col" class="num">W</th>
+              <th scope="col" class="num">L</th>
+              <th scope="col" class="pct">Win %</th>
+            </tr>
+          </thead>
+          <tbody>
+        <tr>
+          <th scope="row" class="player">Sam Mildenhall &amp; Jimmie Anns</th>
+          <td class="num">7</td>
+          <td class="num">2</td>
+          <td class="num">5</td>
+          <td class="pct">28.6%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Ben Effer &amp; Jimmie Anns</th>
+          <td class="num">1</td>
+          <td class="num">1</td>
+          <td class="num">0</td>
+          <td class="pct">100.0%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">charlie bullock &amp; Jimmie Anns</th>
+          <td class="num">1</td>
+          <td class="num">1</td>
+          <td class="num">0</td>
+          <td class="pct">100.0%</td>
+        </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section aria-labelledby="overall-2026-2027-the-old-chequers">
+      <h2 id="overall-2026-2027-the-old-chequers">Overall</h2>
+      <div class="table-wrap">
+        <table class="stats">
+          <thead>
+            <tr>
+              <th scope="col" class="player">Player</th>
+              <th scope="col" class="num">P</th>
+              <th scope="col" class="num">W</th>
+              <th scope="col" class="num">L</th>
+              <th scope="col" class="pct">Win %</th>
+            </tr>
+          </thead>
+          <tbody>
+        <tr>
+          <th scope="row" class="player">Jimmie Anns</th>
+          <td class="num">18</td>
+          <td class="num">8</td>
+          <td class="num">10</td>
+          <td class="pct">44.4%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Richard Aldred</th>
+          <td class="num">10</td>
+          <td class="num">5</td>
+          <td class="num">5</td>
+          <td class="pct">50.0%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Sam Mildenhall</th>
+          <td class="num">14</td>
+          <td class="num">5</td>
+          <td class="num">9</td>
+          <td class="pct">35.7%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">charlie bullock</th>
+          <td class="num">17</td>
+          <td class="num">5</td>
+          <td class="num">12</td>
+          <td class="pct">29.4%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Alan Cooper</th>
+          <td class="num">14</td>
+          <td class="num">3</td>
+          <td class="num">11</td>
+          <td class="pct">21.4%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Ben Effer</th>
+          <td class="num">2</td>
+          <td class="num">2</td>
+          <td class="num">0</td>
+          <td class="pct">100.0%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Tom Keefe</th>
+          <td class="num">16</td>
+          <td class="num">2</td>
+          <td class="num">14</td>
+          <td class="pct">12.5%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Alfie Bullock</th>
+          <td class="num">3</td>
+          <td class="num">1</td>
+          <td class="num">2</td>
+          <td class="pct">33.3%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Josh Crow</th>
+          <td class="num">3</td>
+          <td class="num">1</td>
+          <td class="num">2</td>
+          <td class="pct">33.3%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Simon Payne</th>
+          <td class="num">8</td>
+          <td class="num">1</td>
+          <td class="num">7</td>
+          <td class="pct">12.5%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Tom Hadland</th>
+          <td class="num">1</td>
+          <td class="num">0</td>
+          <td class="num">1</td>
+          <td class="pct">0.0%</td>
+        </tr>
+        <tr>
+          <th scope="row" class="player">Simon Cropper</th>
+          <td class="num">2</td>
+          <td class="num">0</td>
+          <td class="num">2</td>
+          <td class="pct">0.0%</td>
+        </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+      <p class="note">No frames this season: Ady Richardson, Alex Fost, Alex Smith, Bill Hutchins, David Hill, David Hutchins, Dawn Hill, Laura Basker, Matt Bullock, Tom Dyer, William Hutchins.</p>
+    </div>
+
+    <section class="card cups home-only" aria-labelledby="cups-2026-2027">
       <h2 id="cups-2026-2027">Cups &amp; TKO</h2>
 <p class="cups-status">TKO not started yet.</p>
     </section>
 
-    <section class="extras" aria-label="Fixtures and recent results">
+    <section class="extras home-only" aria-label="Fixtures and recent results">
       <div class="card" aria-labelledby="next-2026-2027">
         <h2 id="next-2026-2027">Next fixture</h2>
       <p class="when">Mon 16 November · 8pm · Home</p>
@@ -1154,7 +3597,6 @@
         </table>
       </div>
     </section>
-      
 
     <section class="card cups" aria-labelledby="cups-2026">
       <h2 id="cups-2026">Cups &amp; TKO</h2>
@@ -1666,7 +4108,6 @@
         </table>
       </div>
     </section>
-      
 
     <section class="card cups" aria-labelledby="cups-2025-Second-Season">
       <h2 id="cups-2025-Second-Season">Cups &amp; TKO</h2>
@@ -2098,7 +4539,6 @@
         </table>
       </div>
     </section>
-      
 
     <section class="card cups" aria-labelledby="cups-2025">
       <h2 id="cups-2025">Cups &amp; TKO</h2>
@@ -2564,7 +5004,6 @@
         </table>
       </div>
     </section>
-      
 
     <section class="card cups" aria-labelledby="cups-2024">
       <h2 id="cups-2024">Cups &amp; TKO</h2>
@@ -2998,7 +5437,6 @@
         </table>
       </div>
     </section>
-      
 
     <section class="card cups" aria-labelledby="cups-2023">
       <h2 id="cups-2023">Cups &amp; TKO</h2>
@@ -3042,33 +5480,148 @@
   <script>
 
     (function () {
+      var HOME = "the-wheatsheaf";
+      var currentPanel = document.querySelector('.season-panel[data-current="true"]');
+      var defaultSeason = currentPanel ? currentPanel.getAttribute("data-season") : "";
       var buttons = Array.prototype.slice.call(document.querySelectorAll(".season-picker button"));
       var panels = Array.prototype.slice.call(document.querySelectorAll(".season-panel"));
+      var titleEl = document.getElementById("team-title");
+      var backWrap = document.getElementById("back-wrap");
+      var defaultTitle = titleEl ? titleEl.textContent : "The Wheatsheaf Pool Team";
 
-      function show(id, updateHash) {
+      function ordinal(n) {
+        var v = n % 100;
+        if (v >= 11 && v <= 13) return n + "th";
+        switch (n % 10) {
+          case 1: return n + "st";
+          case 2: return n + "nd";
+          case 3: return n + "rd";
+          default: return n + "th";
+        }
+      }
+
+      function parseHash() {
+        var raw = (location.hash || "").replace(/^#/, "");
+        if (!raw) return { season: defaultSeason, team: HOME };
+        if (raw.indexOf("team=") === 0) {
+          var slug = decodeURIComponent(raw.slice(5)).trim();
+          return { season: defaultSeason, team: slug || HOME };
+        }
+        var exists = panels.some(function (panel) {
+          return panel.getAttribute("data-season") === raw;
+        });
+        if (exists) return { season: raw, team: HOME };
+        return { season: defaultSeason, team: HOME };
+      }
+
+      function setHash(hash) {
+        if (!history.replaceState) return;
+        var url = location.pathname + location.search + (hash ? "#" + hash : "");
+        history.replaceState(null, "", url);
+      }
+
+      function showSeason(id) {
         var found = false;
         panels.forEach(function (panel) {
           var on = panel.getAttribute("data-season") === id;
           panel.hidden = !on;
           if (on) found = true;
         });
-        if (!found) return;
+        if (!found) return false;
         buttons.forEach(function (btn) {
           btn.setAttribute("aria-selected", btn.getAttribute("data-season") === id ? "true" : "false");
         });
-        if (updateHash && history.replaceState) {
-          history.replaceState(null, "", "#" + id);
+        return true;
+      }
+
+      function showTeam(slug) {
+        var current = document.querySelector('.season-panel[data-current="true"]');
+        if (!current || current.hidden) {
+          if (titleEl) titleEl.textContent = defaultTitle;
+          if (backWrap) backWrap.hidden = true;
+          document.title = defaultTitle;
+          return;
         }
+        var blocks = current.querySelectorAll(".team-stats");
+        var match = null;
+        blocks.forEach(function (block) {
+          var on = block.getAttribute("data-team") === slug;
+          block.hidden = !on;
+          if (on) match = block;
+        });
+        if (!match) {
+          slug = HOME;
+          blocks.forEach(function (block) {
+            var on = block.getAttribute("data-team") === HOME;
+            block.hidden = !on;
+            if (on) match = block;
+          });
+        }
+        var isHome = !match || match.getAttribute("data-team") === HOME;
+        current.querySelectorAll(".home-only").forEach(function (el) {
+          el.hidden = !isHome;
+        });
+        var name = match ? match.getAttribute("data-name") : "The Wheatsheaf";
+        var heading = name + " Pool Team";
+        if (titleEl) titleEl.textContent = heading;
+        document.title = heading;
+        if (backWrap) backWrap.hidden = isHome;
+
+        current.querySelectorAll("table.league tbody tr[data-team]").forEach(function (tr) {
+          if (tr.getAttribute("data-team") === (match ? match.getAttribute("data-team") : HOME)) {
+            tr.classList.add("us");
+          } else {
+            tr.classList.remove("us");
+          }
+        });
+
+        var lede = current.querySelector(".season-lede");
+        var row = current.querySelector("table.league tbody tr.us");
+        if (lede && row && row.getAttribute("data-pos")) {
+          lede.textContent = "Division 1 · " + ordinal(parseInt(row.getAttribute("data-pos"), 10)) + " · in progress";
+        }
+      }
+
+      function applyFromHash() {
+        var state = parseHash();
+        showSeason(state.season);
+        showTeam(state.team);
       }
 
       buttons.forEach(function (btn) {
         btn.addEventListener("click", function () {
-          show(btn.getAttribute("data-season"), true);
+          var id = btn.getAttribute("data-season");
+          if (id === defaultSeason) setHash("");
+          else setHash(id);
+          showSeason(id);
+          showTeam(HOME);
         });
       });
 
-      var fromHash = (location.hash || "").replace(/^#/, "");
-      if (fromHash) show(fromHash, false);
+      document.addEventListener("click", function (ev) {
+        var link = ev.target.closest ? ev.target.closest("a.team-link") : null;
+        if (!link) return;
+        var slug = link.getAttribute("data-team");
+        if (!slug) return;
+        ev.preventDefault();
+        if (slug === HOME) setHash("");
+        else setHash("team=" + slug);
+        showSeason(defaultSeason);
+        showTeam(slug);
+      });
+
+      var back = document.querySelector("a.back-home");
+      if (back) {
+        back.addEventListener("click", function (ev) {
+          ev.preventDefault();
+          setHash("");
+          showSeason(defaultSeason);
+          showTeam(HOME);
+        });
+      }
+
+      window.addEventListener("hashchange", applyFromHash);
+      applyFromHash();
     })();
 
   </script>
