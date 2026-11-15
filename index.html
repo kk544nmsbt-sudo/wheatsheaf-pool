@@ -322,6 +322,101 @@
     .badge.l { background: var(--loss); }
     .badge.d { background: #6b5c3d; }
 
+    .fixtures { margin-bottom: 1.5rem; }
+    .fixtures .card { padding-top: 0.85rem; }
+    .fixtures h3 {
+      font-family: Georgia, "Palatino Linotype", Palatino, "Times New Roman", serif;
+      font-size: 1.05rem;
+      margin: 0.95rem 0 0.35rem;
+    }
+    .fixtures h3:first-of-type { margin-top: 0.1rem; }
+    .fixture-list { margin: 0; }
+
+    details.fixture {
+      border-bottom: 1px solid var(--line);
+    }
+    details.fixture:last-child { border-bottom: 0; }
+    details.fixture summary {
+      display: flex;
+      gap: 0.75rem;
+      align-items: flex-start;
+      cursor: pointer;
+      list-style: none;
+      padding: 0.55rem 0;
+    }
+    details.fixture summary::-webkit-details-marker { display: none; }
+    details.fixture summary::marker { content: ""; }
+    details.fixture summary::after {
+      content: "";
+      width: 0.45rem;
+      height: 0.45rem;
+      border-right: 2px solid var(--muted);
+      border-bottom: 2px solid var(--muted);
+      transform: rotate(-45deg);
+      margin: 0.65rem 0.15rem 0 auto;
+      flex: 0 0 0.45rem;
+      transition: transform 0.15s ease;
+    }
+    details.fixture[open] summary::after {
+      transform: rotate(45deg);
+      margin-top: 0.5rem;
+    }
+    details.fixture summary:focus-visible {
+      outline: 2px solid var(--felt);
+      outline-offset: 2px;
+      border-radius: 6px;
+    }
+    .fixture.static {
+      padding: 0.55rem 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .fixture.static:first-child { padding-top: 0.15rem; }
+    .fixture.static:last-child { border-bottom: 0; padding-bottom: 0; }
+    .fixture .when { margin: 0; color: var(--muted); font-size: 0.9rem; }
+    .fixture .detail { margin: 0.15rem 0 0; font-weight: 600; }
+    .fixture .venue { margin: 0.2rem 0 0; color: var(--muted); font-size: 0.9rem; }
+    .fixture .score { font-variant-numeric: tabular-nums; font-weight: 700; }
+    .match-frames { padding: 0 0 0.75rem 2.6rem; }
+    @media (max-width: 640px) {
+      .match-frames { padding-left: 0.15rem; }
+    }
+    .match-frames h3 {
+      font-family: inherit;
+      font-size: 0.72rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--felt-dark);
+      margin: 0.55rem 0 0.2rem;
+    }
+    .match-frames h3:first-child { margin-top: 0; }
+    ol.frame-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      counter-reset: frame;
+      text-align: left;
+    }
+    ol.frame-list li {
+      counter-increment: frame;
+      padding: 0.16rem 0;
+      font-size: 0.92rem;
+      line-height: 1.35;
+      white-space: normal;
+      overflow-wrap: break-word;
+      text-align: left;
+    }
+    ol.frame-list li::before {
+      content: counter(frame) ".";
+      color: var(--muted);
+      font-variant-numeric: tabular-nums;
+      display: inline-block;
+      width: 1.5rem;
+      margin-right: 0.15rem;
+    }
+    ol.frame-list li .us-player { font-weight: 600; }
+    .match-note { margin: 0.25rem 0 0.4rem; color: var(--muted); font-size: 0.88rem; }
+
+
     footer {
       margin-top: 0.5rem;
       padding-top: 1rem;
@@ -472,7 +567,7 @@
             </tbody>
           </table>
         </div>
-        <p class="note">Click a team name to see its player stats.</p>
+        <p class="note">Click a team name to see its player stats and fixtures.</p>
       </section>
 
     <div class="team-stats" data-team="crucible-avengers" data-name="Crucible Avengers" hidden>
@@ -762,6 +857,295 @@
       </div>
     </section>
       <p class="note">No frames this season: Ian Martinez, Paul Broome, Sarah Middleton.</p>
+    <section class="fixtures" aria-labelledby="fixtures-2026-2027-crucible-avengers">
+      <h2 id="fixtures-2026-2027-crucible-avengers">Fixtures</h2>
+      <div class="card">
+      <h3 id="results-2026-2027-crucible-avengers">Results</h3>
+      <div class="fixture-list">
+      <details class="fixture played">
+        <summary>
+          <span class="badge l" aria-label="Lost">L</span>
+          <div>
+            <p class="when">Mon 9 November · Home</p>
+            <p class="detail"><span class="score">2–7</span> v The Monnie</p>
+          </div>
+        </summary>
+        <div class="match-frames">
+        <h3>Singles</h3>
+        <ol class="frame-list">
+          <li class="lost"><span class="us-player">Rab Weir</span> lost to James Harvey</li>
+          <li class="won"><span class="us-player">Jason Byng</span> beat ed schofield</li>
+          <li class="lost"><span class="us-player">Richard Pugh-Roberts</span> lost to S Grant</li>
+          <li class="lost"><span class="us-player">Daron Masters</span> lost to ermal sado</li>
+          <li class="lost"><span class="us-player">Mark Hopkin</span> lost to S Fenemore</li>
+          <li class="lost"><span class="us-player">Ali Daley</span> lost to j breakspear</li>
+        </ol>
+        <h3>Doubles</h3>
+        <ol class="frame-list">
+          <li class="lost"><span class="us-player">Rab Weir &amp; Daron Masters</span> lost to ed schofield &amp; S Fenemore</li>
+          <li class="won"><span class="us-player">Mark Hopkin &amp; Richard Pugh-Roberts</span> beat James Harvey &amp; S Grant</li>
+          <li class="lost"><span class="us-player">Ali Daley &amp; Jason Byng</span> lost to j breakspear &amp; ermal sado</li>
+        </ol>
+        </div>
+      </details>
+      <details class="fixture played">
+        <summary>
+          <span class="badge w" aria-label="Won">W</span>
+          <div>
+            <p class="when">Mon 2 November · Home</p>
+            <p class="detail"><span class="score">6–3</span> v The Old Chequers</p>
+          </div>
+        </summary>
+        <div class="match-frames">
+        <h3>Singles</h3>
+        <ol class="frame-list">
+          <li class="lost"><span class="us-player">Rab Weir</span> lost to Alan Cooper</li>
+          <li class="lost"><span class="us-player">Dave Bennett</span> lost to Jimmie Anns</li>
+          <li class="won"><span class="us-player">Jason Byng</span> beat Sam Mildenhall</li>
+          <li class="won"><span class="us-player">Daron Masters</span> beat Tom Hadland</li>
+          <li class="won"><span class="us-player">Mark Hopkin</span> beat Richard Aldred</li>
+          <li class="won"><span class="us-player">Ali Daley</span> beat charlie bullock</li>
+        </ol>
+        <h3>Doubles</h3>
+        <ol class="frame-list">
+          <li class="lost"><span class="us-player">Rab Weir &amp; Dave Bennett</span> lost to Alan Cooper &amp; Richard Aldred</li>
+          <li class="won"><span class="us-player">Mark Hopkin &amp; Daron Masters</span> beat Sam Mildenhall &amp; Jimmie Anns</li>
+          <li class="won"><span class="us-player">Jason Byng &amp; Ali Daley</span> beat charlie bullock &amp; Simon Payne</li>
+        </ol>
+        </div>
+      </details>
+      <details class="fixture played">
+        <summary>
+          <span class="badge w" aria-label="Won">W</span>
+          <div>
+            <p class="when">Mon 19 October · Away</p>
+            <p class="detail"><span class="score">6–3</span> v Badgers at The Wellie</p>
+          </div>
+        </summary>
+        <div class="match-frames">
+        <h3>Singles</h3>
+        <ol class="frame-list">
+          <li class="won"><span class="us-player">Rab Weir</span> beat Neil Tuffnell</li>
+          <li class="lost"><span class="us-player">Richard Pugh-Roberts</span> lost to James Hammond</li>
+          <li class="won"><span class="us-player">Robert Head</span> beat Leigh Williams</li>
+          <li class="won"><span class="us-player">Daron Masters</span> beat Alex Morgan</li>
+          <li class="won"><span class="us-player">Mark Hopkin</span> beat Wayne Morgan</li>
+          <li class="lost"><span class="us-player">Ali Daley</span> lost to Phil Capel</li>
+        </ol>
+        <h3>Doubles</h3>
+        <ol class="frame-list">
+          <li class="won"><span class="us-player">Rab Weir &amp; Richard Pugh-Roberts</span> beat Alex Farington &amp; Wayne Morgan</li>
+          <li class="won"><span class="us-player">Robert Head &amp; Mark Hopkin</span> beat Phil Capel &amp; Neil Tuffnell</li>
+          <li class="lost"><span class="us-player">Daron Masters &amp; Ali Daley</span> lost to James Hammond &amp; Alex Morgan</li>
+        </ol>
+        </div>
+      </details>
+      <details class="fixture played">
+        <summary>
+          <span class="badge w" aria-label="Won">W</span>
+          <div>
+            <p class="when">Mon 12 October · Home</p>
+            <p class="detail"><span class="score">7–2</span> v The Lamb</p>
+          </div>
+        </summary>
+        <div class="match-frames">
+        <h3>Singles</h3>
+        <ol class="frame-list">
+          <li class="won"><span class="us-player">Rab Weir</span> beat Jimmy Pearce</li>
+          <li class="won"><span class="us-player">Dave Bennett</span> beat Dave Bartholomew</li>
+          <li class="won"><span class="us-player">Robert Head</span> beat Terry Ward</li>
+          <li class="lost"><span class="us-player">Jason Byng</span> lost to Steve Green</li>
+          <li class="won"><span class="us-player">Mark Hopkin</span> beat C Pawley</li>
+          <li class="won"><span class="us-player">Ali Daley</span> beat G Tucker</li>
+        </ol>
+        <h3>Doubles</h3>
+        <ol class="frame-list">
+          <li class="lost"><span class="us-player">Rab Weir &amp; Dave Bennett</span> lost to G Tucker &amp; Jimmy Pearce</li>
+          <li class="won"><span class="us-player">Robert Head &amp; Mark Hopkin</span> beat Terry Ward &amp; C Pawley</li>
+          <li class="won"><span class="us-player">Ali Daley &amp; Jason Byng</span> beat Steve Green &amp; Dave Bartholomew</li>
+        </ol>
+        </div>
+      </details>
+      <details class="fixture played">
+        <summary>
+          <span class="badge w" aria-label="Won">W</span>
+          <div>
+            <p class="when">Mon 5 October · Home</p>
+            <p class="detail"><span class="score">8–1</span> v Crucible Reracks</p>
+          </div>
+        </summary>
+        <div class="match-frames">
+        <h3>Singles</h3>
+        <ol class="frame-list">
+          <li class="won"><span class="us-player">Rab Weir</span> beat Steve Graham</li>
+          <li class="won"><span class="us-player">Jason Byng</span> beat David Johnson</li>
+          <li class="won"><span class="us-player">Robert Head</span> beat Hannah Johnson</li>
+          <li class="won"><span class="us-player">Dave Bennett</span> beat Martin Stone</li>
+          <li class="won"><span class="us-player">Mark Hopkin</span> beat Shaun Amor</li>
+          <li class="lost"><span class="us-player">Ali Daley</span> lost to Chris Smith</li>
+        </ol>
+        <h3>Doubles</h3>
+        <ol class="frame-list">
+          <li class="won"><span class="us-player">Rab Weir &amp; Dave Bennett</span> beat Shaun Amor &amp; Hannah Johnson</li>
+          <li class="won"><span class="us-player">Mark Hopkin &amp; Robert Head</span> beat David Johnson &amp; Steve Graham</li>
+          <li class="won"><span class="us-player">Jason Byng &amp; Ali Daley</span> beat Martin Stone &amp; Chris Smith</li>
+        </ol>
+        </div>
+      </details>
+      <details class="fixture played">
+        <summary>
+          <span class="badge w" aria-label="Won">W</span>
+          <div>
+            <p class="when">Mon 21 September · Away</p>
+            <p class="detail"><span class="score">6–3</span> v Paggies A</p>
+          </div>
+        </summary>
+        <div class="match-frames">
+        <h3>Singles</h3>
+        <ol class="frame-list">
+          <li class="lost"><span class="us-player">Rab Weir</span> lost to Jamie Cresswell</li>
+          <li class="won"><span class="us-player">Jason Byng</span> beat Iain Black</li>
+          <li class="won"><span class="us-player">Daron Masters</span> beat Graham Beasley</li>
+          <li class="won"><span class="us-player">Robert Head</span> beat Ron Fairish</li>
+          <li class="won"><span class="us-player">Dave Bennett</span> beat Iain Gooch</li>
+          <li class="won"><span class="us-player">Mark Hopkin</span> beat Wayne Thompson</li>
+        </ol>
+        <h3>Doubles</h3>
+        <ol class="frame-list">
+          <li class="won"><span class="us-player">Rab Weir &amp; Dave Bennett</span> beat Iain Black &amp; Jamie Cresswell</li>
+          <li class="lost"><span class="us-player">Mark Hopkin &amp; Robert Head</span> lost to Ron Fairish &amp; Graham Beasley</li>
+          <li class="lost"><span class="us-player">Jason Byng &amp; Daron Masters</span> lost to Wayne Thompson &amp; Iain Gooch</li>
+        </ol>
+        </div>
+      </details>
+      <details class="fixture played">
+        <summary>
+          <span class="badge w" aria-label="Won">W</span>
+          <div>
+            <p class="when">Mon 14 September · Home</p>
+            <p class="detail"><span class="score">6–3</span> v The Master Gators</p>
+          </div>
+        </summary>
+        <div class="match-frames">
+        <h3>Singles</h3>
+        <ol class="frame-list">
+          <li class="won"><span class="us-player">Rab Weir</span> beat Dan Stevens</li>
+          <li class="won"><span class="us-player">Jason Byng</span> beat Keith Page</li>
+          <li class="lost"><span class="us-player">Dave Bennett</span> lost to Peter Medford</li>
+          <li class="won"><span class="us-player">Daron Masters</span> beat Paul Sheldon</li>
+          <li class="won"><span class="us-player">Mark Hopkin</span> beat Linda Ball</li>
+          <li class="lost"><span class="us-player">Ali Daley</span> lost to Tony Busby</li>
+        </ol>
+        <h3>Doubles</h3>
+        <ol class="frame-list">
+          <li class="won"><span class="us-player">Rab Weir &amp; Dave Bennett</span> beat Linda Ball &amp; Keith Page</li>
+          <li class="won"><span class="us-player">Mark Hopkin &amp; Jason Byng</span> beat Peter Medford &amp; Tony Busby</li>
+          <li class="lost"><span class="us-player">Ali Daley &amp; Daron Masters</span> lost to ben roberts &amp; Paul Sheldon</li>
+        </ol>
+        </div>
+      </details>
+      <div class="fixture static bye">
+        <p class="when">Mon 7 September · Away</p>
+        <p class="detail">Bye</p>
+      </div>
+      <details class="fixture played">
+        <summary>
+          <span class="badge w" aria-label="Won">W</span>
+          <div>
+            <p class="when">Mon 24 August · Home</p>
+            <p class="detail"><span class="score">5–4</span> v The Wheatsheaf</p>
+          </div>
+        </summary>
+        <div class="match-frames">
+        <h3>Singles</h3>
+        <ol class="frame-list">
+          <li class="won"><span class="us-player">Jason Byng</span> beat Andy Turley</li>
+          <li class="lost"><span class="us-player">Daron Masters</span> lost to Simon Barnaby</li>
+          <li class="won"><span class="us-player">Robert Head</span> beat Robert Black</li>
+          <li class="won"><span class="us-player">Dave Bennett</span> beat Richard Figg</li>
+          <li class="won"><span class="us-player">Mark Hopkin</span> beat Luke Mason</li>
+          <li class="lost"><span class="us-player">Ali Daley</span> lost to Luke Manton</li>
+        </ol>
+        <h3>Doubles</h3>
+        <ol class="frame-list">
+          <li class="lost"><span class="us-player">Dave Bennett &amp; Ali Daley</span> lost to Andy Turley &amp; Richard Figg</li>
+          <li class="won"><span class="us-player">Mark Hopkin &amp; Robert Head</span> beat Luke Mason &amp; Luke Manton</li>
+          <li class="lost"><span class="us-player">Jason Byng &amp; Daron Masters</span> lost to Simon Barnaby &amp; Robert Black</li>
+        </ol>
+        </div>
+      </details>
+      <details class="fixture played">
+        <summary>
+          <span class="badge w" aria-label="Won">W</span>
+          <div>
+            <p class="when">Mon 17 August · Away</p>
+            <p class="detail"><span class="score">7–2</span> v The Monnie</p>
+          </div>
+        </summary>
+        <div class="match-frames">
+        <h3>Singles</h3>
+        <ol class="frame-list">
+          <li class="won"><span class="us-player">Rab Weir</span> beat James Harvey</li>
+          <li class="won"><span class="us-player">Ben Baker</span> beat ed schofield</li>
+          <li class="lost"><span class="us-player">Jason Byng</span> lost to James Page</li>
+          <li class="lost"><span class="us-player">Dave Bennett</span> lost to Toby House</li>
+          <li class="won"><span class="us-player">Mark Hopkin</span> beat S Fenemore</li>
+          <li class="won"><span class="us-player">Ali Daley</span> beat j breakspear</li>
+        </ol>
+        <h3>Doubles</h3>
+        <ol class="frame-list">
+          <li class="won"><span class="us-player">Rab Weir &amp; Dave Bennett</span> beat Andy Humphreys &amp; S Fenemore</li>
+          <li class="won"><span class="us-player">Mark Hopkin &amp; Jason Byng</span> beat James Page &amp; James Harvey</li>
+          <li class="won"><span class="us-player">Ali Daley &amp; Ben Baker</span> beat j breakspear &amp; Toby House</li>
+        </ol>
+        </div>
+      </details>
+      </div>
+      <h3 id="upcoming-2026-2027-crucible-avengers">Upcoming</h3>
+      <div class="fixture-list">
+      <div class="fixture static upcoming">
+        <p class="when">Mon 16 November · 8pm · Away</p>
+        <p class="detail">v The Wheatsheaf</p>
+        <p class="venue">at The Wheatsheaf</p>
+      </div>
+      <div class="fixture static upcoming">
+        <p class="when">Mon 30 November · 8pm · Home</p>
+        <p class="detail">Bye</p>
+        
+      </div>
+      <div class="fixture static upcoming">
+        <p class="when">Mon 7 December · 8pm · Away</p>
+        <p class="detail">v The Master Gators</p>
+        <p class="venue">at The Starting Gate</p>
+      </div>
+      <div class="fixture static upcoming">
+        <p class="when">Mon 14 December · 8pm · Home</p>
+        <p class="detail">v Paggies A</p>
+        <p class="venue">at The Crucible</p>
+      </div>
+      <div class="fixture static upcoming">
+        <p class="when">Mon 4 January · 8pm · Away</p>
+        <p class="detail">v Crucible Reracks</p>
+        <p class="venue">at The Crucible</p>
+      </div>
+      <div class="fixture static upcoming">
+        <p class="when">Mon 18 January · 8pm · Away</p>
+        <p class="detail">v The Lamb</p>
+        <p class="venue">at The Lamb Inn</p>
+      </div>
+      <div class="fixture static upcoming">
+        <p class="when">Mon 25 January · 8pm · Home</p>
+        <p class="detail">v Badgers at The Wellie</p>
+        <p class="venue">at The Crucible</p>
+      </div>
+      <div class="fixture static upcoming">
+        <p class="when">Mon 1 February · 8pm · Away</p>
+        <p class="detail">v The Old Chequers</p>
+        <p class="venue">at The Old Chequers</p>
+      </div>
+      </div>
+      </div>
+    </section>
     </div>
     <div class="team-stats" data-team="crucible-reracks" data-name="Crucible Reracks" hidden>
     <section aria-labelledby="singles-2026-2027-crucible-reracks">
@@ -1050,6 +1434,295 @@
       </div>
     </section>
       <p class="note">No frames this season: Lloyd Lilley, Michael Richardson, Simon Martin.</p>
+    <section class="fixtures" aria-labelledby="fixtures-2026-2027-crucible-reracks">
+      <h2 id="fixtures-2026-2027-crucible-reracks">Fixtures</h2>
+      <div class="card">
+      <h3 id="results-2026-2027-crucible-reracks">Results</h3>
+      <div class="fixture-list">
+      <details class="fixture played">
+        <summary>
+          <span class="badge l" aria-label="Lost">L</span>
+          <div>
+            <p class="when">Mon 9 November · Home</p>
+            <p class="detail"><span class="score">4–5</span> v The Wheatsheaf</p>
+          </div>
+        </summary>
+        <div class="match-frames">
+        <h3>Singles</h3>
+        <ol class="frame-list">
+          <li class="won"><span class="us-player">David Johnson</span> beat Luke Mason</li>
+          <li class="lost"><span class="us-player">Hannah Johnson</span> lost to Simon Barnaby</li>
+          <li class="lost"><span class="us-player">Steve Graham</span> lost to Andy Turley</li>
+          <li class="won"><span class="us-player">Shaun Amor</span> beat Robert Black</li>
+          <li class="lost"><span class="us-player">Martin Stone</span> lost to Harry Barnes</li>
+          <li class="lost"><span class="us-player">Chris Smith</span> lost to Luke Manton</li>
+        </ol>
+        <h3>Doubles</h3>
+        <ol class="frame-list">
+          <li class="won"><span class="us-player">David Johnson &amp; Hannah Johnson</span> beat Andy Turley &amp; Luke Mason</li>
+          <li class="lost"><span class="us-player">Steve Graham &amp; Martin Stone</span> lost to Harry Barnes &amp; Luke Manton</li>
+          <li class="won"><span class="us-player">Shaun Amor &amp; Chris Smith</span> beat Simon Barnaby &amp; Robert Black</li>
+        </ol>
+        </div>
+      </details>
+      <details class="fixture played">
+        <summary>
+          <span class="badge w" aria-label="Won">W</span>
+          <div>
+            <p class="when">Mon 2 November · Home</p>
+            <p class="detail"><span class="score">6–3</span> v The Monnie</p>
+          </div>
+        </summary>
+        <div class="match-frames">
+        <h3>Singles</h3>
+        <ol class="frame-list">
+          <li class="won"><span class="us-player">David Johnson</span> beat James Harvey</li>
+          <li class="lost"><span class="us-player">Shaun Amor</span> lost to Toby House</li>
+          <li class="won"><span class="us-player">Hannah Johnson</span> beat S Grant</li>
+          <li class="won"><span class="us-player">Martin Stone</span> beat ed schofield</li>
+          <li class="lost"><span class="us-player">Steve Graham</span> lost to S Fenemore</li>
+          <li class="won"><span class="us-player">Chris Smith</span> beat James Page</li>
+        </ol>
+        <h3>Doubles</h3>
+        <ol class="frame-list">
+          <li class="lost"><span class="us-player">David Johnson &amp; Hannah Johnson</span> lost to James Harvey &amp; S Grant</li>
+          <li class="won"><span class="us-player">Shaun Amor &amp; Chris Smith</span> beat James Page &amp; Toby House</li>
+          <li class="won"><span class="us-player">Steve Graham &amp; Martin Stone</span> beat S Fenemore &amp; ed schofield</li>
+        </ol>
+        </div>
+      </details>
+      <details class="fixture played">
+        <summary>
+          <span class="badge w" aria-label="Won">W</span>
+          <div>
+            <p class="when">Mon 19 October · Away</p>
+            <p class="detail"><span class="score">9–0</span> v The Old Chequers</p>
+          </div>
+        </summary>
+        <div class="match-frames">
+        <h3>Singles</h3>
+        <ol class="frame-list">
+          <li class="won"><span class="us-player">David Johnson</span> beat Sam Mildenhall</li>
+          <li class="won"><span class="us-player">Steve Graham</span> beat Jimmie Anns</li>
+          <li class="won"><span class="us-player">Marc Rollings</span> beat Alan Cooper</li>
+          <li class="won"><span class="us-player">Hannah Johnson</span> beat Simon Payne</li>
+          <li class="won"><span class="us-player">Martin Stone</span> beat Tom Keefe</li>
+          <li class="won"><span class="us-player">Shaun Amor</span> beat charlie bullock</li>
+        </ol>
+        <h3>Doubles</h3>
+        <ol class="frame-list">
+          <li class="won"><span class="us-player">David Johnson &amp; Hannah Johnson</span> beat Alan Cooper &amp; Tom Keefe</li>
+          <li class="won"><span class="us-player">Steve Graham &amp; Marc Rollings</span> beat Jimmie Anns &amp; Sam Mildenhall</li>
+          <li class="won"><span class="us-player">Martin Stone &amp; Shaun Amor</span> beat Simon Payne &amp; charlie bullock</li>
+        </ol>
+        </div>
+      </details>
+      <details class="fixture played">
+        <summary>
+          <span class="badge w" aria-label="Won">W</span>
+          <div>
+            <p class="when">Mon 12 October · Home</p>
+            <p class="detail"><span class="score">7–2</span> v Badgers at The Wellie</p>
+          </div>
+        </summary>
+        <div class="match-frames">
+        <h3>Singles</h3>
+        <ol class="frame-list">
+          <li class="won"><span class="us-player">David Johnson</span> beat Neil Tuffnell</li>
+          <li class="won"><span class="us-player">Steve Graham</span> beat Wayne Morgan</li>
+          <li class="won"><span class="us-player">Hannah Johnson</span> beat Alex Farington</li>
+          <li class="won"><span class="us-player">Matt Stone</span> beat Alex Morgan</li>
+          <li class="lost"><span class="us-player">Martin Stone</span> lost to Phil Capel</li>
+          <li class="won"><span class="us-player">Chris Smith</span> beat Leigh Williams</li>
+        </ol>
+        <h3>Doubles</h3>
+        <ol class="frame-list">
+          <li class="won"><span class="us-player">David Johnson &amp; Hannah Johnson</span> beat Alex Farington &amp; Phil Capel</li>
+          <li class="lost"><span class="us-player">Steve Graham &amp; Chris Smith</span> lost to Alex Morgan &amp; Wayne Morgan</li>
+          <li class="won"><span class="us-player">Martin Stone &amp; Matt Stone</span> beat Neil Tuffnell &amp; Leigh Williams</li>
+        </ol>
+        </div>
+      </details>
+      <details class="fixture played">
+        <summary>
+          <span class="badge l" aria-label="Lost">L</span>
+          <div>
+            <p class="when">Mon 5 October · Away</p>
+            <p class="detail"><span class="score">1–8</span> v Crucible Avengers</p>
+          </div>
+        </summary>
+        <div class="match-frames">
+        <h3>Singles</h3>
+        <ol class="frame-list">
+          <li class="lost"><span class="us-player">Steve Graham</span> lost to Rab Weir</li>
+          <li class="lost"><span class="us-player">David Johnson</span> lost to Jason Byng</li>
+          <li class="lost"><span class="us-player">Hannah Johnson</span> lost to Robert Head</li>
+          <li class="lost"><span class="us-player">Martin Stone</span> lost to Dave Bennett</li>
+          <li class="lost"><span class="us-player">Shaun Amor</span> lost to Mark Hopkin</li>
+          <li class="won"><span class="us-player">Chris Smith</span> beat Ali Daley</li>
+        </ol>
+        <h3>Doubles</h3>
+        <ol class="frame-list">
+          <li class="lost"><span class="us-player">Shaun Amor &amp; Hannah Johnson</span> lost to Rab Weir &amp; Dave Bennett</li>
+          <li class="lost"><span class="us-player">David Johnson &amp; Steve Graham</span> lost to Mark Hopkin &amp; Robert Head</li>
+          <li class="lost"><span class="us-player">Martin Stone &amp; Chris Smith</span> lost to Jason Byng &amp; Ali Daley</li>
+        </ol>
+        </div>
+      </details>
+      <details class="fixture played">
+        <summary>
+          <span class="badge w" aria-label="Won">W</span>
+          <div>
+            <p class="when">Mon 21 September · Home</p>
+            <p class="detail"><span class="score">8–1</span> v The Lamb</p>
+          </div>
+        </summary>
+        <div class="match-frames">
+        <h3>Singles</h3>
+        <ol class="frame-list">
+          <li class="won"><span class="us-player">David Johnson</span> beat Jimmy Pearce</li>
+          <li class="won"><span class="us-player">Steve Graham</span> beat Steve Green</li>
+          <li class="won"><span class="us-player">Shaun Amor</span> beat Terry Ward</li>
+          <li class="won"><span class="us-player">Hannah Johnson</span> beat G Tucker</li>
+          <li class="won"><span class="us-player">Marc Rollings</span> beat Dave Bartholomew</li>
+          <li class="lost"><span class="us-player">Martin Stone</span> lost to C Pawley</li>
+        </ol>
+        <h3>Doubles</h3>
+        <ol class="frame-list">
+          <li class="won"><span class="us-player">David Johnson &amp; Hannah Johnson</span> beat Jimmy Pearce &amp; Dave Bartholomew</li>
+          <li class="won"><span class="us-player">Martin Stone &amp; Steve Graham</span> beat C Pawley &amp; Terry Ward</li>
+          <li class="won"><span class="us-player">Shaun Amor &amp; Marc Rollings</span> beat Steve Green &amp; G Tucker</li>
+        </ol>
+        </div>
+      </details>
+      <details class="fixture played">
+        <summary>
+          <span class="badge w" aria-label="Won">W</span>
+          <div>
+            <p class="when">Mon 14 September · Home</p>
+            <p class="detail"><span class="score">6–3</span> v Paggies A</p>
+          </div>
+        </summary>
+        <div class="match-frames">
+        <h3>Singles</h3>
+        <ol class="frame-list">
+          <li class="lost"><span class="us-player">Steve Graham</span> lost to Iain Black</li>
+          <li class="won"><span class="us-player">Shaun Amor</span> beat Graham Beasley</li>
+          <li class="won"><span class="us-player">Matt Stone</span> beat Jamie Cresswell</li>
+          <li class="lost"><span class="us-player">Martin Stone</span> lost to Molly Gooch</li>
+          <li class="won"><span class="us-player">Marc Rollings</span> beat Ron Fairish</li>
+          <li class="lost"><span class="us-player">Chris Smith</span> lost to Iain Gooch</li>
+        </ol>
+        <h3>Doubles</h3>
+        <ol class="frame-list">
+          <li class="won"><span class="us-player">Martin Stone &amp; Matt Stone</span> beat Ron Fairish &amp; Graham Beasley</li>
+          <li class="won"><span class="us-player">Steve Graham &amp; Marc Rollings</span> beat Iain Gooch &amp; Molly Gooch</li>
+          <li class="won"><span class="us-player">Chris Smith &amp; Shaun Amor</span> beat Wayne Thompson &amp; Iain Black</li>
+        </ol>
+        </div>
+      </details>
+      <details class="fixture played">
+        <summary>
+          <span class="badge w" aria-label="Won">W</span>
+          <div>
+            <p class="when">Mon 7 September · Away</p>
+            <p class="detail"><span class="score">6–3</span> v The Master Gators</p>
+          </div>
+        </summary>
+        <div class="match-frames">
+        <h3>Singles</h3>
+        <ol class="frame-list">
+          <li class="won"><span class="us-player">Shaun Amor</span> beat Fritz Johnson</li>
+          <li class="won"><span class="us-player">Martin Stone</span> beat Tony Busby</li>
+          <li class="won"><span class="us-player">Marc Rollings</span> beat Paul Sheldon</li>
+          <li class="won"><span class="us-player">Matt Stone</span> beat Linda Ball</li>
+          <li class="lost"><span class="us-player">Steve Graham</span> lost to Dan Stevens</li>
+          <li class="won"><span class="us-player">Chris Smith</span> beat ben roberts</li>
+        </ol>
+        <h3>Doubles</h3>
+        <ol class="frame-list">
+          <li class="lost"><span class="us-player">Steve Graham &amp; Marc Rollings</span> lost to Tony Busby &amp; Dan Stevens</li>
+          <li class="lost"><span class="us-player">Chris Smith &amp; Shaun Amor</span> lost to Paul Sheldon &amp; Fritz Johnson</li>
+          <li class="won"><span class="us-player">Martin Stone &amp; Matt Stone</span> beat ben roberts &amp; Linda Ball</li>
+        </ol>
+        </div>
+      </details>
+      <div class="fixture static bye">
+        <p class="when">Mon 24 August · Home</p>
+        <p class="detail">Bye</p>
+      </div>
+      <details class="fixture played">
+        <summary>
+          <span class="badge w" aria-label="Won">W</span>
+          <div>
+            <p class="when">Mon 17 August · Away</p>
+            <p class="detail"><span class="score">5–4</span> v The Wheatsheaf</p>
+          </div>
+        </summary>
+        <div class="match-frames">
+        <h3>Singles</h3>
+        <ol class="frame-list">
+          <li class="won"><span class="us-player">David Johnson</span> beat Andy Turley</li>
+          <li class="lost"><span class="us-player">Hannah Johnson</span> lost to Simon Barnaby</li>
+          <li class="won"><span class="us-player">Shaun Amor</span> beat Robert Black</li>
+          <li class="lost"><span class="us-player">Martin Stone</span> lost to Richard Figg</li>
+          <li class="won"><span class="us-player">Steve Graham</span> beat Shaun Collins</li>
+          <li class="lost"><span class="us-player">Leigh Baker</span> lost to Luke Manton</li>
+        </ol>
+        <h3>Doubles</h3>
+        <ol class="frame-list">
+          <li class="won"><span class="us-player">David Johnson &amp; Hannah Johnson</span> beat Richard Figg &amp; Luke Mason</li>
+          <li class="won"><span class="us-player">Shaun Amor &amp; Martin Stone</span> beat Luke Manton &amp; Shaun Collins</li>
+          <li class="lost"><span class="us-player">Leigh Baker &amp; Steve Graham</span> lost to Simon Barnaby &amp; Robert Black</li>
+        </ol>
+        </div>
+      </details>
+      </div>
+      <h3 id="upcoming-2026-2027-crucible-reracks">Upcoming</h3>
+      <div class="fixture-list">
+      <div class="fixture static upcoming">
+        <p class="when">Mon 16 November · 8pm · Away</p>
+        <p class="detail">Bye</p>
+        
+      </div>
+      <div class="fixture static upcoming">
+        <p class="when">Mon 30 November · 8pm · Home</p>
+        <p class="detail">v The Master Gators</p>
+        <p class="venue">at The Crucible</p>
+      </div>
+      <div class="fixture static upcoming">
+        <p class="when">Mon 7 December · 8pm · Away</p>
+        <p class="detail">v Paggies A</p>
+        <p class="venue">at Paggies Bar</p>
+      </div>
+      <div class="fixture static upcoming">
+        <p class="when">Mon 14 December · 8pm · Away</p>
+        <p class="detail">v The Lamb</p>
+        <p class="venue">at The Lamb Inn</p>
+      </div>
+      <div class="fixture static upcoming">
+        <p class="when">Mon 4 January · 8pm · Home</p>
+        <p class="detail">v Crucible Avengers</p>
+        <p class="venue">at The Crucible</p>
+      </div>
+      <div class="fixture static upcoming">
+        <p class="when">Mon 18 January · 8pm · Away</p>
+        <p class="detail">v Badgers at The Wellie</p>
+        <p class="venue">at The Wellington Social Club</p>
+      </div>
+      <div class="fixture static upcoming">
+        <p class="when">Mon 25 January · 8pm · Home</p>
+        <p class="detail">v The Old Chequers</p>
+        <p class="venue">at The Crucible</p>
+      </div>
+      <div class="fixture static upcoming">
+        <p class="when">Mon 1 February · 8pm · Away</p>
+        <p class="detail">v The Monnie</p>
+        <p class="venue">at The Monument</p>
+      </div>
+      </div>
+      </div>
+    </section>
     </div>
     <div class="team-stats" data-team="the-monnie" data-name="The Monnie" hidden>
     <section aria-labelledby="singles-2026-2027-the-monnie">
@@ -1359,6 +2032,295 @@
       </div>
     </section>
       <p class="note">No frames this season: Jordan Skerrett.</p>
+    <section class="fixtures" aria-labelledby="fixtures-2026-2027-the-monnie">
+      <h2 id="fixtures-2026-2027-the-monnie">Fixtures</h2>
+      <div class="card">
+      <h3 id="results-2026-2027-the-monnie">Results</h3>
+      <div class="fixture-list">
+      <details class="fixture played">
+        <summary>
+          <span class="badge w" aria-label="Won">W</span>
+          <div>
+            <p class="when">Mon 9 November · Away</p>
+            <p class="detail"><span class="score">7–2</span> v Crucible Avengers</p>
+          </div>
+        </summary>
+        <div class="match-frames">
+        <h3>Singles</h3>
+        <ol class="frame-list">
+          <li class="won"><span class="us-player">James Harvey</span> beat Rab Weir</li>
+          <li class="lost"><span class="us-player">ed schofield</span> lost to Jason Byng</li>
+          <li class="won"><span class="us-player">S Grant</span> beat Richard Pugh-Roberts</li>
+          <li class="won"><span class="us-player">ermal sado</span> beat Daron Masters</li>
+          <li class="won"><span class="us-player">S Fenemore</span> beat Mark Hopkin</li>
+          <li class="won"><span class="us-player">j breakspear</span> beat Ali Daley</li>
+        </ol>
+        <h3>Doubles</h3>
+        <ol class="frame-list">
+          <li class="won"><span class="us-player">ed schofield &amp; S Fenemore</span> beat Rab Weir &amp; Daron Masters</li>
+          <li class="lost"><span class="us-player">James Harvey &amp; S Grant</span> lost to Mark Hopkin &amp; Richard Pugh-Roberts</li>
+          <li class="won"><span class="us-player">j breakspear &amp; ermal sado</span> beat Ali Daley &amp; Jason Byng</li>
+        </ol>
+        </div>
+      </details>
+      <details class="fixture played">
+        <summary>
+          <span class="badge l" aria-label="Lost">L</span>
+          <div>
+            <p class="when">Mon 2 November · Away</p>
+            <p class="detail"><span class="score">3–6</span> v Crucible Reracks</p>
+          </div>
+        </summary>
+        <div class="match-frames">
+        <h3>Singles</h3>
+        <ol class="frame-list">
+          <li class="lost"><span class="us-player">James Harvey</span> lost to David Johnson</li>
+          <li class="won"><span class="us-player">Toby House</span> beat Shaun Amor</li>
+          <li class="lost"><span class="us-player">S Grant</span> lost to Hannah Johnson</li>
+          <li class="lost"><span class="us-player">ed schofield</span> lost to Martin Stone</li>
+          <li class="won"><span class="us-player">S Fenemore</span> beat Steve Graham</li>
+          <li class="lost"><span class="us-player">James Page</span> lost to Chris Smith</li>
+        </ol>
+        <h3>Doubles</h3>
+        <ol class="frame-list">
+          <li class="won"><span class="us-player">James Harvey &amp; S Grant</span> beat David Johnson &amp; Hannah Johnson</li>
+          <li class="lost"><span class="us-player">James Page &amp; Toby House</span> lost to Shaun Amor &amp; Chris Smith</li>
+          <li class="lost"><span class="us-player">S Fenemore &amp; ed schofield</span> lost to Steve Graham &amp; Martin Stone</li>
+        </ol>
+        </div>
+      </details>
+      <details class="fixture played">
+        <summary>
+          <span class="badge w" aria-label="Won">W</span>
+          <div>
+            <p class="when">Mon 19 October · Home</p>
+            <p class="detail"><span class="score">6–3</span> v Paggies A</p>
+          </div>
+        </summary>
+        <div class="match-frames">
+        <h3>Singles</h3>
+        <ol class="frame-list">
+          <li class="won"><span class="us-player">James Harvey</span> beat Iain Black</li>
+          <li class="lost"><span class="us-player">Andy Humphreys</span> lost to Graham Beasley</li>
+          <li class="won"><span class="us-player">Phil Cope</span> beat Ron Fairish</li>
+          <li class="won"><span class="us-player">S Grant</span> beat Molly Gooch</li>
+          <li class="won"><span class="us-player">j breakspear</span> beat Iain Gooch</li>
+          <li class="lost"><span class="us-player">S Fenemore</span> lost to Wayne Thompson</li>
+        </ol>
+        <h3>Doubles</h3>
+        <ol class="frame-list">
+          <li class="lost"><span class="us-player">James Harvey &amp; S Grant</span> lost to Graham Beasley &amp; Ron Fairish</li>
+          <li class="won"><span class="us-player">Phil Cope &amp; S Fenemore</span> beat Molly Gooch &amp; Iain Gooch</li>
+          <li class="won"><span class="us-player">j breakspear &amp; Andy Humphreys</span> beat Iain Black &amp; Wayne Thompson</li>
+        </ol>
+        </div>
+      </details>
+      <details class="fixture played">
+        <summary>
+          <span class="badge w" aria-label="Won">W</span>
+          <div>
+            <p class="when">Mon 12 October · Away</p>
+            <p class="detail"><span class="score">6–3</span> v The Master Gators</p>
+          </div>
+        </summary>
+        <div class="match-frames">
+        <h3>Singles</h3>
+        <ol class="frame-list">
+          <li class="won"><span class="us-player">James Harvey</span> beat Tony Busby</li>
+          <li class="lost"><span class="us-player">ermal sado</span> lost to Keith Page</li>
+          <li class="lost"><span class="us-player">Andy Humphreys</span> lost to D Withers</li>
+          <li class="won"><span class="us-player">S Grant</span> beat Paul Sheldon</li>
+          <li class="won"><span class="us-player">j breakspear</span> beat Fritz Johnson</li>
+          <li class="won"><span class="us-player">S Fenemore</span> beat Peter Medford</li>
+        </ol>
+        <h3>Doubles</h3>
+        <ol class="frame-list">
+          <li class="won"><span class="us-player">S Grant &amp; James Harvey</span> beat Tony Busby &amp; Peter Medford</li>
+          <li class="won"><span class="us-player">j breakspear &amp; Andy Humphreys</span> beat Fritz Johnson &amp; Keith Page</li>
+          <li class="lost"><span class="us-player">S Fenemore &amp; Toby House</span> lost to Paul Sheldon &amp; D Withers</li>
+        </ol>
+        </div>
+      </details>
+      <div class="fixture static bye">
+        <p class="when">Mon 5 October · Home</p>
+        <p class="detail">Bye</p>
+      </div>
+      <details class="fixture played">
+        <summary>
+          <span class="badge l" aria-label="Lost">L</span>
+          <div>
+            <p class="when">Mon 21 September · Away</p>
+            <p class="detail"><span class="score">4–5</span> v The Wheatsheaf</p>
+          </div>
+        </summary>
+        <div class="match-frames">
+        <h3>Singles</h3>
+        <ol class="frame-list">
+          <li class="won"><span class="us-player">James Harvey</span> beat Matt Turley</li>
+          <li class="lost"><span class="us-player">ermal sado</span> lost to Richard Figg</li>
+          <li class="lost"><span class="us-player">Andy Humphreys</span> lost to Andy Turley</li>
+          <li class="won"><span class="us-player">S Grant</span> beat Robert Black</li>
+          <li class="lost"><span class="us-player">S Fenemore</span> lost to Simon Barnaby</li>
+          <li class="won"><span class="us-player">j breakspear</span> beat Luke Mason</li>
+        </ol>
+        <h3>Doubles</h3>
+        <ol class="frame-list">
+          <li class="lost"><span class="us-player">S Grant &amp; James Harvey</span> lost to Richard Figg &amp; Matt Turley</li>
+          <li class="lost"><span class="us-player">ermal sado &amp; Andy Humphreys</span> lost to Luke Mason &amp; Andy Turley</li>
+          <li class="won"><span class="us-player">S Fenemore &amp; j breakspear</span> beat Simon Barnaby &amp; Robert Black</li>
+        </ol>
+        </div>
+      </details>
+      <details class="fixture played">
+        <summary>
+          <span class="badge w" aria-label="Won">W</span>
+          <div>
+            <p class="when">Mon 14 September · Away</p>
+            <p class="detail"><span class="score">5–4</span> v The Lamb</p>
+          </div>
+        </summary>
+        <div class="match-frames">
+        <h3>Singles</h3>
+        <ol class="frame-list">
+          <li class="lost"><span class="us-player">James Harvey</span> lost to Jimmy Pearce</li>
+          <li class="lost"><span class="us-player">Andy Humphreys</span> lost to Steve Green</li>
+          <li class="won"><span class="us-player">ed schofield</span> beat Paul Thompson</li>
+          <li class="lost"><span class="us-player">S Grant</span> lost to Terry Ward</li>
+          <li class="won"><span class="us-player">j breakspear</span> beat G Tucker</li>
+          <li class="won"><span class="us-player">S Fenemore</span> beat C Pawley</li>
+        </ol>
+        <h3>Doubles</h3>
+        <ol class="frame-list">
+          <li class="won"><span class="us-player">James Harvey &amp; S Grant</span> beat Paul Thompson &amp; G Tucker</li>
+          <li class="lost"><span class="us-player">Andy Humphreys &amp; j breakspear</span> lost to Terry Ward &amp; C Pawley</li>
+          <li class="won"><span class="us-player">S Fenemore &amp; ed schofield</span> beat Steve Green &amp; Jimmy Pearce</li>
+        </ol>
+        </div>
+      </details>
+      <details class="fixture played">
+        <summary>
+          <span class="badge w" aria-label="Won">W</span>
+          <div>
+            <p class="when">Mon 7 September · Home</p>
+            <p class="detail"><span class="score">6–3</span> v The Old Chequers</p>
+          </div>
+        </summary>
+        <div class="match-frames">
+        <h3>Singles</h3>
+        <ol class="frame-list">
+          <li class="won"><span class="us-player">James Harvey</span> beat Alan Cooper</li>
+          <li class="won"><span class="us-player">Andy Humphreys</span> beat Jimmie Anns</li>
+          <li class="lost"><span class="us-player">Toby House</span> lost to Sam Mildenhall</li>
+          <li class="won"><span class="us-player">James Page</span> beat Tom Keefe</li>
+          <li class="lost"><span class="us-player">S Fenemore</span> lost to Richard Aldred</li>
+          <li class="won"><span class="us-player">j breakspear</span> beat charlie bullock</li>
+        </ol>
+        <h3>Doubles</h3>
+        <ol class="frame-list">
+          <li class="won"><span class="us-player">S Fenemore &amp; Toby House</span> beat Sam Mildenhall &amp; Jimmie Anns</li>
+          <li class="won"><span class="us-player">James Harvey &amp; James Page</span> beat Richard Aldred &amp; Tom Keefe</li>
+          <li class="lost"><span class="us-player">j breakspear &amp; Andy Humphreys</span> lost to charlie bullock &amp; Josh Crow</li>
+        </ol>
+        </div>
+      </details>
+      <details class="fixture played">
+        <summary>
+          <span class="badge w" aria-label="Won">W</span>
+          <div>
+            <p class="when">Mon 24 August · Away</p>
+            <p class="detail"><span class="score">6–3</span> v Badgers at The Wellie</p>
+          </div>
+        </summary>
+        <div class="match-frames">
+        <h3>Singles</h3>
+        <ol class="frame-list">
+          <li class="won"><span class="us-player">James Harvey</span> beat Alex Farington</li>
+          <li class="won"><span class="us-player">Toby House</span> beat Callum McDougall-bell</li>
+          <li class="lost"><span class="us-player">James Page</span> lost to Leigh Williams</li>
+          <li class="lost"><span class="us-player">ed schofield</span> lost to Wayne Morgan</li>
+          <li class="lost"><span class="us-player">S Fenemore</span> lost to Neil Tuffnell</li>
+          <li class="won"><span class="us-player">j breakspear</span> beat Phil Capel</li>
+        </ol>
+        <h3>Doubles</h3>
+        <ol class="frame-list">
+          <li class="won"><span class="us-player">James Harvey &amp; James Page</span> beat Alex Morgan &amp; Leigh Williams</li>
+          <li class="won"><span class="us-player">j breakspear &amp; Toby House</span> beat Callum McDougall-bell &amp; Neil Tuffnell</li>
+          <li class="won"><span class="us-player">S Fenemore &amp; ed schofield</span> beat Phil Capel &amp; Wayne Morgan</li>
+        </ol>
+        </div>
+      </details>
+      <details class="fixture played">
+        <summary>
+          <span class="badge l" aria-label="Lost">L</span>
+          <div>
+            <p class="when">Mon 17 August · Home</p>
+            <p class="detail"><span class="score">2–7</span> v Crucible Avengers</p>
+          </div>
+        </summary>
+        <div class="match-frames">
+        <h3>Singles</h3>
+        <ol class="frame-list">
+          <li class="lost"><span class="us-player">James Harvey</span> lost to Rab Weir</li>
+          <li class="lost"><span class="us-player">ed schofield</span> lost to Ben Baker</li>
+          <li class="won"><span class="us-player">James Page</span> beat Jason Byng</li>
+          <li class="won"><span class="us-player">Toby House</span> beat Dave Bennett</li>
+          <li class="lost"><span class="us-player">S Fenemore</span> lost to Mark Hopkin</li>
+          <li class="lost"><span class="us-player">j breakspear</span> lost to Ali Daley</li>
+        </ol>
+        <h3>Doubles</h3>
+        <ol class="frame-list">
+          <li class="lost"><span class="us-player">Andy Humphreys &amp; S Fenemore</span> lost to Rab Weir &amp; Dave Bennett</li>
+          <li class="lost"><span class="us-player">James Page &amp; James Harvey</span> lost to Mark Hopkin &amp; Jason Byng</li>
+          <li class="lost"><span class="us-player">j breakspear &amp; Toby House</span> lost to Ali Daley &amp; Ben Baker</li>
+        </ol>
+        </div>
+      </details>
+      </div>
+      <h3 id="upcoming-2026-2027-the-monnie">Upcoming</h3>
+      <div class="fixture-list">
+      <div class="fixture static upcoming">
+        <p class="when">Mon 16 November · 8pm · Home</p>
+        <p class="detail">v Badgers at The Wellie</p>
+        <p class="venue">at The Monument</p>
+      </div>
+      <div class="fixture static upcoming">
+        <p class="when">Mon 30 November · 8pm · Away</p>
+        <p class="detail">v The Old Chequers</p>
+        <p class="venue">at The Old Chequers</p>
+      </div>
+      <div class="fixture static upcoming">
+        <p class="when">Mon 7 December · 8pm · Home</p>
+        <p class="detail">v The Lamb</p>
+        <p class="venue">at The Monument</p>
+      </div>
+      <div class="fixture static upcoming">
+        <p class="when">Mon 14 December · 8pm · Home</p>
+        <p class="detail">v The Wheatsheaf</p>
+        <p class="venue">at The Monument</p>
+      </div>
+      <div class="fixture static upcoming">
+        <p class="when">Mon 4 January · 8pm · Away</p>
+        <p class="detail">Bye</p>
+        
+      </div>
+      <div class="fixture static upcoming">
+        <p class="when">Mon 18 January · 8pm · Home</p>
+        <p class="detail">v The Master Gators</p>
+        <p class="venue">at The Monument</p>
+      </div>
+      <div class="fixture static upcoming">
+        <p class="when">Mon 25 January · 8pm · Away</p>
+        <p class="detail">v Paggies A</p>
+        <p class="venue">at Paggies Bar</p>
+      </div>
+      <div class="fixture static upcoming">
+        <p class="when">Mon 1 February · 8pm · Home</p>
+        <p class="detail">v Crucible Reracks</p>
+        <p class="venue">at The Monument</p>
+      </div>
+      </div>
+      </div>
+    </section>
     </div>
     <div class="team-stats" data-team="badgers-at-the-wellie" data-name="Badgers at The Wellie" hidden>
     <section aria-labelledby="singles-2026-2027-badgers-at-the-wellie">
@@ -1626,6 +2588,295 @@
       </div>
     </section>
       <p class="note">No frames this season: Andy Russell, Ben Brown, Callum Russell, Chris Burge, Darryl Cottrell, Dennis Healy, Grant Hayward, Justin Digance, Lee Calcutt, Lee Doran, Lewis Payne, Liam Cheverton, Mike Potts, Reece Hepden-Barker, Trevor Bartlett.</p>
+    <section class="fixtures" aria-labelledby="fixtures-2026-2027-badgers-at-the-wellie">
+      <h2 id="fixtures-2026-2027-badgers-at-the-wellie">Fixtures</h2>
+      <div class="card">
+      <h3 id="results-2026-2027-badgers-at-the-wellie">Results</h3>
+      <div class="fixture-list">
+      <details class="fixture played">
+        <summary>
+          <span class="badge w" aria-label="Won">W</span>
+          <div>
+            <p class="when">Mon 9 November · Home</p>
+            <p class="detail"><span class="score">6–3</span> v The Old Chequers</p>
+          </div>
+        </summary>
+        <div class="match-frames">
+        <h3>Singles</h3>
+        <ol class="frame-list">
+          <li class="won"><span class="us-player">Leigh Williams</span> beat Simon Cropper</li>
+          <li class="lost"><span class="us-player">James Hammond</span> lost to Ben Effer</li>
+          <li class="won"><span class="us-player">Alex Morgan</span> beat Tom Keefe</li>
+          <li class="won"><span class="us-player">Alex Farington</span> beat Simon Payne</li>
+          <li class="won"><span class="us-player">Wayne Morgan</span> beat charlie bullock</li>
+          <li class="lost"><span class="us-player">Phil Capel</span> lost to Jimmie Anns</li>
+        </ol>
+        <h3>Doubles</h3>
+        <ol class="frame-list">
+          <li class="lost"><span class="us-player">Phil Capel &amp; Leigh Williams</span> lost to Ben Effer &amp; Jimmie Anns</li>
+          <li class="won"><span class="us-player">Alex Morgan &amp; James Hammond</span> beat Simon Cropper &amp; Tom Keefe</li>
+          <li class="won"><span class="us-player">Alex Farington &amp; Wayne Morgan</span> beat charlie bullock &amp; Simon Payne</li>
+        </ol>
+        </div>
+      </details>
+      <details class="fixture played">
+        <summary>
+          <span class="badge w" aria-label="Won">W</span>
+          <div>
+            <p class="when">Mon 2 November · Away</p>
+            <p class="detail"><span class="score">6–3</span> v The Lamb</p>
+          </div>
+        </summary>
+        <div class="match-frames">
+        <h3>Singles</h3>
+        <ol class="frame-list">
+          <li class="won"><span class="us-player">Alex Morgan</span> beat Jimmy Pearce</li>
+          <li class="lost"><span class="us-player">Callum McDougall-bell</span> lost to Steve Green</li>
+          <li class="won"><span class="us-player">Wayne Morgan</span> beat Josie Wells</li>
+          <li class="won"><span class="us-player">Leigh Williams</span> beat G Tucker</li>
+          <li class="won"><span class="us-player">Alex Farington</span> beat Terry Ward</li>
+          <li class="won"><span class="us-player">Phil Capel</span> beat C Pawley</li>
+        </ol>
+        <h3>Doubles</h3>
+        <ol class="frame-list">
+          <li class="lost"><span class="us-player">Alex Morgan &amp; Leigh Williams</span> lost to Jimmy Pearce &amp; G Tucker</li>
+          <li class="won"><span class="us-player">Wayne Morgan &amp; Alex Farington</span> beat C Pawley &amp; Terry Ward</li>
+          <li class="lost"><span class="us-player">Phil Capel &amp; Callum McDougall-bell</span> lost to Steve Green &amp; Josie Wells</li>
+        </ol>
+        </div>
+      </details>
+      <details class="fixture played">
+        <summary>
+          <span class="badge l" aria-label="Lost">L</span>
+          <div>
+            <p class="when">Mon 19 October · Home</p>
+            <p class="detail"><span class="score">3–6</span> v Crucible Avengers</p>
+          </div>
+        </summary>
+        <div class="match-frames">
+        <h3>Singles</h3>
+        <ol class="frame-list">
+          <li class="lost"><span class="us-player">Neil Tuffnell</span> lost to Rab Weir</li>
+          <li class="won"><span class="us-player">James Hammond</span> beat Richard Pugh-Roberts</li>
+          <li class="lost"><span class="us-player">Leigh Williams</span> lost to Robert Head</li>
+          <li class="lost"><span class="us-player">Alex Morgan</span> lost to Daron Masters</li>
+          <li class="lost"><span class="us-player">Wayne Morgan</span> lost to Mark Hopkin</li>
+          <li class="won"><span class="us-player">Phil Capel</span> beat Ali Daley</li>
+        </ol>
+        <h3>Doubles</h3>
+        <ol class="frame-list">
+          <li class="lost"><span class="us-player">Alex Farington &amp; Wayne Morgan</span> lost to Rab Weir &amp; Richard Pugh-Roberts</li>
+          <li class="lost"><span class="us-player">Phil Capel &amp; Neil Tuffnell</span> lost to Robert Head &amp; Mark Hopkin</li>
+          <li class="won"><span class="us-player">James Hammond &amp; Alex Morgan</span> beat Daron Masters &amp; Ali Daley</li>
+        </ol>
+        </div>
+      </details>
+      <details class="fixture played">
+        <summary>
+          <span class="badge l" aria-label="Lost">L</span>
+          <div>
+            <p class="when">Mon 12 October · Away</p>
+            <p class="detail"><span class="score">2–7</span> v Crucible Reracks</p>
+          </div>
+        </summary>
+        <div class="match-frames">
+        <h3>Singles</h3>
+        <ol class="frame-list">
+          <li class="lost"><span class="us-player">Neil Tuffnell</span> lost to David Johnson</li>
+          <li class="lost"><span class="us-player">Wayne Morgan</span> lost to Steve Graham</li>
+          <li class="lost"><span class="us-player">Alex Farington</span> lost to Hannah Johnson</li>
+          <li class="lost"><span class="us-player">Alex Morgan</span> lost to Matt Stone</li>
+          <li class="won"><span class="us-player">Phil Capel</span> beat Martin Stone</li>
+          <li class="lost"><span class="us-player">Leigh Williams</span> lost to Chris Smith</li>
+        </ol>
+        <h3>Doubles</h3>
+        <ol class="frame-list">
+          <li class="lost"><span class="us-player">Alex Farington &amp; Phil Capel</span> lost to David Johnson &amp; Hannah Johnson</li>
+          <li class="won"><span class="us-player">Alex Morgan &amp; Wayne Morgan</span> beat Steve Graham &amp; Chris Smith</li>
+          <li class="lost"><span class="us-player">Neil Tuffnell &amp; Leigh Williams</span> lost to Martin Stone &amp; Matt Stone</li>
+        </ol>
+        </div>
+      </details>
+      <details class="fixture played">
+        <summary>
+          <span class="badge w" aria-label="Won">W</span>
+          <div>
+            <p class="when">Mon 5 October · Home</p>
+            <p class="detail"><span class="score">5–4</span> v Paggies A</p>
+          </div>
+        </summary>
+        <div class="match-frames">
+        <h3>Singles</h3>
+        <ol class="frame-list">
+          <li class="lost"><span class="us-player">Callum McDougall-bell</span> lost to Jamie Cresswell</li>
+          <li class="won"><span class="us-player">Neil Tuffnell</span> beat Iain Black</li>
+          <li class="won"><span class="us-player">Alex Morgan</span> beat Molly Gooch</li>
+          <li class="lost"><span class="us-player">Leigh Williams</span> lost to Ron Fairish</li>
+          <li class="lost"><span class="us-player">Wayne Morgan</span> lost to Iain Gooch</li>
+          <li class="won"><span class="us-player">Phil Capel</span> beat Wayne Thompson</li>
+        </ol>
+        <h3>Doubles</h3>
+        <ol class="frame-list">
+          <li class="lost"><span class="us-player">James Hammond &amp; Alex Morgan</span> lost to Ron Fairish &amp; Graham Beasley</li>
+          <li class="won"><span class="us-player">Callum McDougall-bell &amp; Phil Capel</span> beat Molly Gooch &amp; Iain Gooch</li>
+          <li class="won"><span class="us-player">Neil Tuffnell &amp; Leigh Williams</span> beat Jamie Cresswell &amp; Iain Black</li>
+        </ol>
+        </div>
+      </details>
+      <details class="fixture played">
+        <summary>
+          <span class="badge w" aria-label="Won">W</span>
+          <div>
+            <p class="when">Mon 21 September · Away</p>
+            <p class="detail"><span class="score">6–3</span> v The Master Gators</p>
+          </div>
+        </summary>
+        <div class="match-frames">
+        <h3>Singles</h3>
+        <ol class="frame-list">
+          <li class="won"><span class="us-player">Alex Farington</span> beat Peter Medford</li>
+          <li class="won"><span class="us-player">Neil Tuffnell</span> beat Tony Busby</li>
+          <li class="won"><span class="us-player">Wayne Morgan</span> beat Keith Page</li>
+          <li class="lost"><span class="us-player">Alex Morgan</span> lost to Linda Ball</li>
+          <li class="lost"><span class="us-player">Leigh Williams</span> lost to Fritz Johnson</li>
+          <li class="won"><span class="us-player">Callum McDougall-bell</span> beat ben roberts</li>
+        </ol>
+        <h3>Doubles</h3>
+        <ol class="frame-list">
+          <li class="lost"><span class="us-player">Alex Farington &amp; Alex Morgan</span> lost to Tony Busby &amp; Peter Medford</li>
+          <li class="won"><span class="us-player">Wayne Morgan &amp; Neil Tuffnell</span> beat Linda Ball &amp; Keith Page</li>
+          <li class="won"><span class="us-player">Leigh Williams &amp; Callum McDougall-bell</span> beat ben roberts &amp; Fritz Johnson</li>
+        </ol>
+        </div>
+      </details>
+      <div class="fixture static bye">
+        <p class="when">Mon 14 September · Home</p>
+        <p class="detail">Bye</p>
+      </div>
+      <details class="fixture played">
+        <summary>
+          <span class="badge w" aria-label="Won">W</span>
+          <div>
+            <p class="when">Mon 7 September · Away</p>
+            <p class="detail"><span class="score">5–4</span> v The Wheatsheaf</p>
+          </div>
+        </summary>
+        <div class="match-frames">
+        <h3>Singles</h3>
+        <ol class="frame-list">
+          <li class="lost"><span class="us-player">Alex Farington</span> lost to Andy Turley</li>
+          <li class="won"><span class="us-player">Wayne Morgan</span> beat Simon Barnaby</li>
+          <li class="lost"><span class="us-player">Alex Morgan</span> lost to Robert Black</li>
+          <li class="lost"><span class="us-player">Neil Tuffnell</span> lost to Richard Figg</li>
+          <li class="won"><span class="us-player">Callum McDougall-bell</span> beat Luke Mason</li>
+          <li class="won"><span class="us-player">Phil Capel</span> beat Luke Manton</li>
+        </ol>
+        <h3>Doubles</h3>
+        <ol class="frame-list">
+          <li class="won"><span class="us-player">Alex Farington &amp; Alex Morgan</span> beat Andy Turley &amp; Richard Figg</li>
+          <li class="won"><span class="us-player">Wayne Morgan &amp; Neil Tuffnell</span> beat Luke Manton &amp; Luke Mason</li>
+          <li class="lost"><span class="us-player">Callum McDougall-bell &amp; Phil Capel</span> lost to Simon Barnaby &amp; Robert Black</li>
+        </ol>
+        </div>
+      </details>
+      <details class="fixture played">
+        <summary>
+          <span class="badge l" aria-label="Lost">L</span>
+          <div>
+            <p class="when">Mon 24 August · Home</p>
+            <p class="detail"><span class="score">3–6</span> v The Monnie</p>
+          </div>
+        </summary>
+        <div class="match-frames">
+        <h3>Singles</h3>
+        <ol class="frame-list">
+          <li class="lost"><span class="us-player">Alex Farington</span> lost to James Harvey</li>
+          <li class="lost"><span class="us-player">Callum McDougall-bell</span> lost to Toby House</li>
+          <li class="won"><span class="us-player">Leigh Williams</span> beat James Page</li>
+          <li class="won"><span class="us-player">Wayne Morgan</span> beat ed schofield</li>
+          <li class="won"><span class="us-player">Neil Tuffnell</span> beat S Fenemore</li>
+          <li class="lost"><span class="us-player">Phil Capel</span> lost to j breakspear</li>
+        </ol>
+        <h3>Doubles</h3>
+        <ol class="frame-list">
+          <li class="lost"><span class="us-player">Alex Morgan &amp; Leigh Williams</span> lost to James Harvey &amp; James Page</li>
+          <li class="lost"><span class="us-player">Callum McDougall-bell &amp; Neil Tuffnell</span> lost to j breakspear &amp; Toby House</li>
+          <li class="lost"><span class="us-player">Phil Capel &amp; Wayne Morgan</span> lost to S Fenemore &amp; ed schofield</li>
+        </ol>
+        </div>
+      </details>
+      <details class="fixture played">
+        <summary>
+          <span class="badge w" aria-label="Won">W</span>
+          <div>
+            <p class="when">Mon 17 August · Away</p>
+            <p class="detail"><span class="score">7–2</span> v The Old Chequers</p>
+          </div>
+        </summary>
+        <div class="match-frames">
+        <h3>Singles</h3>
+        <ol class="frame-list">
+          <li class="won"><span class="us-player">Neil Tuffnell</span> beat Alan Cooper</li>
+          <li class="won"><span class="us-player">Alex Farington</span> beat Jimmie Anns</li>
+          <li class="lost"><span class="us-player">Leigh Williams</span> lost to Tom Keefe</li>
+          <li class="won"><span class="us-player">Alex Morgan</span> beat Richard Aldred</li>
+          <li class="won"><span class="us-player">Callum McDougall-bell</span> beat Simon Payne</li>
+          <li class="won"><span class="us-player">Wayne Morgan</span> beat charlie bullock</li>
+        </ol>
+        <h3>Doubles</h3>
+        <ol class="frame-list">
+          <li class="won"><span class="us-player">Alex Farington &amp; Wayne Morgan</span> beat Alan Cooper &amp; Simon Payne</li>
+          <li class="won"><span class="us-player">Leigh Williams &amp; Neil Tuffnell</span> beat Richard Aldred &amp; Tom Keefe</li>
+          <li class="lost"><span class="us-player">Alex Morgan &amp; Callum McDougall-bell</span> lost to charlie bullock &amp; Jimmie Anns</li>
+        </ol>
+        </div>
+      </details>
+      </div>
+      <h3 id="upcoming-2026-2027-badgers-at-the-wellie">Upcoming</h3>
+      <div class="fixture-list">
+      <div class="fixture static upcoming">
+        <p class="when">Mon 16 November · 8pm · Away</p>
+        <p class="detail">v The Monnie</p>
+        <p class="venue">at The Monument</p>
+      </div>
+      <div class="fixture static upcoming">
+        <p class="when">Mon 30 November · 8pm · Home</p>
+        <p class="detail">v The Wheatsheaf</p>
+        <p class="venue">at The Wellington Social Club</p>
+      </div>
+      <div class="fixture static upcoming">
+        <p class="when">Mon 7 December · 8pm · Away</p>
+        <p class="detail">Bye</p>
+        
+      </div>
+      <div class="fixture static upcoming">
+        <p class="when">Mon 14 December · 8pm · Home</p>
+        <p class="detail">v The Master Gators</p>
+        <p class="venue">at The Wellington Social Club</p>
+      </div>
+      <div class="fixture static upcoming">
+        <p class="when">Mon 4 January · 8pm · Away</p>
+        <p class="detail">v Paggies A</p>
+        <p class="venue">at Paggies Bar</p>
+      </div>
+      <div class="fixture static upcoming">
+        <p class="when">Mon 18 January · 8pm · Home</p>
+        <p class="detail">v Crucible Reracks</p>
+        <p class="venue">at The Wellington Social Club</p>
+      </div>
+      <div class="fixture static upcoming">
+        <p class="when">Mon 25 January · 8pm · Away</p>
+        <p class="detail">v Crucible Avengers</p>
+        <p class="venue">at The Crucible</p>
+      </div>
+      <div class="fixture static upcoming">
+        <p class="when">Mon 1 February · 8pm · Home</p>
+        <p class="detail">v The Lamb</p>
+        <p class="venue">at The Wellington Social Club</p>
+      </div>
+      </div>
+      </div>
+    </section>
     </div>
     <div class="team-stats" data-team="the-wheatsheaf" data-name="The Wheatsheaf" data-home="true">
     <section aria-labelledby="singles-2026-2027-the-wheatsheaf">
@@ -1914,6 +3165,295 @@
       </div>
     </section>
       <p class="note">No frames this season: Andy Barnes, Andy Brant, Dave Higgins, Kelly Russel, Robert Allen.</p>
+    <section class="fixtures" aria-labelledby="fixtures-2026-2027-the-wheatsheaf">
+      <h2 id="fixtures-2026-2027-the-wheatsheaf">Fixtures</h2>
+      <div class="card">
+      <h3 id="results-2026-2027-the-wheatsheaf">Results</h3>
+      <div class="fixture-list">
+      <details class="fixture played">
+        <summary>
+          <span class="badge w" aria-label="Won">W</span>
+          <div>
+            <p class="when">Mon 9 November · Away</p>
+            <p class="detail"><span class="score">5–4</span> v Crucible Reracks</p>
+          </div>
+        </summary>
+        <div class="match-frames">
+        <h3>Singles</h3>
+        <ol class="frame-list">
+          <li class="lost"><span class="us-player">Luke Mason</span> lost to David Johnson</li>
+          <li class="won"><span class="us-player">Simon Barnaby</span> beat Hannah Johnson</li>
+          <li class="won"><span class="us-player">Andy Turley</span> beat Steve Graham</li>
+          <li class="lost"><span class="us-player">Robert Black</span> lost to Shaun Amor</li>
+          <li class="won"><span class="us-player">Harry Barnes</span> beat Martin Stone</li>
+          <li class="won"><span class="us-player">Luke Manton</span> beat Chris Smith</li>
+        </ol>
+        <h3>Doubles</h3>
+        <ol class="frame-list">
+          <li class="lost"><span class="us-player">Andy Turley &amp; Luke Mason</span> lost to David Johnson &amp; Hannah Johnson</li>
+          <li class="won"><span class="us-player">Harry Barnes &amp; Luke Manton</span> beat Steve Graham &amp; Martin Stone</li>
+          <li class="lost"><span class="us-player">Simon Barnaby &amp; Robert Black</span> lost to Shaun Amor &amp; Chris Smith</li>
+        </ol>
+        </div>
+      </details>
+      <details class="fixture played">
+        <summary>
+          <span class="badge w" aria-label="Won">W</span>
+          <div>
+            <p class="when">Mon 2 November · Away</p>
+            <p class="detail"><span class="score">5–4</span> v Paggies A</p>
+          </div>
+        </summary>
+        <div class="match-frames">
+        <h3>Singles</h3>
+        <ol class="frame-list">
+          <li class="lost"><span class="us-player">Andy Turley</span> lost to Jamie Cresswell</li>
+          <li class="won"><span class="us-player">Simon Barnaby</span> beat Graham Beasley</li>
+          <li class="lost"><span class="us-player">Robert Black</span> lost to Ron Fairish</li>
+          <li class="won"><span class="us-player">Richard Figg</span> beat Molly Gooch</li>
+          <li class="won"><span class="us-player">Luke Mason</span> beat Iain Gooch</li>
+          <li class="lost"><span class="us-player">Luke Manton</span> lost to Wayne Thompson</li>
+        </ol>
+        <h3>Doubles</h3>
+        <ol class="frame-list">
+          <li class="won"><span class="us-player">Richard Figg &amp; Luke Manton</span> beat Graham Beasley &amp; Ron Fairish</li>
+          <li class="lost"><span class="us-player">Andy Turley &amp; Luke Mason</span> lost to Molly Gooch &amp; Iain Gooch</li>
+          <li class="won"><span class="us-player">Simon Barnaby &amp; Robert Black</span> beat Iain Black &amp; Wayne Thompson</li>
+        </ol>
+        </div>
+      </details>
+      <details class="fixture played">
+        <summary>
+          <span class="badge l" aria-label="Lost">L</span>
+          <div>
+            <p class="when">Mon 19 October · Home</p>
+            <p class="detail"><span class="score">4–5</span> v The Master Gators</p>
+          </div>
+        </summary>
+        <div class="match-frames">
+        <h3>Singles</h3>
+        <ol class="frame-list">
+          <li class="lost"><span class="us-player">Andy Turley</span> lost to Fritz Johnson</li>
+          <li class="won"><span class="us-player">Simon Barnaby</span> beat Keith Page</li>
+          <li class="won"><span class="us-player">Harry Barnes</span> beat Peter Medford</li>
+          <li class="won"><span class="us-player">Richard Figg</span> beat Tony Busby</li>
+          <li class="lost"><span class="us-player">Matt Turley</span> lost to Paul Sheldon</li>
+          <li class="lost"><span class="us-player">Luke Mason</span> lost to ben roberts</li>
+        </ol>
+        <h3>Doubles</h3>
+        <ol class="frame-list">
+          <li class="lost"><span class="us-player">Richard Figg &amp; Matt Turley</span> lost to Tony Busby &amp; Peter Medford</li>
+          <li class="won"><span class="us-player">Andy Turley &amp; Luke Mason</span> beat Paul Sheldon &amp; Fritz Johnson</li>
+          <li class="lost"><span class="us-player">Simon Barnaby &amp; Harry Barnes</span> lost to ben roberts &amp; Keith Page</li>
+        </ol>
+        </div>
+      </details>
+      <div class="fixture static bye">
+        <p class="when">Mon 12 October · Away</p>
+        <p class="detail">Bye</p>
+      </div>
+      <details class="fixture played">
+        <summary>
+          <span class="badge w" aria-label="Won">W</span>
+          <div>
+            <p class="when">Mon 5 October · Away</p>
+            <p class="detail"><span class="score">5–4</span> v The Lamb</p>
+          </div>
+        </summary>
+        <div class="match-frames">
+        <h3>Singles</h3>
+        <ol class="frame-list">
+          <li class="won"><span class="us-player">Andy Turley</span> beat Paul Thompson</li>
+          <li class="won"><span class="us-player">Simon Barnaby</span> beat Terry Ward</li>
+          <li class="lost"><span class="us-player">Luke Manton</span> lost to Steve Green</li>
+          <li class="won"><span class="us-player">Luke Mason</span> beat Dave Bartholomew</li>
+          <li class="won"><span class="us-player">Robert Black</span> beat Tyler Loveridge</li>
+          <li class="lost"><span class="us-player">Richard Figg</span> lost to C Pawley</li>
+        </ol>
+        <h3>Doubles</h3>
+        <ol class="frame-list">
+          <li class="lost"><span class="us-player">Andy Turley &amp; Luke Mason</span> lost to Terry Ward &amp; Paul Thompson</li>
+          <li class="lost"><span class="us-player">Richard Figg &amp; Luke Manton</span> lost to Dave Bartholomew &amp; Steve Green</li>
+          <li class="won"><span class="us-player">Simon Barnaby &amp; Robert Black</span> beat C Pawley &amp; Tyler Loveridge</li>
+        </ol>
+        </div>
+      </details>
+      <details class="fixture played">
+        <summary>
+          <span class="badge w" aria-label="Won">W</span>
+          <div>
+            <p class="when">Mon 21 September · Home</p>
+            <p class="detail"><span class="score">5–4</span> v The Monnie</p>
+          </div>
+        </summary>
+        <div class="match-frames">
+        <h3>Singles</h3>
+        <ol class="frame-list">
+          <li class="lost"><span class="us-player">Matt Turley</span> lost to James Harvey</li>
+          <li class="won"><span class="us-player">Richard Figg</span> beat ermal sado</li>
+          <li class="won"><span class="us-player">Andy Turley</span> beat Andy Humphreys</li>
+          <li class="lost"><span class="us-player">Robert Black</span> lost to S Grant</li>
+          <li class="won"><span class="us-player">Simon Barnaby</span> beat S Fenemore</li>
+          <li class="lost"><span class="us-player">Luke Mason</span> lost to j breakspear</li>
+        </ol>
+        <h3>Doubles</h3>
+        <ol class="frame-list">
+          <li class="won"><span class="us-player">Richard Figg &amp; Matt Turley</span> beat S Grant &amp; James Harvey</li>
+          <li class="won"><span class="us-player">Luke Mason &amp; Andy Turley</span> beat ermal sado &amp; Andy Humphreys</li>
+          <li class="lost"><span class="us-player">Simon Barnaby &amp; Robert Black</span> lost to S Fenemore &amp; j breakspear</li>
+        </ol>
+        </div>
+      </details>
+      <details class="fixture played">
+        <summary>
+          <span class="badge w" aria-label="Won">W</span>
+          <div>
+            <p class="when">Mon 14 September · Away</p>
+            <p class="detail"><span class="score">6–3</span> v The Old Chequers</p>
+          </div>
+        </summary>
+        <div class="match-frames">
+        <h3>Singles</h3>
+        <ol class="frame-list">
+          <li class="won"><span class="us-player">Andy Turley</span> beat Alan Cooper</li>
+          <li class="won"><span class="us-player">Richard Figg</span> beat Jimmie Anns</li>
+          <li class="lost"><span class="us-player">Robert Black</span> lost to Sam Mildenhall</li>
+          <li class="lost"><span class="us-player">Luke Manton</span> lost to Alfie Bullock</li>
+          <li class="won"><span class="us-player">Simon Barnaby</span> beat Tom Keefe</li>
+          <li class="won"><span class="us-player">Luke Mason</span> beat charlie bullock</li>
+        </ol>
+        <h3>Doubles</h3>
+        <ol class="frame-list">
+          <li class="won"><span class="us-player">Andy Turley &amp; Luke Mason</span> beat Alfie Bullock &amp; charlie bullock</li>
+          <li class="won"><span class="us-player">Luke Manton &amp; Richard Figg</span> beat Sam Mildenhall &amp; Jimmie Anns</li>
+          <li class="lost"><span class="us-player">Robert Black &amp; Simon Barnaby</span> lost to Alan Cooper &amp; Tom Keefe</li>
+        </ol>
+        </div>
+      </details>
+      <details class="fixture played">
+        <summary>
+          <span class="badge l" aria-label="Lost">L</span>
+          <div>
+            <p class="when">Mon 7 September · Home</p>
+            <p class="detail"><span class="score">4–5</span> v Badgers at The Wellie</p>
+          </div>
+        </summary>
+        <div class="match-frames">
+        <h3>Singles</h3>
+        <ol class="frame-list">
+          <li class="won"><span class="us-player">Andy Turley</span> beat Alex Farington</li>
+          <li class="lost"><span class="us-player">Simon Barnaby</span> lost to Wayne Morgan</li>
+          <li class="won"><span class="us-player">Robert Black</span> beat Alex Morgan</li>
+          <li class="won"><span class="us-player">Richard Figg</span> beat Neil Tuffnell</li>
+          <li class="lost"><span class="us-player">Luke Mason</span> lost to Callum McDougall-bell</li>
+          <li class="lost"><span class="us-player">Luke Manton</span> lost to Phil Capel</li>
+        </ol>
+        <h3>Doubles</h3>
+        <ol class="frame-list">
+          <li class="lost"><span class="us-player">Andy Turley &amp; Richard Figg</span> lost to Alex Farington &amp; Alex Morgan</li>
+          <li class="lost"><span class="us-player">Luke Manton &amp; Luke Mason</span> lost to Wayne Morgan &amp; Neil Tuffnell</li>
+          <li class="won"><span class="us-player">Simon Barnaby &amp; Robert Black</span> beat Callum McDougall-bell &amp; Phil Capel</li>
+        </ol>
+        </div>
+      </details>
+      <details class="fixture played">
+        <summary>
+          <span class="badge l" aria-label="Lost">L</span>
+          <div>
+            <p class="when">Mon 24 August · Away</p>
+            <p class="detail"><span class="score">4–5</span> v Crucible Avengers</p>
+          </div>
+        </summary>
+        <div class="match-frames">
+        <h3>Singles</h3>
+        <ol class="frame-list">
+          <li class="lost"><span class="us-player">Andy Turley</span> lost to Jason Byng</li>
+          <li class="won"><span class="us-player">Simon Barnaby</span> beat Daron Masters</li>
+          <li class="lost"><span class="us-player">Robert Black</span> lost to Robert Head</li>
+          <li class="lost"><span class="us-player">Richard Figg</span> lost to Dave Bennett</li>
+          <li class="lost"><span class="us-player">Luke Mason</span> lost to Mark Hopkin</li>
+          <li class="won"><span class="us-player">Luke Manton</span> beat Ali Daley</li>
+        </ol>
+        <h3>Doubles</h3>
+        <ol class="frame-list">
+          <li class="won"><span class="us-player">Andy Turley &amp; Richard Figg</span> beat Dave Bennett &amp; Ali Daley</li>
+          <li class="lost"><span class="us-player">Luke Mason &amp; Luke Manton</span> lost to Mark Hopkin &amp; Robert Head</li>
+          <li class="won"><span class="us-player">Simon Barnaby &amp; Robert Black</span> beat Jason Byng &amp; Daron Masters</li>
+        </ol>
+        </div>
+      </details>
+      <details class="fixture played">
+        <summary>
+          <span class="badge l" aria-label="Lost">L</span>
+          <div>
+            <p class="when">Mon 17 August · Home</p>
+            <p class="detail"><span class="score">4–5</span> v Crucible Reracks</p>
+          </div>
+        </summary>
+        <div class="match-frames">
+        <h3>Singles</h3>
+        <ol class="frame-list">
+          <li class="lost"><span class="us-player">Andy Turley</span> lost to David Johnson</li>
+          <li class="won"><span class="us-player">Simon Barnaby</span> beat Hannah Johnson</li>
+          <li class="lost"><span class="us-player">Robert Black</span> lost to Shaun Amor</li>
+          <li class="won"><span class="us-player">Richard Figg</span> beat Martin Stone</li>
+          <li class="lost"><span class="us-player">Shaun Collins</span> lost to Steve Graham</li>
+          <li class="won"><span class="us-player">Luke Manton</span> beat Leigh Baker</li>
+        </ol>
+        <h3>Doubles</h3>
+        <ol class="frame-list">
+          <li class="lost"><span class="us-player">Richard Figg &amp; Luke Mason</span> lost to David Johnson &amp; Hannah Johnson</li>
+          <li class="lost"><span class="us-player">Luke Manton &amp; Shaun Collins</span> lost to Shaun Amor &amp; Martin Stone</li>
+          <li class="won"><span class="us-player">Simon Barnaby &amp; Robert Black</span> beat Leigh Baker &amp; Steve Graham</li>
+        </ol>
+        </div>
+      </details>
+      </div>
+      <h3 id="upcoming-2026-2027-the-wheatsheaf">Upcoming</h3>
+      <div class="fixture-list">
+      <div class="fixture static upcoming">
+        <p class="when">Mon 16 November · 8pm · Home</p>
+        <p class="detail">v Crucible Avengers</p>
+        <p class="venue">at The Wheatsheaf</p>
+      </div>
+      <div class="fixture static upcoming">
+        <p class="when">Mon 30 November · 8pm · Away</p>
+        <p class="detail">v Badgers at The Wellie</p>
+        <p class="venue">at The Wellington Social Club</p>
+      </div>
+      <div class="fixture static upcoming">
+        <p class="when">Mon 7 December · 8pm · Home</p>
+        <p class="detail">v The Old Chequers</p>
+        <p class="venue">at The Wheatsheaf</p>
+      </div>
+      <div class="fixture static upcoming">
+        <p class="when">Mon 14 December · 8pm · Away</p>
+        <p class="detail">v The Monnie</p>
+        <p class="venue">at The Monument</p>
+      </div>
+      <div class="fixture static upcoming">
+        <p class="when">Mon 4 January · 8pm · Home</p>
+        <p class="detail">v The Lamb</p>
+        <p class="venue">at The Wheatsheaf</p>
+      </div>
+      <div class="fixture static upcoming">
+        <p class="when">Mon 18 January · 8pm · Home</p>
+        <p class="detail">Bye</p>
+        
+      </div>
+      <div class="fixture static upcoming">
+        <p class="when">Mon 25 January · 8pm · Away</p>
+        <p class="detail">v The Master Gators</p>
+        <p class="venue">at The Starting Gate</p>
+      </div>
+      <div class="fixture static upcoming">
+        <p class="when">Mon 1 February · 8pm · Home</p>
+        <p class="detail">v Paggies A</p>
+        <p class="venue">at The Wheatsheaf</p>
+      </div>
+      </div>
+      </div>
+    </section>
     </div>
     <div class="team-stats" data-team="the-master-gators" data-name="The Master Gators" hidden>
     <section aria-labelledby="singles-2026-2027-the-master-gators">
@@ -2244,6 +3784,295 @@
       </div>
     </section>
       <p class="note">No frames this season: Jason Glynn.</p>
+    <section class="fixtures" aria-labelledby="fixtures-2026-2027-the-master-gators">
+      <h2 id="fixtures-2026-2027-the-master-gators">Fixtures</h2>
+      <div class="card">
+      <h3 id="results-2026-2027-the-master-gators">Results</h3>
+      <div class="fixture-list">
+      <details class="fixture played">
+        <summary>
+          <span class="badge w" aria-label="Won">W</span>
+          <div>
+            <p class="when">Mon 9 November · Away</p>
+            <p class="detail"><span class="score">5–4</span> v The Lamb</p>
+          </div>
+        </summary>
+        <div class="match-frames">
+        <h3>Singles</h3>
+        <ol class="frame-list">
+          <li class="won"><span class="us-player">Peter Medford</span> beat Steve Green</li>
+          <li class="lost"><span class="us-player">D Withers</span> lost to Dave Bartholomew</li>
+          <li class="won"><span class="us-player">Paul Sheldon</span> beat Terry Ward</li>
+          <li class="won"><span class="us-player">Fritz Johnson</span> beat G Tucker</li>
+          <li class="won"><span class="us-player">Linda Ball</span> beat Tony Smith</li>
+          <li class="lost"><span class="us-player">ben roberts</span> lost to C Pawley</li>
+        </ol>
+        <h3>Doubles</h3>
+        <ol class="frame-list">
+          <li class="lost"><span class="us-player">Peter Medford &amp; Fritz Johnson</span> lost to Steve Green &amp; Dave Bartholomew</li>
+          <li class="lost"><span class="us-player">D Withers &amp; Linda Ball</span> lost to Tony Smith &amp; G Tucker</li>
+          <li class="won"><span class="us-player">ben roberts &amp; Paul Sheldon</span> beat Terry Ward &amp; C Pawley</li>
+        </ol>
+        </div>
+      </details>
+      <div class="fixture static bye">
+        <p class="when">Mon 2 November · Home</p>
+        <p class="detail">Bye</p>
+      </div>
+      <details class="fixture played">
+        <summary>
+          <span class="badge w" aria-label="Won">W</span>
+          <div>
+            <p class="when">Mon 19 October · Away</p>
+            <p class="detail"><span class="score">5–4</span> v The Wheatsheaf</p>
+          </div>
+        </summary>
+        <div class="match-frames">
+        <h3>Singles</h3>
+        <ol class="frame-list">
+          <li class="won"><span class="us-player">Fritz Johnson</span> beat Andy Turley</li>
+          <li class="lost"><span class="us-player">Keith Page</span> lost to Simon Barnaby</li>
+          <li class="lost"><span class="us-player">Peter Medford</span> lost to Harry Barnes</li>
+          <li class="lost"><span class="us-player">Tony Busby</span> lost to Richard Figg</li>
+          <li class="won"><span class="us-player">Paul Sheldon</span> beat Matt Turley</li>
+          <li class="won"><span class="us-player">ben roberts</span> beat Luke Mason</li>
+        </ol>
+        <h3>Doubles</h3>
+        <ol class="frame-list">
+          <li class="won"><span class="us-player">Tony Busby &amp; Peter Medford</span> beat Richard Figg &amp; Matt Turley</li>
+          <li class="lost"><span class="us-player">Paul Sheldon &amp; Fritz Johnson</span> lost to Andy Turley &amp; Luke Mason</li>
+          <li class="won"><span class="us-player">ben roberts &amp; Keith Page</span> beat Simon Barnaby &amp; Harry Barnes</li>
+        </ol>
+        </div>
+      </details>
+      <details class="fixture played">
+        <summary>
+          <span class="badge l" aria-label="Lost">L</span>
+          <div>
+            <p class="when">Mon 12 October · Home</p>
+            <p class="detail"><span class="score">3–6</span> v The Monnie</p>
+          </div>
+        </summary>
+        <div class="match-frames">
+        <h3>Singles</h3>
+        <ol class="frame-list">
+          <li class="lost"><span class="us-player">Tony Busby</span> lost to James Harvey</li>
+          <li class="won"><span class="us-player">Keith Page</span> beat ermal sado</li>
+          <li class="won"><span class="us-player">D Withers</span> beat Andy Humphreys</li>
+          <li class="lost"><span class="us-player">Paul Sheldon</span> lost to S Grant</li>
+          <li class="lost"><span class="us-player">Fritz Johnson</span> lost to j breakspear</li>
+          <li class="lost"><span class="us-player">Peter Medford</span> lost to S Fenemore</li>
+        </ol>
+        <h3>Doubles</h3>
+        <ol class="frame-list">
+          <li class="lost"><span class="us-player">Tony Busby &amp; Peter Medford</span> lost to S Grant &amp; James Harvey</li>
+          <li class="lost"><span class="us-player">Fritz Johnson &amp; Keith Page</span> lost to j breakspear &amp; Andy Humphreys</li>
+          <li class="won"><span class="us-player">Paul Sheldon &amp; D Withers</span> beat S Fenemore &amp; Toby House</li>
+        </ol>
+        </div>
+      </details>
+      <details class="fixture played">
+        <summary>
+          <span class="badge w" aria-label="Won">W</span>
+          <div>
+            <p class="when">Mon 5 October · Away</p>
+            <p class="detail"><span class="score">8–1</span> v The Old Chequers</p>
+          </div>
+        </summary>
+        <div class="match-frames">
+        <h3>Singles</h3>
+        <ol class="frame-list">
+          <li class="won"><span class="us-player">Fritz Johnson</span> beat Alan Cooper</li>
+          <li class="won"><span class="us-player">Tony Busby</span> beat Jimmie Anns</li>
+          <li class="won"><span class="us-player">Linda Ball</span> beat Sam Mildenhall</li>
+          <li class="lost"><span class="us-player">D Withers</span> lost to Richard Aldred</li>
+          <li class="won"><span class="us-player">Paul Sheldon</span> beat Tom Keefe</li>
+          <li class="won"><span class="us-player">Ben Richards</span> beat charlie bullock</li>
+        </ol>
+        <h3>Doubles</h3>
+        <ol class="frame-list">
+          <li class="won"><span class="us-player">Tony Busby &amp; Fritz Johnson</span> beat Jimmie Anns &amp; Sam Mildenhall</li>
+          <li class="won"><span class="us-player">Ben Richards &amp; D Withers</span> beat Richard Aldred &amp; Alan Cooper</li>
+          <li class="won"><span class="us-player">Paul Sheldon &amp; Linda Ball</span> beat Tom Keefe &amp; charlie bullock</li>
+        </ol>
+        </div>
+      </details>
+      <details class="fixture played">
+        <summary>
+          <span class="badge l" aria-label="Lost">L</span>
+          <div>
+            <p class="when">Mon 21 September · Home</p>
+            <p class="detail"><span class="score">3–6</span> v Badgers at The Wellie</p>
+          </div>
+        </summary>
+        <div class="match-frames">
+        <h3>Singles</h3>
+        <ol class="frame-list">
+          <li class="lost"><span class="us-player">Peter Medford</span> lost to Alex Farington</li>
+          <li class="lost"><span class="us-player">Tony Busby</span> lost to Neil Tuffnell</li>
+          <li class="lost"><span class="us-player">Keith Page</span> lost to Wayne Morgan</li>
+          <li class="won"><span class="us-player">Linda Ball</span> beat Alex Morgan</li>
+          <li class="won"><span class="us-player">Fritz Johnson</span> beat Leigh Williams</li>
+          <li class="lost"><span class="us-player">ben roberts</span> lost to Callum McDougall-bell</li>
+        </ol>
+        <h3>Doubles</h3>
+        <ol class="frame-list">
+          <li class="won"><span class="us-player">Tony Busby &amp; Peter Medford</span> beat Alex Farington &amp; Alex Morgan</li>
+          <li class="lost"><span class="us-player">Linda Ball &amp; Keith Page</span> lost to Wayne Morgan &amp; Neil Tuffnell</li>
+          <li class="lost"><span class="us-player">ben roberts &amp; Fritz Johnson</span> lost to Leigh Williams &amp; Callum McDougall-bell</li>
+        </ol>
+        </div>
+      </details>
+      <details class="fixture played">
+        <summary>
+          <span class="badge l" aria-label="Lost">L</span>
+          <div>
+            <p class="when">Mon 14 September · Away</p>
+            <p class="detail"><span class="score">3–6</span> v Crucible Avengers</p>
+          </div>
+        </summary>
+        <div class="match-frames">
+        <h3>Singles</h3>
+        <ol class="frame-list">
+          <li class="lost"><span class="us-player">Dan Stevens</span> lost to Rab Weir</li>
+          <li class="lost"><span class="us-player">Keith Page</span> lost to Jason Byng</li>
+          <li class="won"><span class="us-player">Peter Medford</span> beat Dave Bennett</li>
+          <li class="lost"><span class="us-player">Paul Sheldon</span> lost to Daron Masters</li>
+          <li class="lost"><span class="us-player">Linda Ball</span> lost to Mark Hopkin</li>
+          <li class="won"><span class="us-player">Tony Busby</span> beat Ali Daley</li>
+        </ol>
+        <h3>Doubles</h3>
+        <ol class="frame-list">
+          <li class="lost"><span class="us-player">Linda Ball &amp; Keith Page</span> lost to Rab Weir &amp; Dave Bennett</li>
+          <li class="lost"><span class="us-player">Peter Medford &amp; Tony Busby</span> lost to Mark Hopkin &amp; Jason Byng</li>
+          <li class="won"><span class="us-player">ben roberts &amp; Paul Sheldon</span> beat Ali Daley &amp; Daron Masters</li>
+        </ol>
+        </div>
+      </details>
+      <details class="fixture played">
+        <summary>
+          <span class="badge l" aria-label="Lost">L</span>
+          <div>
+            <p class="when">Mon 7 September · Home</p>
+            <p class="detail"><span class="score">3–6</span> v Crucible Reracks</p>
+          </div>
+        </summary>
+        <div class="match-frames">
+        <h3>Singles</h3>
+        <ol class="frame-list">
+          <li class="lost"><span class="us-player">Fritz Johnson</span> lost to Shaun Amor</li>
+          <li class="lost"><span class="us-player">Tony Busby</span> lost to Martin Stone</li>
+          <li class="lost"><span class="us-player">Paul Sheldon</span> lost to Marc Rollings</li>
+          <li class="lost"><span class="us-player">Linda Ball</span> lost to Matt Stone</li>
+          <li class="won"><span class="us-player">Dan Stevens</span> beat Steve Graham</li>
+          <li class="lost"><span class="us-player">ben roberts</span> lost to Chris Smith</li>
+        </ol>
+        <h3>Doubles</h3>
+        <ol class="frame-list">
+          <li class="won"><span class="us-player">Tony Busby &amp; Dan Stevens</span> beat Steve Graham &amp; Marc Rollings</li>
+          <li class="won"><span class="us-player">Paul Sheldon &amp; Fritz Johnson</span> beat Chris Smith &amp; Shaun Amor</li>
+          <li class="lost"><span class="us-player">ben roberts &amp; Linda Ball</span> lost to Martin Stone &amp; Matt Stone</li>
+        </ol>
+        </div>
+      </details>
+      <details class="fixture played">
+        <summary>
+          <span class="badge w" aria-label="Won">W</span>
+          <div>
+            <p class="when">Mon 24 August · Away</p>
+            <p class="detail"><span class="score">7–2</span> v Paggies A</p>
+          </div>
+        </summary>
+        <div class="match-frames">
+        <h3>Singles</h3>
+        <ol class="frame-list">
+          <li class="won"><span class="us-player">ben roberts</span> beat Jamie Cresswell</li>
+          <li class="won"><span class="us-player">Tony Busby</span> beat Iain Black</li>
+          <li class="won"><span class="us-player">Paul Sheldon</span> beat Ron Fairish</li>
+          <li class="won"><span class="us-player">Linda Ball</span> beat Molly Gooch</li>
+          <li class="lost"><span class="us-player">m ingram</span> lost to Iain Gooch</li>
+          <li class="lost"><span class="us-player">Peter Medford</span> lost to Wayne Thompson</li>
+        </ol>
+        <h3>Doubles</h3>
+        <ol class="frame-list">
+          <li class="won"><span class="us-player">m ingram &amp; Linda Ball</span> beat Iain Black &amp; Jamie Cresswell</li>
+          <li class="won"><span class="us-player">Peter Medford &amp; Tony Busby</span> beat Iain Gooch &amp; Molly Gooch</li>
+          <li class="won"><span class="us-player">ben roberts &amp; Paul Sheldon</span> beat Ron Fairish &amp; Wayne Thompson</li>
+        </ol>
+        </div>
+      </details>
+      <details class="fixture played">
+        <summary>
+          <span class="badge l" aria-label="Lost">L</span>
+          <div>
+            <p class="when">Mon 17 August · Home</p>
+            <p class="detail"><span class="score">2–7</span> v The Lamb</p>
+          </div>
+        </summary>
+        <div class="match-frames">
+        <h3>Singles</h3>
+        <ol class="frame-list">
+          <li class="lost"><span class="us-player">Fritz Johnson</span> lost to Jimmy Pearce</li>
+          <li class="lost"><span class="us-player">Keith Page</span> lost to Steve Green</li>
+          <li class="lost"><span class="us-player">Peter Medford</span> lost to Dave Bartholomew</li>
+          <li class="won"><span class="us-player">Linda Ball</span> beat Terry Ward</li>
+          <li class="lost"><span class="us-player">Paul Sheldon</span> lost to G Tucker</li>
+          <li class="lost"><span class="us-player">ben roberts</span> lost to C Pawley</li>
+        </ol>
+        <h3>Doubles</h3>
+        <ol class="frame-list">
+          <li class="lost"><span class="us-player">Peter Medford &amp; Fritz Johnson</span> lost to Jimmy Pearce &amp; Dave Bartholomew</li>
+          <li class="lost"><span class="us-player">Keith Page &amp; Linda Ball</span> lost to C Pawley &amp; Terry Ward</li>
+          <li class="won"><span class="us-player">ben roberts &amp; Paul Sheldon</span> beat Steve Green &amp; G Tucker</li>
+        </ol>
+        </div>
+      </details>
+      </div>
+      <h3 id="upcoming-2026-2027-the-master-gators">Upcoming</h3>
+      <div class="fixture-list">
+      <div class="fixture static upcoming">
+        <p class="when">Mon 16 November · 8pm · Home</p>
+        <p class="detail">v Paggies A</p>
+        <p class="venue">at The Starting Gate</p>
+      </div>
+      <div class="fixture static upcoming">
+        <p class="when">Mon 30 November · 8pm · Away</p>
+        <p class="detail">v Crucible Reracks</p>
+        <p class="venue">at The Crucible</p>
+      </div>
+      <div class="fixture static upcoming">
+        <p class="when">Mon 7 December · 8pm · Home</p>
+        <p class="detail">v Crucible Avengers</p>
+        <p class="venue">at The Starting Gate</p>
+      </div>
+      <div class="fixture static upcoming">
+        <p class="when">Mon 14 December · 8pm · Away</p>
+        <p class="detail">v Badgers at The Wellie</p>
+        <p class="venue">at The Wellington Social Club</p>
+      </div>
+      <div class="fixture static upcoming">
+        <p class="when">Mon 4 January · 8pm · Home</p>
+        <p class="detail">v The Old Chequers</p>
+        <p class="venue">at The Starting Gate</p>
+      </div>
+      <div class="fixture static upcoming">
+        <p class="when">Mon 18 January · 8pm · Away</p>
+        <p class="detail">v The Monnie</p>
+        <p class="venue">at The Monument</p>
+      </div>
+      <div class="fixture static upcoming">
+        <p class="when">Mon 25 January · 8pm · Home</p>
+        <p class="detail">v The Wheatsheaf</p>
+        <p class="venue">at The Starting Gate</p>
+      </div>
+      <div class="fixture static upcoming">
+        <p class="when">Mon 1 February · 8pm · Away</p>
+        <p class="detail">Bye</p>
+        
+      </div>
+      </div>
+      </div>
+    </section>
     </div>
     <div class="team-stats" data-team="the-lamb" data-name="The Lamb" hidden>
     <section aria-labelledby="singles-2026-2027-the-lamb">
@@ -2553,6 +4382,295 @@
       </div>
     </section>
       <p class="note">No frames this season: Ann Ayliffe, Ashley Kite, Darren Braidwood, Errin Mcnamee, Jonny Coffman, Kelvin Loveridge, Luke Mattioli, Mark Brown, Nathan Sawyer, Olena Tsab, Oscar Baillie, Paddy Cousins, Richard Korpan, Roger Townsend, Sam Watts, Sara Harris, gary chugg, reece loveridge.</p>
+    <section class="fixtures" aria-labelledby="fixtures-2026-2027-the-lamb">
+      <h2 id="fixtures-2026-2027-the-lamb">Fixtures</h2>
+      <div class="card">
+      <h3 id="results-2026-2027-the-lamb">Results</h3>
+      <div class="fixture-list">
+      <details class="fixture played">
+        <summary>
+          <span class="badge l" aria-label="Lost">L</span>
+          <div>
+            <p class="when">Mon 9 November · Home</p>
+            <p class="detail"><span class="score">4–5</span> v The Master Gators</p>
+          </div>
+        </summary>
+        <div class="match-frames">
+        <h3>Singles</h3>
+        <ol class="frame-list">
+          <li class="lost"><span class="us-player">Steve Green</span> lost to Peter Medford</li>
+          <li class="won"><span class="us-player">Dave Bartholomew</span> beat D Withers</li>
+          <li class="lost"><span class="us-player">Terry Ward</span> lost to Paul Sheldon</li>
+          <li class="lost"><span class="us-player">G Tucker</span> lost to Fritz Johnson</li>
+          <li class="lost"><span class="us-player">Tony Smith</span> lost to Linda Ball</li>
+          <li class="won"><span class="us-player">C Pawley</span> beat ben roberts</li>
+        </ol>
+        <h3>Doubles</h3>
+        <ol class="frame-list">
+          <li class="won"><span class="us-player">Steve Green &amp; Dave Bartholomew</span> beat Peter Medford &amp; Fritz Johnson</li>
+          <li class="won"><span class="us-player">Tony Smith &amp; G Tucker</span> beat D Withers &amp; Linda Ball</li>
+          <li class="lost"><span class="us-player">Terry Ward &amp; C Pawley</span> lost to ben roberts &amp; Paul Sheldon</li>
+        </ol>
+        </div>
+      </details>
+      <details class="fixture played">
+        <summary>
+          <span class="badge l" aria-label="Lost">L</span>
+          <div>
+            <p class="when">Mon 2 November · Home</p>
+            <p class="detail"><span class="score">3–6</span> v Badgers at The Wellie</p>
+          </div>
+        </summary>
+        <div class="match-frames">
+        <h3>Singles</h3>
+        <ol class="frame-list">
+          <li class="lost"><span class="us-player">Jimmy Pearce</span> lost to Alex Morgan</li>
+          <li class="won"><span class="us-player">Steve Green</span> beat Callum McDougall-bell</li>
+          <li class="lost"><span class="us-player">Josie Wells</span> lost to Wayne Morgan</li>
+          <li class="lost"><span class="us-player">G Tucker</span> lost to Leigh Williams</li>
+          <li class="lost"><span class="us-player">Terry Ward</span> lost to Alex Farington</li>
+          <li class="lost"><span class="us-player">C Pawley</span> lost to Phil Capel</li>
+        </ol>
+        <h3>Doubles</h3>
+        <ol class="frame-list">
+          <li class="won"><span class="us-player">Jimmy Pearce &amp; G Tucker</span> beat Alex Morgan &amp; Leigh Williams</li>
+          <li class="lost"><span class="us-player">C Pawley &amp; Terry Ward</span> lost to Wayne Morgan &amp; Alex Farington</li>
+          <li class="won"><span class="us-player">Steve Green &amp; Josie Wells</span> beat Phil Capel &amp; Callum McDougall-bell</li>
+        </ol>
+        </div>
+      </details>
+      <div class="fixture static bye">
+        <p class="when">Mon 19 October · Home</p>
+        <p class="detail">Bye</p>
+      </div>
+      <details class="fixture played">
+        <summary>
+          <span class="badge l" aria-label="Lost">L</span>
+          <div>
+            <p class="when">Mon 12 October · Away</p>
+            <p class="detail"><span class="score">2–7</span> v Crucible Avengers</p>
+          </div>
+        </summary>
+        <div class="match-frames">
+        <h3>Singles</h3>
+        <ol class="frame-list">
+          <li class="lost"><span class="us-player">Jimmy Pearce</span> lost to Rab Weir</li>
+          <li class="lost"><span class="us-player">Dave Bartholomew</span> lost to Dave Bennett</li>
+          <li class="lost"><span class="us-player">Terry Ward</span> lost to Robert Head</li>
+          <li class="won"><span class="us-player">Steve Green</span> beat Jason Byng</li>
+          <li class="lost"><span class="us-player">C Pawley</span> lost to Mark Hopkin</li>
+          <li class="lost"><span class="us-player">G Tucker</span> lost to Ali Daley</li>
+        </ol>
+        <h3>Doubles</h3>
+        <ol class="frame-list">
+          <li class="won"><span class="us-player">G Tucker &amp; Jimmy Pearce</span> beat Rab Weir &amp; Dave Bennett</li>
+          <li class="lost"><span class="us-player">Terry Ward &amp; C Pawley</span> lost to Robert Head &amp; Mark Hopkin</li>
+          <li class="lost"><span class="us-player">Steve Green &amp; Dave Bartholomew</span> lost to Ali Daley &amp; Jason Byng</li>
+        </ol>
+        </div>
+      </details>
+      <details class="fixture played">
+        <summary>
+          <span class="badge l" aria-label="Lost">L</span>
+          <div>
+            <p class="when">Mon 5 October · Home</p>
+            <p class="detail"><span class="score">4–5</span> v The Wheatsheaf</p>
+          </div>
+        </summary>
+        <div class="match-frames">
+        <h3>Singles</h3>
+        <ol class="frame-list">
+          <li class="lost"><span class="us-player">Paul Thompson</span> lost to Andy Turley</li>
+          <li class="lost"><span class="us-player">Terry Ward</span> lost to Simon Barnaby</li>
+          <li class="won"><span class="us-player">Steve Green</span> beat Luke Manton</li>
+          <li class="lost"><span class="us-player">Dave Bartholomew</span> lost to Luke Mason</li>
+          <li class="lost"><span class="us-player">Tyler Loveridge</span> lost to Robert Black</li>
+          <li class="won"><span class="us-player">C Pawley</span> beat Richard Figg</li>
+        </ol>
+        <h3>Doubles</h3>
+        <ol class="frame-list">
+          <li class="won"><span class="us-player">Terry Ward &amp; Paul Thompson</span> beat Andy Turley &amp; Luke Mason</li>
+          <li class="won"><span class="us-player">Dave Bartholomew &amp; Steve Green</span> beat Richard Figg &amp; Luke Manton</li>
+          <li class="lost"><span class="us-player">C Pawley &amp; Tyler Loveridge</span> lost to Simon Barnaby &amp; Robert Black</li>
+        </ol>
+        </div>
+      </details>
+      <details class="fixture played">
+        <summary>
+          <span class="badge l" aria-label="Lost">L</span>
+          <div>
+            <p class="when">Mon 21 September · Away</p>
+            <p class="detail"><span class="score">1–8</span> v Crucible Reracks</p>
+          </div>
+        </summary>
+        <div class="match-frames">
+        <h3>Singles</h3>
+        <ol class="frame-list">
+          <li class="lost"><span class="us-player">Jimmy Pearce</span> lost to David Johnson</li>
+          <li class="lost"><span class="us-player">Steve Green</span> lost to Steve Graham</li>
+          <li class="lost"><span class="us-player">Terry Ward</span> lost to Shaun Amor</li>
+          <li class="lost"><span class="us-player">G Tucker</span> lost to Hannah Johnson</li>
+          <li class="lost"><span class="us-player">Dave Bartholomew</span> lost to Marc Rollings</li>
+          <li class="won"><span class="us-player">C Pawley</span> beat Martin Stone</li>
+        </ol>
+        <h3>Doubles</h3>
+        <ol class="frame-list">
+          <li class="lost"><span class="us-player">Jimmy Pearce &amp; Dave Bartholomew</span> lost to David Johnson &amp; Hannah Johnson</li>
+          <li class="lost"><span class="us-player">C Pawley &amp; Terry Ward</span> lost to Martin Stone &amp; Steve Graham</li>
+          <li class="lost"><span class="us-player">Steve Green &amp; G Tucker</span> lost to Shaun Amor &amp; Marc Rollings</li>
+        </ol>
+        </div>
+      </details>
+      <details class="fixture played">
+        <summary>
+          <span class="badge l" aria-label="Lost">L</span>
+          <div>
+            <p class="when">Mon 14 September · Home</p>
+            <p class="detail"><span class="score">4–5</span> v The Monnie</p>
+          </div>
+        </summary>
+        <div class="match-frames">
+        <h3>Singles</h3>
+        <ol class="frame-list">
+          <li class="won"><span class="us-player">Jimmy Pearce</span> beat James Harvey</li>
+          <li class="won"><span class="us-player">Steve Green</span> beat Andy Humphreys</li>
+          <li class="lost"><span class="us-player">Paul Thompson</span> lost to ed schofield</li>
+          <li class="won"><span class="us-player">Terry Ward</span> beat S Grant</li>
+          <li class="lost"><span class="us-player">G Tucker</span> lost to j breakspear</li>
+          <li class="lost"><span class="us-player">C Pawley</span> lost to S Fenemore</li>
+        </ol>
+        <h3>Doubles</h3>
+        <ol class="frame-list">
+          <li class="lost"><span class="us-player">Paul Thompson &amp; G Tucker</span> lost to James Harvey &amp; S Grant</li>
+          <li class="won"><span class="us-player">Terry Ward &amp; C Pawley</span> beat Andy Humphreys &amp; j breakspear</li>
+          <li class="lost"><span class="us-player">Steve Green &amp; Jimmy Pearce</span> lost to S Fenemore &amp; ed schofield</li>
+        </ol>
+        </div>
+      </details>
+      <details class="fixture played">
+        <summary>
+          <span class="badge l" aria-label="Lost">L</span>
+          <div>
+            <p class="when">Mon 7 September · Away</p>
+            <p class="detail"><span class="score">4–5</span> v Paggies A</p>
+          </div>
+        </summary>
+        <div class="match-frames">
+        <h3>Singles</h3>
+        <ol class="frame-list">
+          <li class="won"><span class="us-player">Jimmy Pearce</span> beat Jamie Cresswell</li>
+          <li class="won"><span class="us-player">Dave Bartholomew</span> beat Iain Black</li>
+          <li class="won"><span class="us-player">Steve Green</span> beat Ron Fairish</li>
+          <li class="lost"><span class="us-player">Terry Ward</span> lost to Molly Gooch</li>
+          <li class="lost"><span class="us-player">C Pawley</span> lost to Iain Gooch</li>
+          <li class="lost"><span class="us-player">G Tucker</span> lost to Wayne Thompson</li>
+        </ol>
+        <h3>Doubles</h3>
+        <ol class="frame-list">
+          <li class="lost"><span class="us-player">Jimmy Pearce &amp; Terry Ward</span> lost to Graham Beasley &amp; Ron Fairish</li>
+          <li class="lost"><span class="us-player">Steve Green &amp; Dave Bartholomew</span> lost to Molly Gooch &amp; Iain Gooch</li>
+          <li class="won"><span class="us-player">C Pawley &amp; G Tucker</span> beat Jamie Cresswell &amp; Wayne Thompson</li>
+        </ol>
+        </div>
+      </details>
+      <details class="fixture played">
+        <summary>
+          <span class="badge l" aria-label="Lost">L</span>
+          <div>
+            <p class="when">Mon 24 August · Home</p>
+            <p class="detail"><span class="score">4–5</span> v The Old Chequers</p>
+          </div>
+        </summary>
+        <div class="match-frames">
+        <h3>Singles</h3>
+        <ol class="frame-list">
+          <li class="won"><span class="us-player">Jimmy Pearce</span> beat Alan Cooper</li>
+          <li class="lost"><span class="us-player">Dave Bartholomew</span> lost to Jimmie Anns</li>
+          <li class="won"><span class="us-player">Steve Green</span> beat Sam Mildenhall</li>
+          <li class="won"><span class="us-player">G Tucker</span> beat Tom Keefe</li>
+          <li class="lost"><span class="us-player">Terry Ward</span> lost to Richard Aldred</li>
+          <li class="lost"><span class="us-player">Paul Thompson</span> lost to charlie bullock</li>
+        </ol>
+        <h3>Doubles</h3>
+        <ol class="frame-list">
+          <li class="lost"><span class="us-player">Paul Thompson &amp; Terry Ward</span> lost to charlie bullock &amp; Richard Aldred</li>
+          <li class="lost"><span class="us-player">Steve Green &amp; Dave Bartholomew</span> lost to Sam Mildenhall &amp; Jimmie Anns</li>
+          <li class="won"><span class="us-player">G Tucker &amp; Jimmy Pearce</span> beat Tom Keefe &amp; Alan Cooper</li>
+        </ol>
+        </div>
+      </details>
+      <details class="fixture played">
+        <summary>
+          <span class="badge w" aria-label="Won">W</span>
+          <div>
+            <p class="when">Mon 17 August · Away</p>
+            <p class="detail"><span class="score">7–2</span> v The Master Gators</p>
+          </div>
+        </summary>
+        <div class="match-frames">
+        <h3>Singles</h3>
+        <ol class="frame-list">
+          <li class="won"><span class="us-player">Jimmy Pearce</span> beat Fritz Johnson</li>
+          <li class="won"><span class="us-player">Steve Green</span> beat Keith Page</li>
+          <li class="won"><span class="us-player">Dave Bartholomew</span> beat Peter Medford</li>
+          <li class="lost"><span class="us-player">Terry Ward</span> lost to Linda Ball</li>
+          <li class="won"><span class="us-player">G Tucker</span> beat Paul Sheldon</li>
+          <li class="won"><span class="us-player">C Pawley</span> beat ben roberts</li>
+        </ol>
+        <h3>Doubles</h3>
+        <ol class="frame-list">
+          <li class="won"><span class="us-player">Jimmy Pearce &amp; Dave Bartholomew</span> beat Peter Medford &amp; Fritz Johnson</li>
+          <li class="won"><span class="us-player">C Pawley &amp; Terry Ward</span> beat Keith Page &amp; Linda Ball</li>
+          <li class="lost"><span class="us-player">Steve Green &amp; G Tucker</span> lost to ben roberts &amp; Paul Sheldon</li>
+        </ol>
+        </div>
+      </details>
+      </div>
+      <h3 id="upcoming-2026-2027-the-lamb">Upcoming</h3>
+      <div class="fixture-list">
+      <div class="fixture static upcoming">
+        <p class="when">Mon 16 November · 8pm · Away</p>
+        <p class="detail">v The Old Chequers</p>
+        <p class="venue">at The Old Chequers</p>
+      </div>
+      <div class="fixture static upcoming">
+        <p class="when">Mon 30 November · 8pm · Home</p>
+        <p class="detail">v Paggies A</p>
+        <p class="venue">at The Lamb Inn</p>
+      </div>
+      <div class="fixture static upcoming">
+        <p class="when">Mon 7 December · 8pm · Away</p>
+        <p class="detail">v The Monnie</p>
+        <p class="venue">at The Monument</p>
+      </div>
+      <div class="fixture static upcoming">
+        <p class="when">Mon 14 December · 8pm · Home</p>
+        <p class="detail">v Crucible Reracks</p>
+        <p class="venue">at The Lamb Inn</p>
+      </div>
+      <div class="fixture static upcoming">
+        <p class="when">Mon 4 January · 8pm · Away</p>
+        <p class="detail">v The Wheatsheaf</p>
+        <p class="venue">at The Wheatsheaf</p>
+      </div>
+      <div class="fixture static upcoming">
+        <p class="when">Mon 18 January · 8pm · Home</p>
+        <p class="detail">v Crucible Avengers</p>
+        <p class="venue">at The Lamb Inn</p>
+      </div>
+      <div class="fixture static upcoming">
+        <p class="when">Mon 25 January · 8pm · Away</p>
+        <p class="detail">Bye</p>
+        
+      </div>
+      <div class="fixture static upcoming">
+        <p class="when">Mon 1 February · 8pm · Away</p>
+        <p class="detail">v Badgers at The Wellie</p>
+        <p class="venue">at The Wellington Social Club</p>
+      </div>
+      </div>
+      </div>
+    </section>
     </div>
     <div class="team-stats" data-team="paggies-a" data-name="Paggies A" hidden>
     <section aria-labelledby="singles-2026-2027-paggies-a">
@@ -2817,6 +4935,273 @@
         </tr>
           </tbody>
         </table>
+      </div>
+    </section>
+    <section class="fixtures" aria-labelledby="fixtures-2026-2027-paggies-a">
+      <h2 id="fixtures-2026-2027-paggies-a">Fixtures</h2>
+      <div class="card">
+      <h3 id="results-2026-2027-paggies-a">Results</h3>
+      <div class="fixture-list">
+      <div class="fixture static bye">
+        <p class="when">Mon 9 November · Home</p>
+        <p class="detail">Bye</p>
+      </div>
+      <details class="fixture played">
+        <summary>
+          <span class="badge l" aria-label="Lost">L</span>
+          <div>
+            <p class="when">Mon 2 November · Home</p>
+            <p class="detail"><span class="score">4–5</span> v The Wheatsheaf</p>
+          </div>
+        </summary>
+        <div class="match-frames">
+        <h3>Singles</h3>
+        <ol class="frame-list">
+          <li class="won"><span class="us-player">Jamie Cresswell</span> beat Andy Turley</li>
+          <li class="lost"><span class="us-player">Graham Beasley</span> lost to Simon Barnaby</li>
+          <li class="won"><span class="us-player">Ron Fairish</span> beat Robert Black</li>
+          <li class="lost"><span class="us-player">Molly Gooch</span> lost to Richard Figg</li>
+          <li class="lost"><span class="us-player">Iain Gooch</span> lost to Luke Mason</li>
+          <li class="won"><span class="us-player">Wayne Thompson</span> beat Luke Manton</li>
+        </ol>
+        <h3>Doubles</h3>
+        <ol class="frame-list">
+          <li class="lost"><span class="us-player">Graham Beasley &amp; Ron Fairish</span> lost to Richard Figg &amp; Luke Manton</li>
+          <li class="won"><span class="us-player">Molly Gooch &amp; Iain Gooch</span> beat Andy Turley &amp; Luke Mason</li>
+          <li class="lost"><span class="us-player">Iain Black &amp; Wayne Thompson</span> lost to Simon Barnaby &amp; Robert Black</li>
+        </ol>
+        </div>
+      </details>
+      <details class="fixture played">
+        <summary>
+          <span class="badge l" aria-label="Lost">L</span>
+          <div>
+            <p class="when">Mon 19 October · Away</p>
+            <p class="detail"><span class="score">3–6</span> v The Monnie</p>
+          </div>
+        </summary>
+        <div class="match-frames">
+        <h3>Singles</h3>
+        <ol class="frame-list">
+          <li class="lost"><span class="us-player">Iain Black</span> lost to James Harvey</li>
+          <li class="won"><span class="us-player">Graham Beasley</span> beat Andy Humphreys</li>
+          <li class="lost"><span class="us-player">Ron Fairish</span> lost to Phil Cope</li>
+          <li class="lost"><span class="us-player">Molly Gooch</span> lost to S Grant</li>
+          <li class="lost"><span class="us-player">Iain Gooch</span> lost to j breakspear</li>
+          <li class="won"><span class="us-player">Wayne Thompson</span> beat S Fenemore</li>
+        </ol>
+        <h3>Doubles</h3>
+        <ol class="frame-list">
+          <li class="won"><span class="us-player">Graham Beasley &amp; Ron Fairish</span> beat James Harvey &amp; S Grant</li>
+          <li class="lost"><span class="us-player">Molly Gooch &amp; Iain Gooch</span> lost to Phil Cope &amp; S Fenemore</li>
+          <li class="lost"><span class="us-player">Iain Black &amp; Wayne Thompson</span> lost to j breakspear &amp; Andy Humphreys</li>
+        </ol>
+        </div>
+      </details>
+      <details class="fixture played">
+        <summary>
+          <span class="badge w" aria-label="Won">W</span>
+          <div>
+            <p class="when">Mon 12 October · Home</p>
+            <p class="detail"><span class="score">5–4</span> v The Old Chequers</p>
+          </div>
+        </summary>
+        <div class="match-frames">
+        <h3>Singles</h3>
+        <ol class="frame-list">
+          <li class="won"><span class="us-player">Jamie Cresswell</span> beat Alfie Bullock</li>
+          <li class="lost"><span class="us-player">Graham Beasley</span> lost to Jimmie Anns</li>
+          <li class="lost"><span class="us-player">Iain Black</span> lost to Sam Mildenhall</li>
+          <li class="won"><span class="us-player">Steve Fox</span> beat Alan Cooper</li>
+          <li class="won"><span class="us-player">Ron Fairish</span> beat Tom Keefe</li>
+          <li class="won"><span class="us-player">Wayne Thompson</span> beat Josh Crow</li>
+        </ol>
+        <h3>Doubles</h3>
+        <ol class="frame-list">
+          <li class="lost"><span class="us-player">Jamie Cresswell &amp; Steve Fox</span> lost to Sam Mildenhall &amp; Jimmie Anns</li>
+          <li class="won"><span class="us-player">Ron Fairish &amp; Iain Black</span> beat Josh Crow &amp; Tom Keefe</li>
+          <li class="lost"><span class="us-player">Graham Beasley &amp; Wayne Thompson</span> lost to charlie bullock &amp; Simon Payne</li>
+        </ol>
+        </div>
+      </details>
+      <details class="fixture played">
+        <summary>
+          <span class="badge l" aria-label="Lost">L</span>
+          <div>
+            <p class="when">Mon 5 October · Away</p>
+            <p class="detail"><span class="score">4–5</span> v Badgers at The Wellie</p>
+          </div>
+        </summary>
+        <div class="match-frames">
+        <h3>Singles</h3>
+        <ol class="frame-list">
+          <li class="won"><span class="us-player">Jamie Cresswell</span> beat Callum McDougall-bell</li>
+          <li class="lost"><span class="us-player">Iain Black</span> lost to Neil Tuffnell</li>
+          <li class="lost"><span class="us-player">Molly Gooch</span> lost to Alex Morgan</li>
+          <li class="won"><span class="us-player">Ron Fairish</span> beat Leigh Williams</li>
+          <li class="won"><span class="us-player">Iain Gooch</span> beat Wayne Morgan</li>
+          <li class="lost"><span class="us-player">Wayne Thompson</span> lost to Phil Capel</li>
+        </ol>
+        <h3>Doubles</h3>
+        <ol class="frame-list">
+          <li class="won"><span class="us-player">Ron Fairish &amp; Graham Beasley</span> beat James Hammond &amp; Alex Morgan</li>
+          <li class="lost"><span class="us-player">Molly Gooch &amp; Iain Gooch</span> lost to Callum McDougall-bell &amp; Phil Capel</li>
+          <li class="lost"><span class="us-player">Jamie Cresswell &amp; Iain Black</span> lost to Neil Tuffnell &amp; Leigh Williams</li>
+        </ol>
+        </div>
+      </details>
+      <details class="fixture played">
+        <summary>
+          <span class="badge l" aria-label="Lost">L</span>
+          <div>
+            <p class="when">Mon 21 September · Home</p>
+            <p class="detail"><span class="score">3–6</span> v Crucible Avengers</p>
+          </div>
+        </summary>
+        <div class="match-frames">
+        <h3>Singles</h3>
+        <ol class="frame-list">
+          <li class="won"><span class="us-player">Jamie Cresswell</span> beat Rab Weir</li>
+          <li class="lost"><span class="us-player">Iain Black</span> lost to Jason Byng</li>
+          <li class="lost"><span class="us-player">Graham Beasley</span> lost to Daron Masters</li>
+          <li class="lost"><span class="us-player">Ron Fairish</span> lost to Robert Head</li>
+          <li class="lost"><span class="us-player">Iain Gooch</span> lost to Dave Bennett</li>
+          <li class="lost"><span class="us-player">Wayne Thompson</span> lost to Mark Hopkin</li>
+        </ol>
+        <h3>Doubles</h3>
+        <ol class="frame-list">
+          <li class="lost"><span class="us-player">Iain Black &amp; Jamie Cresswell</span> lost to Rab Weir &amp; Dave Bennett</li>
+          <li class="won"><span class="us-player">Ron Fairish &amp; Graham Beasley</span> beat Mark Hopkin &amp; Robert Head</li>
+          <li class="won"><span class="us-player">Wayne Thompson &amp; Iain Gooch</span> beat Jason Byng &amp; Daron Masters</li>
+        </ol>
+        </div>
+      </details>
+      <details class="fixture played">
+        <summary>
+          <span class="badge l" aria-label="Lost">L</span>
+          <div>
+            <p class="when">Mon 14 September · Away</p>
+            <p class="detail"><span class="score">3–6</span> v Crucible Reracks</p>
+          </div>
+        </summary>
+        <div class="match-frames">
+        <h3>Singles</h3>
+        <ol class="frame-list">
+          <li class="won"><span class="us-player">Iain Black</span> beat Steve Graham</li>
+          <li class="lost"><span class="us-player">Graham Beasley</span> lost to Shaun Amor</li>
+          <li class="lost"><span class="us-player">Jamie Cresswell</span> lost to Matt Stone</li>
+          <li class="won"><span class="us-player">Molly Gooch</span> beat Martin Stone</li>
+          <li class="lost"><span class="us-player">Ron Fairish</span> lost to Marc Rollings</li>
+          <li class="won"><span class="us-player">Iain Gooch</span> beat Chris Smith</li>
+        </ol>
+        <h3>Doubles</h3>
+        <ol class="frame-list">
+          <li class="lost"><span class="us-player">Ron Fairish &amp; Graham Beasley</span> lost to Martin Stone &amp; Matt Stone</li>
+          <li class="lost"><span class="us-player">Iain Gooch &amp; Molly Gooch</span> lost to Steve Graham &amp; Marc Rollings</li>
+          <li class="lost"><span class="us-player">Wayne Thompson &amp; Iain Black</span> lost to Chris Smith &amp; Shaun Amor</li>
+        </ol>
+        </div>
+      </details>
+      <details class="fixture played">
+        <summary>
+          <span class="badge w" aria-label="Won">W</span>
+          <div>
+            <p class="when">Mon 7 September · Home</p>
+            <p class="detail"><span class="score">5–4</span> v The Lamb</p>
+          </div>
+        </summary>
+        <div class="match-frames">
+        <h3>Singles</h3>
+        <ol class="frame-list">
+          <li class="lost"><span class="us-player">Jamie Cresswell</span> lost to Jimmy Pearce</li>
+          <li class="lost"><span class="us-player">Iain Black</span> lost to Dave Bartholomew</li>
+          <li class="lost"><span class="us-player">Ron Fairish</span> lost to Steve Green</li>
+          <li class="won"><span class="us-player">Molly Gooch</span> beat Terry Ward</li>
+          <li class="won"><span class="us-player">Iain Gooch</span> beat C Pawley</li>
+          <li class="won"><span class="us-player">Wayne Thompson</span> beat G Tucker</li>
+        </ol>
+        <h3>Doubles</h3>
+        <ol class="frame-list">
+          <li class="won"><span class="us-player">Graham Beasley &amp; Ron Fairish</span> beat Jimmy Pearce &amp; Terry Ward</li>
+          <li class="won"><span class="us-player">Molly Gooch &amp; Iain Gooch</span> beat Steve Green &amp; Dave Bartholomew</li>
+          <li class="lost"><span class="us-player">Jamie Cresswell &amp; Wayne Thompson</span> lost to C Pawley &amp; G Tucker</li>
+        </ol>
+        </div>
+      </details>
+      <details class="fixture played">
+        <summary>
+          <span class="badge l" aria-label="Lost">L</span>
+          <div>
+            <p class="when">Mon 24 August · Home</p>
+            <p class="detail"><span class="score">2–7</span> v The Master Gators</p>
+          </div>
+        </summary>
+        <div class="match-frames">
+        <h3>Singles</h3>
+        <ol class="frame-list">
+          <li class="lost"><span class="us-player">Jamie Cresswell</span> lost to ben roberts</li>
+          <li class="lost"><span class="us-player">Iain Black</span> lost to Tony Busby</li>
+          <li class="lost"><span class="us-player">Ron Fairish</span> lost to Paul Sheldon</li>
+          <li class="lost"><span class="us-player">Molly Gooch</span> lost to Linda Ball</li>
+          <li class="won"><span class="us-player">Iain Gooch</span> beat m ingram</li>
+          <li class="won"><span class="us-player">Wayne Thompson</span> beat Peter Medford</li>
+        </ol>
+        <h3>Doubles</h3>
+        <ol class="frame-list">
+          <li class="lost"><span class="us-player">Iain Black &amp; Jamie Cresswell</span> lost to m ingram &amp; Linda Ball</li>
+          <li class="lost"><span class="us-player">Iain Gooch &amp; Molly Gooch</span> lost to Peter Medford &amp; Tony Busby</li>
+          <li class="lost"><span class="us-player">Ron Fairish &amp; Wayne Thompson</span> lost to ben roberts &amp; Paul Sheldon</li>
+        </ol>
+        </div>
+      </details>
+      <div class="fixture static bye">
+        <p class="when">Mon 17 August · Away</p>
+        <p class="detail">Bye</p>
+      </div>
+      </div>
+      <h3 id="upcoming-2026-2027-paggies-a">Upcoming</h3>
+      <div class="fixture-list">
+      <div class="fixture static upcoming">
+        <p class="when">Mon 16 November · 8pm · Away</p>
+        <p class="detail">v The Master Gators</p>
+        <p class="venue">at The Starting Gate</p>
+      </div>
+      <div class="fixture static upcoming">
+        <p class="when">Mon 30 November · 8pm · Away</p>
+        <p class="detail">v The Lamb</p>
+        <p class="venue">at The Lamb Inn</p>
+      </div>
+      <div class="fixture static upcoming">
+        <p class="when">Mon 7 December · 8pm · Home</p>
+        <p class="detail">v Crucible Reracks</p>
+        <p class="venue">at Paggies Bar</p>
+      </div>
+      <div class="fixture static upcoming">
+        <p class="when">Mon 14 December · 8pm · Away</p>
+        <p class="detail">v Crucible Avengers</p>
+        <p class="venue">at The Crucible</p>
+      </div>
+      <div class="fixture static upcoming">
+        <p class="when">Mon 4 January · 8pm · Home</p>
+        <p class="detail">v Badgers at The Wellie</p>
+        <p class="venue">at Paggies Bar</p>
+      </div>
+      <div class="fixture static upcoming">
+        <p class="when">Mon 18 January · 8pm · Away</p>
+        <p class="detail">v The Old Chequers</p>
+        <p class="venue">at The Old Chequers</p>
+      </div>
+      <div class="fixture static upcoming">
+        <p class="when">Mon 25 January · 8pm · Home</p>
+        <p class="detail">v The Monnie</p>
+        <p class="venue">at Paggies Bar</p>
+      </div>
+      <div class="fixture static upcoming">
+        <p class="when">Mon 1 February · 8pm · Away</p>
+        <p class="detail">v The Wheatsheaf</p>
+        <p class="venue">at The Wheatsheaf</p>
+      </div>
+      </div>
       </div>
     </section>
     </div>
@@ -3163,6 +5548,295 @@
       </div>
     </section>
       <p class="note">No frames this season: Ady Richardson, Alex Fost, Alex Smith, Bill Hutchins, David Hill, David Hutchins, Dawn Hill, Laura Basker, Matt Bullock, Tom Dyer, William Hutchins.</p>
+    <section class="fixtures" aria-labelledby="fixtures-2026-2027-the-old-chequers">
+      <h2 id="fixtures-2026-2027-the-old-chequers">Fixtures</h2>
+      <div class="card">
+      <h3 id="results-2026-2027-the-old-chequers">Results</h3>
+      <div class="fixture-list">
+      <details class="fixture played">
+        <summary>
+          <span class="badge l" aria-label="Lost">L</span>
+          <div>
+            <p class="when">Mon 9 November · Away</p>
+            <p class="detail"><span class="score">3–6</span> v Badgers at The Wellie</p>
+          </div>
+        </summary>
+        <div class="match-frames">
+        <h3>Singles</h3>
+        <ol class="frame-list">
+          <li class="lost"><span class="us-player">Simon Cropper</span> lost to Leigh Williams</li>
+          <li class="won"><span class="us-player">Ben Effer</span> beat James Hammond</li>
+          <li class="lost"><span class="us-player">Tom Keefe</span> lost to Alex Morgan</li>
+          <li class="lost"><span class="us-player">Simon Payne</span> lost to Alex Farington</li>
+          <li class="lost"><span class="us-player">charlie bullock</span> lost to Wayne Morgan</li>
+          <li class="won"><span class="us-player">Jimmie Anns</span> beat Phil Capel</li>
+        </ol>
+        <h3>Doubles</h3>
+        <ol class="frame-list">
+          <li class="won"><span class="us-player">Ben Effer &amp; Jimmie Anns</span> beat Phil Capel &amp; Leigh Williams</li>
+          <li class="lost"><span class="us-player">Simon Cropper &amp; Tom Keefe</span> lost to Alex Morgan &amp; James Hammond</li>
+          <li class="lost"><span class="us-player">charlie bullock &amp; Simon Payne</span> lost to Alex Farington &amp; Wayne Morgan</li>
+        </ol>
+        </div>
+      </details>
+      <details class="fixture played">
+        <summary>
+          <span class="badge l" aria-label="Lost">L</span>
+          <div>
+            <p class="when">Mon 2 November · Away</p>
+            <p class="detail"><span class="score">3–6</span> v Crucible Avengers</p>
+          </div>
+        </summary>
+        <div class="match-frames">
+        <h3>Singles</h3>
+        <ol class="frame-list">
+          <li class="won"><span class="us-player">Alan Cooper</span> beat Rab Weir</li>
+          <li class="won"><span class="us-player">Jimmie Anns</span> beat Dave Bennett</li>
+          <li class="lost"><span class="us-player">Sam Mildenhall</span> lost to Jason Byng</li>
+          <li class="lost"><span class="us-player">Tom Hadland</span> lost to Daron Masters</li>
+          <li class="lost"><span class="us-player">Richard Aldred</span> lost to Mark Hopkin</li>
+          <li class="lost"><span class="us-player">charlie bullock</span> lost to Ali Daley</li>
+        </ol>
+        <h3>Doubles</h3>
+        <ol class="frame-list">
+          <li class="won"><span class="us-player">Alan Cooper &amp; Richard Aldred</span> beat Rab Weir &amp; Dave Bennett</li>
+          <li class="lost"><span class="us-player">Sam Mildenhall &amp; Jimmie Anns</span> lost to Mark Hopkin &amp; Daron Masters</li>
+          <li class="lost"><span class="us-player">charlie bullock &amp; Simon Payne</span> lost to Jason Byng &amp; Ali Daley</li>
+        </ol>
+        </div>
+      </details>
+      <details class="fixture played">
+        <summary>
+          <span class="badge l" aria-label="Lost">L</span>
+          <div>
+            <p class="when">Mon 19 October · Home</p>
+            <p class="detail"><span class="score">0–9</span> v Crucible Reracks</p>
+          </div>
+        </summary>
+        <div class="match-frames">
+        <h3>Singles</h3>
+        <ol class="frame-list">
+          <li class="lost"><span class="us-player">Sam Mildenhall</span> lost to David Johnson</li>
+          <li class="lost"><span class="us-player">Jimmie Anns</span> lost to Steve Graham</li>
+          <li class="lost"><span class="us-player">Alan Cooper</span> lost to Marc Rollings</li>
+          <li class="lost"><span class="us-player">Simon Payne</span> lost to Hannah Johnson</li>
+          <li class="lost"><span class="us-player">Tom Keefe</span> lost to Martin Stone</li>
+          <li class="lost"><span class="us-player">charlie bullock</span> lost to Shaun Amor</li>
+        </ol>
+        <h3>Doubles</h3>
+        <ol class="frame-list">
+          <li class="lost"><span class="us-player">Alan Cooper &amp; Tom Keefe</span> lost to David Johnson &amp; Hannah Johnson</li>
+          <li class="lost"><span class="us-player">Jimmie Anns &amp; Sam Mildenhall</span> lost to Steve Graham &amp; Marc Rollings</li>
+          <li class="lost"><span class="us-player">Simon Payne &amp; charlie bullock</span> lost to Martin Stone &amp; Shaun Amor</li>
+        </ol>
+        </div>
+      </details>
+      <details class="fixture played">
+        <summary>
+          <span class="badge l" aria-label="Lost">L</span>
+          <div>
+            <p class="when">Mon 12 October · Away</p>
+            <p class="detail"><span class="score">4–5</span> v Paggies A</p>
+          </div>
+        </summary>
+        <div class="match-frames">
+        <h3>Singles</h3>
+        <ol class="frame-list">
+          <li class="lost"><span class="us-player">Alfie Bullock</span> lost to Jamie Cresswell</li>
+          <li class="won"><span class="us-player">Jimmie Anns</span> beat Graham Beasley</li>
+          <li class="won"><span class="us-player">Sam Mildenhall</span> beat Iain Black</li>
+          <li class="lost"><span class="us-player">Alan Cooper</span> lost to Steve Fox</li>
+          <li class="lost"><span class="us-player">Tom Keefe</span> lost to Ron Fairish</li>
+          <li class="lost"><span class="us-player">Josh Crow</span> lost to Wayne Thompson</li>
+        </ol>
+        <h3>Doubles</h3>
+        <ol class="frame-list">
+          <li class="won"><span class="us-player">Sam Mildenhall &amp; Jimmie Anns</span> beat Jamie Cresswell &amp; Steve Fox</li>
+          <li class="lost"><span class="us-player">Josh Crow &amp; Tom Keefe</span> lost to Ron Fairish &amp; Iain Black</li>
+          <li class="won"><span class="us-player">charlie bullock &amp; Simon Payne</span> beat Graham Beasley &amp; Wayne Thompson</li>
+        </ol>
+        </div>
+      </details>
+      <details class="fixture played">
+        <summary>
+          <span class="badge l" aria-label="Lost">L</span>
+          <div>
+            <p class="when">Mon 5 October · Home</p>
+            <p class="detail"><span class="score">1–8</span> v The Master Gators</p>
+          </div>
+        </summary>
+        <div class="match-frames">
+        <h3>Singles</h3>
+        <ol class="frame-list">
+          <li class="lost"><span class="us-player">Alan Cooper</span> lost to Fritz Johnson</li>
+          <li class="lost"><span class="us-player">Jimmie Anns</span> lost to Tony Busby</li>
+          <li class="lost"><span class="us-player">Sam Mildenhall</span> lost to Linda Ball</li>
+          <li class="won"><span class="us-player">Richard Aldred</span> beat D Withers</li>
+          <li class="lost"><span class="us-player">Tom Keefe</span> lost to Paul Sheldon</li>
+          <li class="lost"><span class="us-player">charlie bullock</span> lost to Ben Richards</li>
+        </ol>
+        <h3>Doubles</h3>
+        <ol class="frame-list">
+          <li class="lost"><span class="us-player">Jimmie Anns &amp; Sam Mildenhall</span> lost to Tony Busby &amp; Fritz Johnson</li>
+          <li class="lost"><span class="us-player">Richard Aldred &amp; Alan Cooper</span> lost to Ben Richards &amp; D Withers</li>
+          <li class="lost"><span class="us-player">Tom Keefe &amp; charlie bullock</span> lost to Paul Sheldon &amp; Linda Ball</li>
+        </ol>
+        </div>
+      </details>
+      <div class="fixture static bye">
+        <p class="when">Mon 21 September · Away</p>
+        <p class="detail">Bye</p>
+      </div>
+      <details class="fixture played">
+        <summary>
+          <span class="badge l" aria-label="Lost">L</span>
+          <div>
+            <p class="when">Mon 14 September · Home</p>
+            <p class="detail"><span class="score">3–6</span> v The Wheatsheaf</p>
+          </div>
+        </summary>
+        <div class="match-frames">
+        <h3>Singles</h3>
+        <ol class="frame-list">
+          <li class="lost"><span class="us-player">Alan Cooper</span> lost to Andy Turley</li>
+          <li class="lost"><span class="us-player">Jimmie Anns</span> lost to Richard Figg</li>
+          <li class="won"><span class="us-player">Sam Mildenhall</span> beat Robert Black</li>
+          <li class="won"><span class="us-player">Alfie Bullock</span> beat Luke Manton</li>
+          <li class="lost"><span class="us-player">Tom Keefe</span> lost to Simon Barnaby</li>
+          <li class="lost"><span class="us-player">charlie bullock</span> lost to Luke Mason</li>
+        </ol>
+        <h3>Doubles</h3>
+        <ol class="frame-list">
+          <li class="lost"><span class="us-player">Alfie Bullock &amp; charlie bullock</span> lost to Andy Turley &amp; Luke Mason</li>
+          <li class="lost"><span class="us-player">Sam Mildenhall &amp; Jimmie Anns</span> lost to Luke Manton &amp; Richard Figg</li>
+          <li class="won"><span class="us-player">Alan Cooper &amp; Tom Keefe</span> beat Robert Black &amp; Simon Barnaby</li>
+        </ol>
+        </div>
+      </details>
+      <details class="fixture played">
+        <summary>
+          <span class="badge l" aria-label="Lost">L</span>
+          <div>
+            <p class="when">Mon 7 September · Away</p>
+            <p class="detail"><span class="score">3–6</span> v The Monnie</p>
+          </div>
+        </summary>
+        <div class="match-frames">
+        <h3>Singles</h3>
+        <ol class="frame-list">
+          <li class="lost"><span class="us-player">Alan Cooper</span> lost to James Harvey</li>
+          <li class="lost"><span class="us-player">Jimmie Anns</span> lost to Andy Humphreys</li>
+          <li class="won"><span class="us-player">Sam Mildenhall</span> beat Toby House</li>
+          <li class="lost"><span class="us-player">Tom Keefe</span> lost to James Page</li>
+          <li class="won"><span class="us-player">Richard Aldred</span> beat S Fenemore</li>
+          <li class="lost"><span class="us-player">charlie bullock</span> lost to j breakspear</li>
+        </ol>
+        <h3>Doubles</h3>
+        <ol class="frame-list">
+          <li class="lost"><span class="us-player">Sam Mildenhall &amp; Jimmie Anns</span> lost to S Fenemore &amp; Toby House</li>
+          <li class="lost"><span class="us-player">Richard Aldred &amp; Tom Keefe</span> lost to James Harvey &amp; James Page</li>
+          <li class="won"><span class="us-player">charlie bullock &amp; Josh Crow</span> beat j breakspear &amp; Andy Humphreys</li>
+        </ol>
+        </div>
+      </details>
+      <details class="fixture played">
+        <summary>
+          <span class="badge w" aria-label="Won">W</span>
+          <div>
+            <p class="when">Mon 24 August · Away</p>
+            <p class="detail"><span class="score">5–4</span> v The Lamb</p>
+          </div>
+        </summary>
+        <div class="match-frames">
+        <h3>Singles</h3>
+        <ol class="frame-list">
+          <li class="lost"><span class="us-player">Alan Cooper</span> lost to Jimmy Pearce</li>
+          <li class="won"><span class="us-player">Jimmie Anns</span> beat Dave Bartholomew</li>
+          <li class="lost"><span class="us-player">Sam Mildenhall</span> lost to Steve Green</li>
+          <li class="lost"><span class="us-player">Tom Keefe</span> lost to G Tucker</li>
+          <li class="won"><span class="us-player">Richard Aldred</span> beat Terry Ward</li>
+          <li class="won"><span class="us-player">charlie bullock</span> beat Paul Thompson</li>
+        </ol>
+        <h3>Doubles</h3>
+        <ol class="frame-list">
+          <li class="won"><span class="us-player">charlie bullock &amp; Richard Aldred</span> beat Paul Thompson &amp; Terry Ward</li>
+          <li class="won"><span class="us-player">Sam Mildenhall &amp; Jimmie Anns</span> beat Steve Green &amp; Dave Bartholomew</li>
+          <li class="lost"><span class="us-player">Tom Keefe &amp; Alan Cooper</span> lost to G Tucker &amp; Jimmy Pearce</li>
+        </ol>
+        </div>
+      </details>
+      <details class="fixture played">
+        <summary>
+          <span class="badge l" aria-label="Lost">L</span>
+          <div>
+            <p class="when">Mon 17 August · Home</p>
+            <p class="detail"><span class="score">2–7</span> v Badgers at The Wellie</p>
+          </div>
+        </summary>
+        <div class="match-frames">
+        <h3>Singles</h3>
+        <ol class="frame-list">
+          <li class="lost"><span class="us-player">Alan Cooper</span> lost to Neil Tuffnell</li>
+          <li class="lost"><span class="us-player">Jimmie Anns</span> lost to Alex Farington</li>
+          <li class="won"><span class="us-player">Tom Keefe</span> beat Leigh Williams</li>
+          <li class="lost"><span class="us-player">Richard Aldred</span> lost to Alex Morgan</li>
+          <li class="lost"><span class="us-player">Simon Payne</span> lost to Callum McDougall-bell</li>
+          <li class="lost"><span class="us-player">charlie bullock</span> lost to Wayne Morgan</li>
+        </ol>
+        <h3>Doubles</h3>
+        <ol class="frame-list">
+          <li class="lost"><span class="us-player">Alan Cooper &amp; Simon Payne</span> lost to Alex Farington &amp; Wayne Morgan</li>
+          <li class="lost"><span class="us-player">Richard Aldred &amp; Tom Keefe</span> lost to Leigh Williams &amp; Neil Tuffnell</li>
+          <li class="won"><span class="us-player">charlie bullock &amp; Jimmie Anns</span> beat Alex Morgan &amp; Callum McDougall-bell</li>
+        </ol>
+        </div>
+      </details>
+      </div>
+      <h3 id="upcoming-2026-2027-the-old-chequers">Upcoming</h3>
+      <div class="fixture-list">
+      <div class="fixture static upcoming">
+        <p class="when">Mon 16 November · 8pm · Home</p>
+        <p class="detail">v The Lamb</p>
+        <p class="venue">at The Old Chequers</p>
+      </div>
+      <div class="fixture static upcoming">
+        <p class="when">Mon 30 November · 8pm · Home</p>
+        <p class="detail">v The Monnie</p>
+        <p class="venue">at The Old Chequers</p>
+      </div>
+      <div class="fixture static upcoming">
+        <p class="when">Mon 7 December · 8pm · Away</p>
+        <p class="detail">v The Wheatsheaf</p>
+        <p class="venue">at The Wheatsheaf</p>
+      </div>
+      <div class="fixture static upcoming">
+        <p class="when">Mon 14 December · 8pm · Home</p>
+        <p class="detail">Bye</p>
+        
+      </div>
+      <div class="fixture static upcoming">
+        <p class="when">Mon 4 January · 8pm · Away</p>
+        <p class="detail">v The Master Gators</p>
+        <p class="venue">at The Starting Gate</p>
+      </div>
+      <div class="fixture static upcoming">
+        <p class="when">Mon 18 January · 8pm · Home</p>
+        <p class="detail">v Paggies A</p>
+        <p class="venue">at The Old Chequers</p>
+      </div>
+      <div class="fixture static upcoming">
+        <p class="when">Mon 25 January · 8pm · Away</p>
+        <p class="detail">v Crucible Reracks</p>
+        <p class="venue">at The Crucible</p>
+      </div>
+      <div class="fixture static upcoming">
+        <p class="when">Mon 1 February · 8pm · Home</p>
+        <p class="detail">v Crucible Avengers</p>
+        <p class="venue">at The Old Chequers</p>
+      </div>
+      </div>
+      </div>
+    </section>
     </div>
 
     <section class="card cups home-only" aria-labelledby="cups-2026-2027">
@@ -3170,40 +5844,7 @@
 <p class="cups-status">TKO not started yet.</p>
     </section>
 
-    <section class="extras home-only" aria-label="Fixtures and recent results">
-      <div class="card" aria-labelledby="next-2026-2027">
-        <h2 id="next-2026-2027">Next fixture</h2>
-      <p class="when">Mon 16 November · 8pm · Home</p>
-      <p class="detail">v Crucible Avengers</p>
-      <p class="venue">at The Wheatsheaf</p>
-      </div>
-      <div class="card" aria-labelledby="recent-2026-2027">
-        <h2 id="recent-2026-2027">Last three results</h2>
-        <ul class="results">
-        <li>
-          <span class="badge w" aria-label="Won">W</span>
-          <div>
-            <p class="when">Mon 9 November · Away</p>
-            <p class="detail"><span class="score">5–4</span> v Crucible Reracks</p>
-          </div>
-        </li>
-        <li>
-          <span class="badge w" aria-label="Won">W</span>
-          <div>
-            <p class="when">Mon 2 November · Away</p>
-            <p class="detail"><span class="score">5–4</span> v Paggies A</p>
-          </div>
-        </li>
-        <li>
-          <span class="badge l" aria-label="Lost">L</span>
-          <div>
-            <p class="when">Mon 19 October · Home</p>
-            <p class="detail"><span class="score">4–5</span> v The Master Gators</p>
-          </div>
-        </li>
-        </ul>
-      </div>
-    </section>
+
     </div>
     <div class="season-panel" id="season-2026" data-season="2026" hidden>
       <p class="season-lede">Division 1 · 3rd · lost knockout semi-final</p>
